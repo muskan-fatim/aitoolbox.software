@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { rateLimiter } from "@/lib/rate-limiter";
 
 // Helper function to handle errors
 const handleError = (error: unknown) => {
@@ -39,11 +40,23 @@ const getAuthHeaders = () => {
 
 // Image Generation Endpoint
 export async function POST(req: NextRequest) {
+  // Rate limiting by IP
+  const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1"
+  const allowed = rateLimiter(ip, 1, 1000); // 1 request per 1 second
+
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   try {
-    const { type, prompt, options = {} } = await req.json();
+    const { type, ...body } = await req.json();
 
     switch (type) {
       case "image": {
+        const { prompt, options = {} } = body;
         // Construct the Pollinations image URL with parameters
         const params = new URLSearchParams({
           ...options,
@@ -66,6 +79,7 @@ export async function POST(req: NextRequest) {
       }
 
       case "chat": {
+        const { prompt, options = {} } = body;
         // Handle chat/text generation
         const response = await fetch("https://text.pollinations.ai/openai", {
           method: "POST",
@@ -87,6 +101,7 @@ export async function POST(req: NextRequest) {
       }
 
       case "audio": {
+        const { prompt, options = {} } = body;
         // Handle text-to-speech
         const response = await fetch("https://text.pollinations.ai/openai", {
           method: "POST",
@@ -118,7 +133,8 @@ export async function POST(req: NextRequest) {
 }
 
 // Get available models
-export async function GET() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function GET(_req: NextRequest) {
   try {
     const [imageModels, textModels] = await Promise.all([
       fetch(addAuthToUrl("https://image.pollinations.ai/models")).then(res => res.json()),

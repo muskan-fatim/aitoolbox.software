@@ -3,6 +3,8 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/common/Sidebar";
 import Navbar from "@/components/common/Navbar";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -79,9 +81,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body
-        className={`${dmSans.variable} font-sans antialiased`}
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          dmSans.variable
+        )}
       >
         <div className="flex flex-col h-screen">
           <Navbar />
@@ -92,6 +98,7 @@ export default function RootLayout({
             </main>
           </div>
         </div>
+        <Toaster />
       </body>
     </html>
   );
