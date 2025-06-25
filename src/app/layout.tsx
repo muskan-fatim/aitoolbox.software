@@ -82,7 +82,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <meta
+          name="google-site-verification"
+          content="IKfVdoOA7AW1tFnZw-vtB-Nml7a2DdyYXs7NJ3gZjZ4"
+        />
+      </head>
+
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -93,9 +99,7 @@ export default function RootLayout({
           <Navbar />
           <div className="flex flex-1 overflow-hidden relative">
             <Sidebar />
-            <main className="flex-1 overflow-auto">
-              {children}
-            </main>
+            <main className="flex-1 overflow-auto">{children}</main>
           </div>
         </div>
         <Toaster />
