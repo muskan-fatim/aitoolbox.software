@@ -5,6 +5,7 @@ import Sidebar from "@/components/common/Sidebar";
 import Navbar from "@/components/common/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -95,6 +96,7 @@ export default function RootLayout({
           dmSans.variable
         )}
       >
+        <GoogleAnalytics />
         <div className="flex flex-col h-screen">
           <Navbar />
           <div className="flex flex-1 overflow-hidden relative">
