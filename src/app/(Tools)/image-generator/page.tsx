@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import ImageGeneratorClient from "./_components/image-generator-client";
 
