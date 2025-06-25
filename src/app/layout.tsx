@@ -15,8 +15,64 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AIToolbox - AI Tools Platform",
-  description: "A multi-functional AI tool platform with various AI-powered tools",
+  title: "AIToolbox - All-in-One AI Tools Platform",
+  description: "A comprehensive AI tool platform featuring Email Writer, GPT Chatbot, Image Generator, Logo Creator, YouTube Summarizer, Code Explainer, Text Summarizer, Blog Writer, Grammar Checker, Resume Builder, and Idea Generator. Your one-stop solution for AI-powered productivity tools.",
+  keywords: [
+    "AI tools",
+    "email writer",
+    "chatbot",
+    "image generator",
+    "logo generator",
+    "youtube summarizer",
+    "code explainer",
+    "text summarizer",
+    "blog writer",
+    "grammar checker",
+    "resume builder",
+    "idea generator",
+    "artificial intelligence",
+    "productivity tools",
+  ],
+  authors: [{ name: "AIToolbox" }],
+  creator: "AIToolbox",
+  publisher: "AIToolbox",
+  robots: "index, follow",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+  metadataBase: new URL("https://aitoolbox.software"),
+  openGraph: {
+    type: "website",
+    url: "https://aitoolbox.software",
+    title: "AIToolbox - Complete Suite of AI-Powered Tools",
+    description: "Transform your workflow with our comprehensive AI tool platform. Features include Email Writer, GPT Chatbot, Image & Logo Generation, Content Summarization, Code Explanation, Blog Writing, Grammar Checking, Resume Building, and Creative Ideation.",
+    siteName: "AIToolbox",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "AIToolbox - AI Tools Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AIToolbox - All-in-One AI Tools Platform",
+    description: "Access powerful AI tools for content creation, image generation, code explanation, and more. Boost your productivity with our comprehensive suite of AI-powered solutions.",
+    images: ["/logo.png"],
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  verification: {
+    google: "verify-code", // Add your Google verification code
+  },
+  category: "Technology",
 };
 
 export default function RootLayout({
