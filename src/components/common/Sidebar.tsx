@@ -39,14 +39,14 @@ interface Tool {
 // List of AI tools
 const aiTools: Tool[] = [
   {
+    name: "Ask AIToolbox",
+    href: "/chatbot",
+    icon: <MessagesSquare className="h-5 w-5" />,
+  },
+  {
     name: "AI Email Writer",
     href: "/email-writer",
     icon: <Mail className="h-5 w-5" />,
-  },
-  {
-    name: "GPT Chatbot",
-    href: "/chatbot",
-    icon: <MessagesSquare className="h-5 w-5" />,
   },
   {
     name: "Image Generator",

@@ -1,14 +1,15 @@
-import { ComingSoon } from "@/components/ui/coming-soon"
+'use client';
 
-export const metadata = {
-  title: "GPT Chatbot",
-}
+import { RealtimeChat } from "@/components/realtime-chat";
 
 export default function ChatbotPage() {
   return (
-    <ComingSoon 
-      title="GPT Chatbot"
-      description="Chat with powerful AI on any topic. Get instant answers and assistance!"
-    />
-  )
+    <div className="h-full flex flex-col">
+      <div className="flex-1 relative">
+        <RealtimeChat
+          systemPrompt="You are a helpful AI assistant. You provide clear, accurate, and concise responses."
+        />
+      </div>
+    </div>
+  );
 } 
