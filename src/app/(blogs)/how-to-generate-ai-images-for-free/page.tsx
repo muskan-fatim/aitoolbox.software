@@ -29,8 +29,8 @@ export default function Page() {
               intelligence, specifically models like Stable Diffusion or DALL-E,
               to create images from text descriptions (prompts). You type in
               what you want to see, and the AI interprets your words to create a
-              unique piece of art. It's a powerful blend of your imagination and
-              the AI's creative ability.
+              unique piece of art. It&apos;s a powerful blend of your imagination and
+              the AI&apos;s creative ability.
             </p>
           </section>
 
@@ -40,7 +40,7 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               While there are many options out there, the best tool is one that
-              combines power, ease of use, and generosity. We're proud to offer
+              combines power, ease of use, and generosity. We&apos;re proud to offer
               a{' '}
               <Link
                 href="/image-generator"
@@ -48,7 +48,7 @@ export default function Page() {
               >
                 free AI Image Generator
               </Link>{' '}
-              right here on AI Toolbox. It's designed for both beginners and
+              right here on AI Toolbox. It&apos;s designed for both beginners and
               experts, allowing you to create high-quality images without any
               cost or complicated setup.
             </p>
@@ -78,11 +78,11 @@ export default function Page() {
               </li>
               <li>
                 In the input box, type a clear and descriptive prompt of the
-                image you want to create. For example, "a futuristic cityscape
-                at sunset, cyberpunk style".
+                image you want to create. For example, &quot;a futuristic cityscape
+                at sunset, cyberpunk style&quot;.
               </li>
               <li>
-                Click the "Generate" button and watch the magic happen! In a few
+                Click the &quot;Generate&quot; button and watch the magic happen! In a few
                 moments, your image will appear.
               </li>
               <li>
@@ -108,21 +108,21 @@ export default function Page() {
                 <ul className="list-disc list-outside space-y-3 pl-5 text-lg text-muted-foreground">
                   <li>
                     <strong className="text-foreground">Be Specific:</strong>{' '}
-                    Instead of "a car," try "a red vintage sports car driving on
-                    a coastal road at sunrise."
+                    Instead of &quot;a car,&quot; try &quot;a red vintage sports car driving on
+                    a coastal road at sunrise.&quot;
                   </li>
                   <li>
                     <strong className="text-foreground">
                       Include Style Keywords:
                     </strong>{' '}
-                    Add terms like "photorealistic," "impressionist painting,"
-                    "3D render," or "anime style."
+                    Add terms like &quot;photorealistic,&quot; &quot;impressionist painting,&quot;
+                    &quot;3D render,&quot; or &quot;anime style.&quot;
                   </li>
                   <li>
                     <strong className="text-foreground">
                       Mention Artists:
                     </strong>{' '}
-                    You can even include "in the style of Van Gogh" to guide the
+                    You can even include &quot;in the style of Van Gogh&quot; to guide the
                     AI.
                   </li>
                   <li>

@@ -24,7 +24,7 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Email remains the cornerstone of professional communication, but
-              it's a double-edged sword. A well-crafted email can open doors,
+              it&apos;s a double-edged sword. A well-crafted email can open doors,
               while a poorly written one can close them. The pressure to get the
               tone, content, and structure just right is immense. This is where
               an AI assistant becomes invaluable.

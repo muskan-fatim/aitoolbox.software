@@ -11,7 +11,7 @@ export default function Page() {
             Your Ultimate Guide to Using an AI Blog Writer
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Struggling with writer's block or spending too much time on blog
+            Struggling with writer&apos;s block or spending too much time on blog
             posts? Learn how to leverage AI to write high-quality, engaging,
             and SEO-optimized content in a fraction of the time.
           </p>
@@ -26,7 +26,7 @@ export default function Page() {
               Content is king, but creating it consistently is a monumental
               task. AI blog writers have emerged as a game-changer for
               marketers, business owners, and bloggers alike. These tools
-              aren't here to replace human creativity but to augment it, acting
+              aren&apos;t here to replace human creativity but to augment it, acting
               as a tireless brainstorming partner and writing assistant.
             </p>
           </section>
@@ -45,7 +45,7 @@ export default function Page() {
               </Link>{' '}
               is designed to streamline your content workflow. Simply provide a
               topic or a few keywords, and the AI will generate a structured,
-              coherent, and often surprisingly creative blog post. It's the
+              coherent, and often surprisingly creative blog post. It&apos;s the
               perfect way to overcome the blank page and kickstart your
               writing process.
             </p>

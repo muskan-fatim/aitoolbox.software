@@ -45,11 +45,7 @@ const aiTools: Tool[] = [
     href: "/chatbot",
     icon: <MessagesSquare className="h-5 w-5" />,
   },
-  {
-    name: "Blog",
-    href: "/blog",
-    icon: <PenTool className="h-5 w-5" />,
-  },
+
   {
     name: "AI Email Writer",
     href: "/email-writer",
@@ -99,6 +95,11 @@ const aiTools: Tool[] = [
     name: "Idea Generator",
     href: "/idea-generator",
     icon: <Lightbulb className="h-5 w-5" />,
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+    icon: <PenTool className="h-5 w-5" />,
   },
 ];
 

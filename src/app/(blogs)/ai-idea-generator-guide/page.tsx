@@ -23,8 +23,8 @@ export default function Page() {
               The Agony of the Creative Block
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Whether you're a writer, an entrepreneur, a marketer, or an
-              artist, you've faced it: the dreaded creative block. Staring at a
+              Whether you&apos;re a writer, an entrepreneur, a marketer, or an
+              artist, you&apos;ve faced it: the dreaded creative block. Staring at a
               blank canvas or an empty document can be paralyzing. An AI Idea
               Generator is designed specifically to shatter that block and get
               your creative juices flowing.
@@ -45,7 +45,7 @@ export default function Page() {
               </Link>{' '}
               is a simple yet powerful tool. Just give it a starting point—a
               keyword, a theme, an industry—and it will produce a list of
-              creative and often unexpected ideas. It's the spark you need to
+              creative and often unexpected ideas. It&apos;s the spark you need to
               ignite your next big project.
             </p>
             <div className="my-6 flex justify-center">
@@ -67,7 +67,7 @@ export default function Page() {
                 <ul className="list-disc list-outside space-y-3 pl-5 text-lg text-muted-foreground">
                   <li>
                     <strong className="text-foreground">Blog Topics:</strong>{' '}
-                    Generate a month's worth of content ideas, then bring them to
+                    Generate a month&apos;s worth of content ideas, then bring them to
                     life with our{' '}
                     <Link
                       href="/blog-writer"
@@ -114,7 +114,7 @@ export default function Page() {
               Conclusion: Your Imagination, Amplified
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              An AI Idea Generator doesn't replace creativity; it fuels it. By
+              An AI Idea Generator doesn&apos;t replace creativity; it fuels it. By
               providing a constant stream of diverse ideas, it frees you from the
               pressure of starting from scratch and allows you to focus on what
               you do best: developing those ideas into something amazing.

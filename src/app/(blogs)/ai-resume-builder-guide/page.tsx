@@ -25,7 +25,7 @@ export default function Page() {
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Did you know that most large companies use Applicant Tracking
               Systems (ATS) to screen resumes before a human ever sees them? If
-              your resume isn't formatted correctly, it might be rejected
+              your resume isn&apos;t formatted correctly, it might be rejected
               automatically. An AI Resume Builder helps you create a document
               that is optimized for both bots and human recruiters.
             </p>
@@ -45,7 +45,7 @@ export default function Page() {
               </Link>{' '}
               guides you through the entire process. It provides proven
               templates, suggests powerful action verbs, and helps you tailor
-              your experience to the specific job you're applying for. No more
+              your experience to the specific job you&apos;re applying for. No more
               guessing what recruiters want to see.
             </p>
             <div className="my-6 flex justify-center">
@@ -115,7 +115,7 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               A well-crafted resume is your ticket to an interview. By using an
-              AI resume builder, you're not just creating a document; you're
+              AI resume builder, you&apos;re not just creating a document; you&apos;re
               building a strategic tool designed to navigate the modern hiring
               process successfully. Take the next step in your career with
               confidence.

@@ -11,7 +11,7 @@ export default function Page() {
             How to Build and Use an AI Chatbot for Your Website
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Instantly upgrade your website's user experience by adding an AI
+            Instantly upgrade your website&apos;s user experience by adding an AI
             chatbot. Engage visitors, provide instant answers, and capture
             leads 24/7, all without writing a single line of code.
           </p>
@@ -23,7 +23,7 @@ export default function Page() {
               Why Your Website Needs an AI Chatbot
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              In today's fast-paced digital world, users expect instant
+              In today&apos;s fast-paced digital world, users expect instant
               gratification. An AI chatbot provides immediate, around-the-clock
               support, answering frequently asked questions and guiding users
               through your site. This not only improves customer satisfaction
@@ -117,7 +117,7 @@ export default function Page() {
               Conclusion: The Future of Customer Interaction
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              An AI chatbot is no longer a luxury; it's an essential tool for
+              An AI chatbot is no longer a luxury; it&apos;s an essential tool for
               any modern website. It enhances user engagement, streamlines
               support, and drives business growth. By implementing a smart,
               responsive chatbot, you create a more dynamic and helpful digital

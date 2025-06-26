@@ -14,17 +14,17 @@ export default function Page() {
             The enchanting, hand-drawn aesthetic of Studio Ghibli films has
             captivated audiences for decades. Now, with the power of AI, you can
             recreate this iconic style yourself. This guide will teach you how to
-            craft prompts that capture the heart and soul of Ghibli's artistry.
+            craft prompts that capture the heart and soul of Ghibli&apos;s artistry.
           </p>
         </header>
 
         <div className="space-y-12">
           <section>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              What Defines the "Ghibli Style"?
+              What Defines the &quot;Ghibli Style&quot;?
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              The Ghibli style is more than just "anime." It's characterized by
+              The Ghibli style is more than just &quot;anime.&quot; It&apos;s characterized by
               lush, painterly backgrounds, soft lighting, a deep connection with
               nature, and characters with expressive, rounded faces. Key elements
               include vibrant watercolors, attention to tiny details, and a
@@ -109,23 +109,23 @@ export default function Page() {
             <ul className="mt-4 list-disc list-outside space-y-3 pl-5 text-lg text-muted-foreground">
               <li>
                 <strong className="text-foreground">Core Keywords:</strong>{' '}
-                "Studio Ghibli style," "Hayao Miyazaki," "Isao Takahata."
+                &quot;Studio Ghibli style,&quot; &quot;Hayao Miyazaki,&quot; &quot;Isao Takahata.&quot;
               </li>
               <li>
                 <strong className="text-foreground">Artistic Style:</strong>{' '}
-                "Watercolor," "hand-drawn," "painterly," "anime key visual."
+                &quot;Watercolor,&quot; &quot;hand-drawn,&quot; &quot;painterly,&quot; &quot;anime key visual.&quot;
               </li>
               <li>
                 <strong className="text-foreground">Themes & Mood:</strong>{' '}
-                "Nostalgic," "whimsical," "serene," "adventurous."
+                &quot;Nostalgic,&quot; &quot;whimsical,&quot; &quot;serene,&quot; &quot;adventurous.&quot;
               </li>
               <li>
-                <strong className="text-foreground">Environment:</strong> "Lush
-                nature," "overgrown ruins," "charming village," "cloudscape."
+                <strong className="text-foreground">Environment:</strong> &quot;Lush
+                nature,&quot; &quot;overgrown ruins,&quot; &quot;charming village,&quot; &quot;cloudscape.&quot;
               </li>
             </ul>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Don't forget to use our{' '}
+              Don&apos;t forget to use our{' '}
               <Link
                 href="/idea-generator"
                 className="text-primary underline-offset-4 hover:underline"

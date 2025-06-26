@@ -11,7 +11,7 @@ export default function Page() {
             Get to the Point Instantly with an AI Text Summarizer
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            We're drowning in information. An AI Text Summarizer is your
+            We&apos;re drowning in information. An AI Text Summarizer is your
             life raft, helping you quickly digest long articles, reports, and
             documents to find the insights that matter.
           </p>
@@ -92,7 +92,7 @@ export default function Page() {
                     <strong className="text-foreground">
                       Curious Minds:
                     </strong>{' '}
-                    Efficiently consume news and articles on topics you're
+                    Efficiently consume news and articles on topics you&apos;re
                     passionate about.
                   </li>
                 </ul>

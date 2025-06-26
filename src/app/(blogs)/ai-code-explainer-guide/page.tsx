@@ -11,7 +11,7 @@ export default function Page() {
             Demystify Code with an AI Code Explainer
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Whether you're a seasoned developer facing a new language or a
+            Whether you&apos;re a seasoned developer facing a new language or a
             student learning to code, understanding complex code snippets can
             be a major hurdle. Discover how AI can be your personal tutor.
           </p>
@@ -26,8 +26,7 @@ export default function Page() {
               Programming languages are powerful, but they can also be cryptic.
               Poorly documented code, unfamiliar libraries, or complex
               algorithms can slow down development and learning. An AI Code
-              Explainer acts as a translator, turning confusing syntax into
-              plain, human-readable language.
+              Explainer acts as your personal research assistant, saving you countless hours.
             </p>
           </section>
 
@@ -78,7 +77,7 @@ export default function Page() {
                     <strong className="text-foreground">
                       Debug with Ease:
                     </strong>{' '}
-                    Understand what a piece of code is *supposed* to do, making
+                    Understand what a piece of code is <em>supposed</em> to do, making
                     it easier to spot where things are going wrong.
                   </li>
                   <li>
@@ -92,7 +91,7 @@ export default function Page() {
                     <strong className="text-foreground">
                       Improve Code Reviews:
                     </strong>{' '}
-                    Quickly get up to speed on a colleague's code, leading to
+                    Quickly get up to speed on a colleague&apos;s code, leading to
                     more efficient and effective code reviews.
                   </li>
                 </ul>
@@ -106,7 +105,7 @@ export default function Page() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               An AI code explainer is an indispensable tool in any modern
-              developer's toolkit. It bridges the gap between seeing code and
+              developer&apos;s toolkit. It bridges the gap between seeing code and
               truly understanding it. By making programming more accessible, it
               empowers both new and experienced developers to build better
               software, faster.

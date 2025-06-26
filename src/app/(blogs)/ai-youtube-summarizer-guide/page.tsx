@@ -33,7 +33,7 @@ export default function Page() {
 
           <section>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              Get the TL;DW (Too Long; Didn't Watch) Version
+              Get the TL;DW (Too Long; Didn&apos;t Watch) Version
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Our{' '}
@@ -45,7 +45,7 @@ export default function Page() {
               </Link>{' '}
               is incredibly easy to use. Simply paste a YouTube video link, and
               the AI will analyze its transcript to provide a concise,
-              easy-to-read summary of the main points. It's the ultimate hack
+              easy-to-read summary of the main points. It&apos;s the ultimate hack
               for efficient learning.
             </p>
             <div className="my-6 flex justify-center">

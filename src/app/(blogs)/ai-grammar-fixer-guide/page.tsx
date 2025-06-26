@@ -44,7 +44,7 @@ export default function Page() {
                 AI Grammar Fixer
               </Link>{' '}
               instantly scans your text to identify and correct a wide range of
-              errors. It's faster and often more accurate than manual
+              errors. It&apos;s faster and often more accurate than manual
               proofreading, catching mistakes that human eyes might miss.
             </p>
             <div className="my-6 flex justify-center">

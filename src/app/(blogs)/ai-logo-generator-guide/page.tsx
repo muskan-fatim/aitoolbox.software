@@ -11,7 +11,7 @@ export default function Page() {
             Design a Stunning Logo in Minutes with an AI Logo Generator
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            A great logo is the face of your brand. But you don't need a massive
+            A great logo is the face of your brand. But you don&apos;t need a massive
             budget or a design degree to get one. Learn how AI can create a
             professional logo for you.
           </p>
@@ -20,11 +20,11 @@ export default function Page() {
         <div className="space-y-12">
           <section>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              Your Brand's Visual Identity Matters
+              Your Brand&apos;s Visual Identity Matters
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              A logo is more than just a pretty picture; it's a symbol of your
-              brand's identity, values, and promise to your customers. A strong,
+              A logo is more than just a pretty picture; it&apos;s a symbol of your
+              brand&apos;s identity, values, and promise to your customers. A strong,
               professional logo builds trust and recognition. Traditionally, this
               meant hiring expensive design agencies, but AI has democratized
               the design process.
@@ -90,7 +90,7 @@ export default function Page() {
                       Browse & Customize:
                     </strong>{' '}
                     The AI will present you with dozens of logo options. Choose
-                    your favorite and tweak the details until it's perfect.
+                    your favorite and tweak the details until it&apos;s perfect.
                   </li>
                   <li>
                     <strong className="text-foreground">Download & Go:</strong>{' '}
@@ -104,7 +104,7 @@ export default function Page() {
 
           <section>
             <h2 className="text-3xl font-bold tracking-tight text-foreground">
-              Conclusion: Build a Brand You're Proud Of
+              Conclusion: Build a Brand You&apos;re Proud Of
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               An AI logo generator makes professional branding accessible to
