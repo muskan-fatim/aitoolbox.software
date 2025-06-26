@@ -83,7 +83,7 @@ export default function ImageGeneratorOutput({
               <Button
                 onClick={handleDownload}
                 size="icon"
-                className="absolute top-4 right-4 z-10"
+                className="absolute top-4 cursor-pointer right-4 z-10"
                 variant="secondary"
               >
                 <Download className="h-5 w-5" />

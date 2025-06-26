@@ -96,7 +96,7 @@ export function EmailWriterForm({
                 name="recipientName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recipient Name</FormLabel>
+                    <FormLabel>Recipient Name (Optional)</FormLabel>
                     <FormControl>
                       <Input placeholder="John Doe" {...field} />
                     </FormControl>
@@ -109,7 +109,7 @@ export function EmailWriterForm({
                 name="recipientEmail"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recipient Email</FormLabel>
+                    <FormLabel>Recipient Email (Optional)</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
@@ -238,7 +238,7 @@ export function EmailWriterForm({
                 name="language"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Language</FormLabel>
+                    <FormLabel>Language (Optional)</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}

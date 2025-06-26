@@ -173,7 +173,7 @@ export default function Sidebar() {
                   <Link
                     href={tool.href}
                     className={cn(
-                      "flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground",
+                      "flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-chart-4 hover:text-accent-foreground",
                       pathname === tool.href
                         ? "bg-accent text-accent-foreground"
                         : "transparent",
@@ -212,14 +212,16 @@ export default function Sidebar() {
       <div className="p-4 mt-auto">
         <Tooltip delayDuration={200}>
           <TooltipTrigger asChild>
-            <Button
-              variant="outline"
-              className={cn("w-full gap-2", isCollapsed ? "justify-center" : "justify-start")}
-              size="sm"
-            >
-              <Settings className="h-4 w-4" />
-              {!isCollapsed && "Settings"}
-            </Button>
+            <Link href="/settings" className="w-full">
+              <Button
+                variant="outline"
+                className={cn("w-full gap-2", isCollapsed ? "justify-center" : "justify-start")}
+                size="sm"
+              >
+                <Settings className="h-4 w-4" />
+                {!isCollapsed && "Settings"}
+              </Button>
+            </Link>
           </TooltipTrigger>
           {isCollapsed && <TooltipContent side="right">Settings</TooltipContent>}
         </Tooltip>
