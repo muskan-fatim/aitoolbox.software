@@ -46,6 +46,11 @@ const aiTools: Tool[] = [
     icon: <MessagesSquare className="h-5 w-5" />,
   },
   {
+    name: "Blog",
+    href: "/blog",
+    icon: <PenTool className="h-5 w-5" />,
+  },
+  {
     name: "AI Email Writer",
     href: "/email-writer",
     icon: <Mail className="h-5 w-5" />,
