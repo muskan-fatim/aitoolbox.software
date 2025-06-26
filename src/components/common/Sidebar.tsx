@@ -27,7 +27,9 @@ import {
   Settings,
   Search,
   Palette,
+  Menu as MenuIcon,
 } from "lucide-react";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
 // Tool interface definition
 interface Tool {
@@ -98,6 +100,7 @@ const aiTools: Tool[] = [
 export default function Sidebar() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const isMobile = useIsMobile();
 
@@ -110,25 +113,39 @@ export default function Sidebar() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Filter tools based on search query
+  // Filter tools based on search query (disabled when collapsed)
   const filteredTools = aiTools.filter((tool) =>
-    tool.name.toLowerCase().includes(searchQuery.toLowerCase())
+    isCollapsed ? true : tool.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const sidebarContent = (
     <div className="flex h-full flex-col">
-      {/* Search Input */}
-      <div className="px-4 py-2">
-        <div className="relative">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="text"
-            placeholder="Search tools..."
-            className="w-full pl-8"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+      {/* Top search & collapse button */}
+      <div className="px-4 py-2 flex items-center">
+        {!isCollapsed && (
+          <div className="relative flex-1">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="text"
+              placeholder="Search tools..."
+              className="w-full pl-8"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+        )}
+        {/* Collapse / Expand toggle */}
+        {!isMobile && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn("ml-2", isCollapsed && "mx-auto")}
+            onClick={() => setIsCollapsed((prev) => !prev)}
+          >
+            <MenuIcon className="h-5 w-5" />
+            <span className="sr-only">Toggle sidebar width</span>
+          </Button>
+        )}
       </div>
       
       {/* Tools List */}
@@ -151,47 +168,61 @@ export default function Sidebar() {
           ) : (
             // Actual tools list
             filteredTools.map((tool) => (
-              <Link
-                key={tool.name}
-                href={tool.href}
-                className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground",
-                  pathname === tool.href
-                    ? "bg-accent text-accent-foreground"
-                    : "transparent"
+              <Tooltip key={tool.name} delayDuration={200}>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={tool.href}
+                    className={cn(
+                      "flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground",
+                      pathname === tool.href
+                        ? "bg-accent text-accent-foreground"
+                        : "transparent",
+                      isCollapsed ? "justify-center" : "gap-3"
+                    )}
+                  >
+                    {tool.icon}
+                    {!isCollapsed && <span>{tool.name}</span>}
+                  </Link>
+                </TooltipTrigger>
+                {isCollapsed && (
+                  <TooltipContent side="right" className="capitalize">
+                    {tool.name}
+                  </TooltipContent>
                 )}
-              >
-                {tool.icon}
-                <span>{tool.name}</span>
-              </Link>
+              </Tooltip>
             ))
           )}
         </div>
       </ScrollArea>
       
       {/* Design Features Divider */}
-      <div className="px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Palette className="h-4 w-4 text-muted-foreground" />
-          <span className="text-xs font-medium text-muted-foreground">
-            Design Features
-          </span>
-          <Separator className="flex-1" />
+      {!isCollapsed && (
+        <div className="px-4 py-2">
+          <div className="flex items-center gap-2">
+            <Palette className="h-4 w-4 text-muted-foreground" />
+            <span className="text-xs font-medium text-muted-foreground">
+              Design Features
+            </span>
+            <Separator className="flex-1" />
+          </div>
         </div>
-      </div>
+      )}
       
       {/* Settings Button */}
       <div className="p-4 mt-auto">
-        <Link href="/settings">
-          <Button
-            variant="outline"
-            className="w-full justify-start gap-2"
-            size="sm"
-          >
-            <Settings className="h-4 w-4" />
-            Settings
-          </Button>
-        </Link>
+        <Tooltip delayDuration={200}>
+          <TooltipTrigger asChild>
+            <Button
+              variant="outline"
+              className={cn("w-full gap-2", isCollapsed ? "justify-center" : "justify-start")}
+              size="sm"
+            >
+              <Settings className="h-4 w-4" />
+              {!isCollapsed && "Settings"}
+            </Button>
+          </TooltipTrigger>
+          {isCollapsed && <TooltipContent side="right">Settings</TooltipContent>}
+        </Tooltip>
       </div>
     </div>
   );
@@ -199,7 +230,12 @@ export default function Sidebar() {
   // For desktop condition
   if (!isMobile) {
     return (
-      <aside className="border-r bg-background h-[calc(100vh-60px)] w-[280px] flex-shrink-0 hidden md:block">
+      <aside
+        className={cn(
+          "border-r bg-background h-[calc(100vh-60px)] flex-shrink-0 hidden md:block transition-all duration-300",
+          isCollapsed ? "w-16" : "w-[280px]"
+        )}
+      >
         {sidebarContent}
       </aside>
     );
