@@ -1,12 +1,5 @@
-"use client";
-
-import { ComingSoon } from "@/components/ui/coming-soon";
+import IdeaGeneratorClient from "./_components/idea-generator-client";
 
 export default function IdeaGeneratorPage() {
-  return (
-    <ComingSoon 
-      title="Idea Generator"
-      description="Get creative ideas for your next project or content."
-    />
-  );
+  return <IdeaGeneratorClient />;
 }
