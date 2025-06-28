@@ -6,9 +6,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -26,8 +24,12 @@ import {
   Lightbulb,
   Settings,
   Search,
-  Palette,
   Menu as MenuIcon,
+  Rocket,
+  Video,
+  Newspaper,
+  Smartphone,
+  Package,
 } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
@@ -97,6 +99,31 @@ const aiTools: Tool[] = [
     icon: <Lightbulb className="h-5 w-5" />,
   },
   {
+    name: "Startup Ideas",
+    href: "/startup-idea-generator",
+    icon: <Rocket className="h-5 w-5" />,
+  },
+  {
+    name: "YouTube Ideas",
+    href: "/youtube-idea-generator",
+    icon: <Video className="h-5 w-5" />,
+  },
+  {
+    name: "Blog Ideas",
+    href: "/blog-idea-generator",
+    icon: <Newspaper className="h-5 w-5" />,
+  },
+  {
+    name: "App Ideas",
+    href: "/app-idea-generator",
+    icon: <Smartphone className="h-5 w-5" />,
+  },
+  {
+    name: "Product Ideas",
+    href: "/product-idea-generator",
+    icon: <Package className="h-5 w-5" />,
+  },
+  {
     name: "Blog",
     href: "/blog",
     icon: <PenTool className="h-5 w-5" />,
@@ -125,9 +152,9 @@ export default function Sidebar() {
   );
 
   const sidebarContent = (
-    <div className="flex h-full flex-col">
-      {/* Top search & collapse button */}
-      <div className="px-4 py-2 flex items-center">
+    <div className="h-full flex flex-col">
+      {/* Top search & collapse button - FIXED HEIGHT */}
+      <div className="h-16 flex-shrink-0 bg-background border-b px-4 py-2 flex items-center">
         {!isCollapsed && (
           <div className="relative flex-1">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -154,68 +181,64 @@ export default function Sidebar() {
         )}
       </div>
       
-      {/* Tools List */}
-      <ScrollArea className="flex-1 px-2">
-        <div className="space-y-1 p-2">
-          {isLoading ? (
-            // Skeleton loading state
-            Array(11)
-              .fill(0)
-              .map((_, i) => (
-                <div key={i} className="flex items-center gap-3 py-1">
-                  <Skeleton className="h-5 w-5 rounded" />
-                  <Skeleton className="h-4 w-full" />
-                </div>
+      {/* Scrollable Tools List - CALCULATED HEIGHT */}
+      <div className="flex-1 overflow-hidden">
+        <div 
+          className="h-full overflow-y-auto px-2 py-2 sidebar-scrollbar"
+          style={{ 
+            maxHeight: 'calc(100% - 0px)',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'hsl(var(--border)) transparent'
+          }}
+        >
+          <div className="space-y-1">
+            {isLoading ? (
+              // Skeleton loading state
+              Array(17)
+                .fill(0)
+                .map((_, i) => (
+                  <div key={i} className="flex items-center gap-3 py-1 px-2">
+                    <Skeleton className="h-5 w-5 rounded" />
+                    {!isCollapsed && <Skeleton className="h-4 flex-1" />}
+                  </div>
+                ))
+            ) : filteredTools.length === 0 ? (
+              <div className="text-center text-sm text-muted-foreground py-4">
+                No tools found
+              </div>
+            ) : (
+              // Actual tools list
+              filteredTools.map((tool) => (
+                <Tooltip key={tool.name} delayDuration={200}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={tool.href}
+                      className={cn(
+                        "flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground",
+                        pathname === tool.href
+                          ? "bg-accent text-accent-foreground"
+                          : "transparent",
+                        isCollapsed ? "justify-center" : "gap-3"
+                      )}
+                    >
+                      {tool.icon}
+                      {!isCollapsed && <span>{tool.name}</span>}
+                    </Link>
+                  </TooltipTrigger>
+                  {isCollapsed && (
+                    <TooltipContent side="right" className="capitalize">
+                      {tool.name}
+                    </TooltipContent>
+                  )}
+                </Tooltip>
               ))
-          ) : filteredTools.length === 0 ? (
-            <div className="text-center text-sm text-muted-foreground py-4">
-              No tools found
-            </div>
-          ) : (
-            // Actual tools list
-            filteredTools.map((tool) => (
-              <Tooltip key={tool.name} delayDuration={200}>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={tool.href}
-                    className={cn(
-                      "flex items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-chart-4 hover:text-accent-foreground",
-                      pathname === tool.href
-                        ? "bg-accent text-accent-foreground"
-                        : "transparent",
-                      isCollapsed ? "justify-center" : "gap-3"
-                    )}
-                  >
-                    {tool.icon}
-                    {!isCollapsed && <span>{tool.name}</span>}
-                  </Link>
-                </TooltipTrigger>
-                {isCollapsed && (
-                  <TooltipContent side="right" className="capitalize">
-                    {tool.name}
-                  </TooltipContent>
-                )}
-              </Tooltip>
-            ))
-          )}
-        </div>
-      </ScrollArea>
-      
-      {/* Design Features Divider */}
-      {!isCollapsed && (
-        <div className="px-4 py-2">
-          <div className="flex items-center gap-2">
-            <Palette className="h-4 w-4 text-muted-foreground" />
-            <span className="text-xs font-medium text-muted-foreground">
-              Design Features
-            </span>
-            <Separator className="flex-1" />
+            )}
           </div>
         </div>
-      )}
+      </div>
       
-      {/* Settings Button */}
-      <div className="p-4 mt-auto">
+      {/* Settings Button - FIXED HEIGHT */}
+      <div className="h-16 flex-shrink-0 bg-background border-t p-3 flex items-center">
         <Tooltip delayDuration={200}>
           <TooltipTrigger asChild>
             <Link href="/settings" className="w-full">
@@ -240,7 +263,7 @@ export default function Sidebar() {
     return (
       <aside
         className={cn(
-          "border-r bg-background h-[calc(100vh-60px)] flex-shrink-0 hidden md:block transition-all duration-300",
+          "border-r bg-background h-[calc(100vh-4rem)] flex-shrink-0 hidden md:block transition-all duration-300 overflow-hidden",
           isCollapsed ? "w-16" : "w-[280px]"
         )}
       >

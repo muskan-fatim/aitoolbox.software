@@ -6,11 +6,108 @@ import { ChatMessage } from "./chat-message";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import { cn } from "@/lib/utils";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Bot, Sparkles, MessageSquare, Code, FileText, Lightbulb } from "lucide-react";
 
 interface RealtimeChatProps {
   systemPrompt?: string;
 }
+
+const WelcomeScreen = () => {
+  const capabilities = [
+    {
+      icon: <MessageSquare className="h-5 w-5" />,
+      title: "General Assistance",
+      description: "Ask questions, get explanations, or have conversations on any topic"
+    },
+    {
+      icon: <Code className="h-5 w-5" />,
+      title: "Code Help",
+      description: "Debug code, explain programming concepts, or get coding assistance"
+    },
+    {
+      icon: <FileText className="h-5 w-5" />,
+      title: "Content Creation",
+      description: "Write emails, articles, summaries, or any text-based content"
+    },
+    {
+      icon: <Lightbulb className="h-5 w-5" />,
+      title: "Creative Ideas",
+      description: "Generate ideas for projects, businesses, blogs, or creative endeavors"
+    }
+  ];
+
+  const examplePrompts = [
+    "Explain how AI works in simple terms",
+    "Help me write a professional email",
+    "Generate ideas for a tech startup",
+    "Debug this JavaScript code for me"
+  ];
+
+  return (
+    <div className="flex-1 flex items-center justify-center px-4 md:px-8 lg:px-16 py-8">
+      <div className="max-w-4xl w-full text-center space-y-8">
+        {/* Branding Header */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-center gap-3">
+            <div className="p-3 rounded-2xl bg-primary/10">
+              <Bot className="h-8 w-8 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-foreground">AIToolbox BOT</h1>
+              <p className="text-muted-foreground">Your intelligent AI assistant</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <Sparkles className="h-4 w-4" />
+            <span>Powered by advanced AI technology</span>
+          </div>
+        </div>
+
+        {/* Capabilities Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+          {capabilities.map((capability, index) => (
+            <div
+              key={index}
+              className="p-4 rounded-xl bg-muted/30 border border-border/50 hover:bg-muted/50 transition-colors"
+            >
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                  {capability.icon}
+                </div>
+                <div className="text-left">
+                  <h3 className="font-semibold text-foreground">{capability.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{capability.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Example Prompts */}
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-foreground">Try asking me about:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {examplePrompts.map((prompt, index) => (
+              <div
+                key={index}
+                className="p-3 rounded-lg bg-muted/20 border border-border/30 text-sm text-muted-foreground hover:bg-muted/40 transition-colors cursor-default"
+              >
+                &ldquo;{prompt}&rdquo;
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="pt-4">
+          <p className="text-muted-foreground mb-2">Ready to get started?</p>
+          <p className="text-sm text-muted-foreground/80">Type your message below and press Enter or click the send button</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -37,16 +134,22 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
     <div className="flex h-[calc(100vh-4rem)] flex-col bg-background">
       <div 
         ref={containerRef}
-        className="flex-1 overflow-y-auto px-4 md:px-8 lg:px-16 py-6 space-y-8"
+        className="flex-1 overflow-y-auto"
       >
-        {messages.map((message) => (
-          <ChatMessage key={message.id} message={message} />
-        ))}
-        {isLoading && (
-          <ChatMessage 
-            message={{ id: 'typing', role: 'assistant', content: '' }} 
-            isTyping={true} 
-          />
+        {messages.length === 0 ? (
+          <WelcomeScreen />
+        ) : (
+          <div className="px-4 md:px-8 lg:px-16 py-6 space-y-8">
+            {messages.map((message) => (
+              <ChatMessage key={message.id} message={message} />
+            ))}
+            {isLoading && (
+              <ChatMessage 
+                message={{ id: 'typing', role: 'assistant', content: '' }} 
+                isTyping={true} 
+              />
+            )}
+          </div>
         )}
       </div>
 
