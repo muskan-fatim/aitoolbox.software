@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "AIToolbox",
     images: [
       {
-        url: "/logo.png",
+        url: "/mainOG.webp",
         width: 1200,
         height: 630,
         alt: "AIToolbox - AI Tools Platform",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AIToolbox - All-in-One AI Tools Platform",
     description: "Access powerful AI tools for content creation, image generation, code explanation, and more. Boost your productivity with our comprehensive suite of AI-powered solutions.",
-    images: ["/logo.png"],
+    images: ["/mainOG.webp"],
     
   },
   viewport: {

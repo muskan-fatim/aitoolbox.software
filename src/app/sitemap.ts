@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/idea-generator',
     '/image-generator',
     '/logo-generator',
+    '/prompt-generator',
     '/resume-builder',
     '/text-summarizer',
     '/youtube-summarizer',

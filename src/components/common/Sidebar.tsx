@@ -47,7 +47,11 @@ const aiTools: Tool[] = [
     href: "/chatbot",
     icon: <MessagesSquare className="h-5 w-5" />,
   },
-
+  {
+    name: "Prompt Generator",
+    href: "/prompt-generator",
+    icon: <PenTool className="h-5 w-5" />,
+  },
   {
     name: "AI Email Writer",
     href: "/email-writer",
