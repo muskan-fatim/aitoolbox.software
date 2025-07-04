@@ -1,6 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <a href="https://aitoolbox.software/">
+    <img src="public/logo.png" alt="AIToolbox Logo" width="150" />
+  </a>
+  <h1>AIToolbox.software</h1>
+  <p>An open-source collection of AI-powered tools to boost your productivity and creativity.</p>
+</div>
 
-## Getting Started
+## ✨ Features
+
+AIToolbox is an open-source platform that provides a variety of AI tools, including:
+
+- **✍️ AI Writing Suite:** AI Blog Writer, AI Email Writer, and Text Summarizer.
+- **💡 Idea Generation:** Get ideas for Blogs, Products, Startups, Apps, and YouTube content.
+- **🖼️ Creative Tools:** AI Image Generator and AI Logo Generator.
+- **💻 Developer Tools:** AI Code Explainer and AI Chatbot.
+- **... and many more useful tools!**
+
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -20,14 +36,34 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components:** [Shadcn/ui](https://ui.shadcn.com/)
+- **Deployment:** [Vercel](https://vercel.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contribution Guidelines
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We welcome contributions to AIToolbox! To ensure a smooth and effective collaboration, we ask that you please follow these guidelines.
+
+1.  **Assigned Issues Only:** To prevent overlapping work, please only work on issues that have been assigned to you. If you have an idea for a new feature or a bug fix, please open a new issue and wait for it to be assigned to you by a maintainer.
+
+2.  **Code Quality:**
+    *   **Readability & Scalability:** Write code that is clean, readable, and scalable. Follow the existing architectural patterns and conventions used throughout the project.
+    *   **Consistency:** Adhere to the existing coding style and structure. Your code should feel like it was written by the same person who wrote the rest of the codebase.
+
+3.  **Theme and Design:**
+    *   **Consistency is Key:** All UI/UX changes must align with the existing design and theme of the application. New components should be visually consistent with existing ones.
+
+4.  **Pull Requests (PRs):**
+    *   **Assigned Members Only:** Only individuals assigned to an issue may submit a PR for it. Unsolicited or unassigned PRs will be closed.
+    *   **Clear and Descriptive:** Your PR description should clearly explain the changes you've made and reference the issue it resolves (e.g., `Closes #123`).
+
+## 👑 Project Owner
+
+This project is owned and maintained by **[amanraj.me](https://amanraj.me)**.
 
 ## Deploy on Vercel
 
