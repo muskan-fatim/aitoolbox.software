@@ -88,6 +88,11 @@ export default function RootLayout({
           name="google-site-verification"
           content="IKfVdoOA7AW1tFnZw-vtB-Nml7a2DdyYXs7NJ3gZjZ4"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4074429965828547"
+          crossOrigin="anonymous"
+        ></script>
       </head>
 
       <body

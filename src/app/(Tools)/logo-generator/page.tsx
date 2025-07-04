@@ -1,19 +1,8 @@
 "use client";
 
 import React from "react";
+import LogoGeneratorClient from "./_components/logo-generator-client";
 
 export default function LogoGeneratorPage() {
-  return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Logo Generator</h1>
-      <p className="text-gray-500 mb-8">
-        Create professional logos for your business using AI
-      </p>
-      
-      <div className="border rounded-lg p-6 bg-card">
-        <h2 className="text-xl font-medium mb-4">Coming Soon</h2>
-        <p>This feature is currently under development.</p>
-      </div>
-    </div>
-  );
+  return <LogoGeneratorClient />;
 }

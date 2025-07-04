@@ -78,6 +78,37 @@ export async function POST(req: NextRequest) {
         });
       }
 
+      case "logo": {
+        const { prompt, model = "flux", options = {} } = body;
+        
+        // Enhanced prompt for high-quality logo generation
+        const logoPrompt = `${prompt}. High-quality professional logo design, clean vector-style, transparent background, scalable graphics, sharp edges, perfect for business use, premium quality, commercial-grade logo, 4K resolution`;
+        
+        // Construct the Pollinations image URL with logo-optimized parameters
+        const params = new URLSearchParams({
+          model: model,
+          width: "1024",
+          height: "1024",
+          steps: "50", // Higher steps for better quality
+          seed: Math.floor(Math.random() * 1000000).toString(),
+          nologo: "true",
+          enhance: "true",
+          safe: "true",
+          ...options,
+        });
+        
+        const encodedPrompt = encodeURIComponent(logoPrompt);
+        const baseUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?${params}`;
+        const imageUrl = addAuthToUrl(baseUrl);
+        
+        // Return the direct image URL for logos
+        return NextResponse.json({ 
+          success: true, 
+          imageUrl: imageUrl,
+          prompt: logoPrompt
+        });
+      }
+
       case "chat": {
         const { prompt, options = {} } = body;
         // Handle chat/text generation
