@@ -1,6 +1,4 @@
-import React from "react";
 import { Metadata } from "next";
-import LogoGeneratorClient from "./_components/logo-generator-client";
 
 export const metadata: Metadata = {
   title: "Free AI Logo Generator - Create Professional Logos Instantly",
@@ -25,6 +23,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  metadataBase: new URL("https://aitoolbox.software"),
   alternates: {
     canonical: "/logo-generator",
   },
@@ -49,6 +48,7 @@ export const metadata: Metadata = {
     title: "Free AI Logo Generator - Create Professional Logos Instantly",
     description: "Generate stunning professional logos in seconds with our free AI logo generator.",
     images: ["/mainOG.webp"],
+    creator: "@aitoolbox",
   },
   robots: {
     index: true,
@@ -61,42 +61,5 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+ 
 };
-
-// Server-side rendered component with structured data
-export default function LogoGeneratorPage() {
-  // Structured data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "AI Logo Generator",
-    "description": "Free AI-powered logo generator that creates professional logos instantly",
-    "url": "https://aitoolbox.software/logo-generator",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "featureList": [
-      "AI-powered logo generation",
-      "Multiple aspect ratios",
-      "Slogan integration",
-      "Instant download",
-      "Commercial use rights",
-      "No watermarks"
-    ],
-    "screenshot": "https://aitoolbox.software/mainOG.webp"
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <LogoGeneratorClient />
-    </>
-  );
-}

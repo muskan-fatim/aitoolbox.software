@@ -93,6 +93,13 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4074429965828547"
           crossOrigin="anonymous"
         ></script>
+        <script
+          src="https://cdn.databuddy.cc/databuddy.js"
+          data-client-id="Xc9zriSmfjuathqhkSMht"
+          data-enable-batching="true"
+          crossOrigin="anonymous"
+          async
+        ></script>
       </head>
 
       <body
