@@ -1,19 +1,8 @@
 "use client";
 
 import React from "react";
+import GrammarFixerClient from "./_components/grammar-fixer-client";
 
 export default function GrammarFixerPage() {
-  return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Grammar Fixer</h1>
-      <p className="text-gray-500 mb-8">
-        Fix grammar, spelling and punctuation errors in your text
-      </p>
-      
-      <div className="border rounded-lg p-6 bg-card">
-        <h2 className="text-xl font-medium mb-4">Coming Soon</h2>
-        <p>This feature is currently under development.</p>
-      </div>
-    </div>
-  );
+  return <GrammarFixerClient />;
 }

@@ -20,6 +20,7 @@ import {
   FileSpreadsheet,
   Lightbulb,
   Search,
+  Globe,
 } from "lucide-react";
 
 // List of AI tools
@@ -37,6 +38,13 @@ const aiTools = [
     icon: <MessagesSquare className="h-6 w-6" />,
     description: "Interactive AI chatbot for conversations",
     category: "communication"
+  },
+  {
+    name: "AI Translator",
+    href: "/ai-translator",
+    icon: <Globe className="h-6 w-6" />,
+    description: "Translate text between multiple languages",
+    category: "writing"
   },
   {
     name: "Image Generator",

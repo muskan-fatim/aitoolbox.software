@@ -1,12 +1,7 @@
 "use client";
 
-import { ComingSoon } from "@/components/ui/coming-soon";
+import BlogIdeaGeneratorClient from "./_components/blog-idea-generator-client";
 
 export default function BlogIdeaGeneratorPage() {
-  return (
-    <ComingSoon 
-      title="Blog Post Idea Generator"
-      description="Generate engaging blog post ideas and titles for any topic or niche with AI."
-    />
-  );
+  return <BlogIdeaGeneratorClient />;
 } 

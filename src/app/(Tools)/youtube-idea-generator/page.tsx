@@ -1,12 +1,10 @@
-"use client";
+import YouTubeIdeaGeneratorClient from "./_components/youtube-idea-generator-client";
 
-import { ComingSoon } from "@/components/ui/coming-soon";
+export const metadata = {
+  title: "YouTube Video Idea Generator | AI Toolbox",
+  description: "Generate creative YouTube video ideas for any niche or topic with AI assistance.",
+};
 
-export default function YoutubeIdeaGeneratorPage() {
-  return (
-    <ComingSoon 
-      title="YouTube Video Idea Generator"
-      description="Generate creative YouTube video ideas for any niche or topic with AI assistance."
-    />
-  );
+export default function YouTubeIdeaGeneratorPage() {
+  return <YouTubeIdeaGeneratorClient />;
 } 

@@ -30,6 +30,7 @@ import {
   Newspaper,
   Smartphone,
   Package,
+  Globe,
 } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 
@@ -56,6 +57,11 @@ const aiTools: Tool[] = [
     name: "AI Email Writer",
     href: "/email-writer",
     icon: <Mail className="h-5 w-5" />,
+  },
+  {
+    name: "AI Translator",
+    href: "/ai-translator",
+    icon: <Globe className="h-5 w-5" />,
   },
   {
     name: "Image Generator",

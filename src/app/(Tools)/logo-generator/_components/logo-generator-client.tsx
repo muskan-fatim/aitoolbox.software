@@ -18,6 +18,7 @@ export default function LogoGeneratorClient() {
   const [prompt, setPrompt] = useState("");
   const [ratio, setRatio] = useState("1:1");
   const [slogan, setSlogan] = useState("");
+  const [model, setModel] = useState("flux");
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ export default function LogoGeneratorClient() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt, ratio, slogan }),
+        body: JSON.stringify({ prompt, ratio, slogan, model }),
       });
 
       if (!response.ok) {
@@ -169,6 +170,21 @@ export default function LogoGeneratorClient() {
                       </SelectContent>
                     </Select>
                   </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="model">AI Model</Label>
+                  <Select value={model} onValueChange={setModel} disabled={isGenerating}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="flux">Flux (Default)</SelectItem>
+                      <SelectItem value="dall-e-3">DALL-E 3</SelectItem>
+                      <SelectItem value="stable-diffusion-xl">Stable Diffusion XL</SelectItem>
+                      <SelectItem value="gptimage">GPT-4 Image</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <Button
