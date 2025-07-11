@@ -61,9 +61,14 @@ export default function StartupIdeaGeneratorClient() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          type: "chat",
           prompt,
-          temperature: 0.7,
-          max_tokens: 2500,
+          options: {
+            model: "openai",
+            temperature: 0.7,
+            max_tokens: 2500,
+            messages: [{ role: "user", content: prompt }],
+          },
         }),
       })
 
@@ -72,7 +77,7 @@ export default function StartupIdeaGeneratorClient() {
       }
 
       const result = await response.json()
-      setGeneratedIdeas(result.choices[0].text.trim())
+      setGeneratedIdeas(result.data)
       
       // Complete the progress bar
       setProgress(100)
