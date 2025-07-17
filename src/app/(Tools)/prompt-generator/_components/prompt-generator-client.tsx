@@ -11,7 +11,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { Button } from "@/components/ui/button"
-import { ChevronsUpDown, Brain, Zap, Sparkles, Code, MessageSquare } from "lucide-react"
+import { ChevronsUpDown, Brain } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function PromptGeneratorClient() {
@@ -399,118 +399,60 @@ Make it immediately deployable and significantly more effective than the origina
   }, [generatedPrompt, error, isMobile]);
 
   return (
-    <div className="container mx-auto p-4 md:p-6 lg:p-8">
-      <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-8 md:mb-10 relative">
-          {/* Background decoration */}
-          <div className="absolute inset-0 -top-10 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-indigo-50/50 rounded-3xl -z-10"></div>
+    <div className="w-full max-w-4xl mx-auto">
+      <div>
+        <PromptGeneratorForm onSubmit={handleFormSubmit} isLoading={isLoading} />
+      </div>
+
+      <div ref={outputRef} className="mt-6">
+        <Collapsible
+          open={isOutputOpen}
+          onOpenChange={setIsOutputOpen}
+          className="w-full"
+        >
+          {(isLoading || generatedPrompt || error) && (
+            <div className="flex items-center justify-between border bg-zinc-50 px-4 py-3 rounded-none">
+              <h4 className="font-medium flex items-center gap-2 text-base">
+                <Brain className="h-4 w-4 text-zinc-600" />
+                <span>Enhanced Prompt</span>
+              </h4>
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" size="sm" className="w-9 p-0 rounded-none">
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+          )}
           
-          <div className="relative pt-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-lg">
-                <Brain className="h-8 w-8 text-white" />
-              </div>
-              <div className="p-2 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg shadow-md animate-pulse">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-3">
-              Free AI Prompt Generator & Optimizer
-            </h1>
-            
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-4">
-              <Sparkles className="h-4 w-4 text-blue-600" />
-              <span className="text-sm font-medium text-blue-700">Unlimited & No Login Required</span>
-            </div>
-            
-            <p className="text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-              Generate optimized AI prompts for ChatGPT, Claude, Gemini, and more. 
-              <span className="text-purple-600 font-medium"> Transform basic prompts into professional instructions</span> - completely free and unlimited.
-            </p>
-
-            <div className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
-                <MessageSquare className="h-6 w-6 text-blue-600 mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">User Prompts</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
-                <Code className="h-6 w-6 text-purple-600 mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">System Prompts</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
-                <Sparkles className="h-6 w-6 text-green-600 mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">Enhanced Output</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-200">
-                <Zap className="h-6 w-6 text-orange-600 mx-auto mb-2" />
-                <div className="text-xs font-medium text-gray-700">Instant Results</div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <main className="space-y-6 md:space-y-8">
-          <div>
-            <PromptGeneratorForm onSubmit={handleFormSubmit} isLoading={isLoading} />
-          </div>
-
-          <div ref={outputRef}>
-            <Collapsible
-              open={isOutputOpen}
-              onOpenChange={setIsOutputOpen}
-              className="w-full"
-            >
-              {(isLoading || generatedPrompt || error) && (
-                <div className="flex items-center justify-between rounded-t-lg border bg-gradient-to-r from-slate-50 to-gray-50 px-4 py-3">
-                  <h4 className="font-semibold flex items-center gap-2">
-                    <Brain className="h-4 w-4 text-purple-600" />
-                    <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                      Enhanced Prompt
-                    </span>
-                  </h4>
-                  <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="w-9 p-0 hover:bg-purple-100">
-                      <ChevronsUpDown className="h-4 w-4 text-purple-600" />
-                      <span className="sr-only">Toggle</span>
-                    </Button>
-                  </CollapsibleTrigger>
+          <CollapsibleContent className="border border-t-0 p-4 data-[state=closed]:hidden rounded-none">
+            <div className="space-y-4">
+              {isLoading && (
+                <div className="w-full space-y-2">
+                  <div className="flex items-center gap-2 text-base text-zinc-600 font-medium">
+                    <Brain className="h-4 w-4 animate-pulse" />
+                    Enhancing your prompt with AI...
+                  </div>
+                  <Progress value={progress} className="h-2 rounded-none" />
                 </div>
               )}
-              
-              <CollapsibleContent className="rounded-b-lg border border-t-0 p-4 data-[state=closed]:hidden">
-                <div className="space-y-4">
-                  {isLoading && (
-                    <div className="w-full space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-purple-600 font-medium">
-                        <Brain className="h-4 w-4 animate-pulse" />
-                        Enhancing your prompt with AI...
-                      </div>
-                      <Progress value={progress} className="h-2" />
-                    </div>
-                  )}
-                  {error && !isLoading && (
-                    <div className="text-destructive p-4 bg-destructive/10 rounded-md border border-destructive/20">
-                      <div className="flex items-center gap-2 font-medium">
-                        <Zap className="h-4 w-4" />
-                        Error
-                      </div>
-                      <p className="mt-1">{error}</p>
-                    </div>
-                  )}
-                  <PromptOutput
-                    generatedPrompt={generatedPrompt}
-                    isLoading={isLoading}
-                    promptType={currentFormData?.promptType || "user"}
-                    originalPrompt={currentFormData?.prompt || ""}
-                    onRegenerate={handleRegenerate}
-                  />
+              {error && !isLoading && (
+                <div className="text-destructive p-4 bg-destructive/10 border border-destructive/20 rounded-none">
+                  <div className="flex items-center gap-2 font-medium">Error</div>
+                  <p className="mt-1 text-base">{error}</p>
                 </div>
-              </CollapsibleContent>
-            </Collapsible>
-          </div>
-        </main>
+              )}
+              <PromptOutput
+                generatedPrompt={generatedPrompt}
+                isLoading={isLoading}
+                promptType={currentFormData?.promptType || "user"}
+                originalPrompt={currentFormData?.prompt || ""}
+                onRegenerate={handleRegenerate}
+              />
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </div>
   )
-} 
+}

@@ -1,7 +1,5 @@
 "use client";
 
-/* eslint-disable react/no-unescaped-entities */
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -10,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Sparkles, Zap, Users, Shield, Award, Download, Loader2, Info, Lightbulb } from "lucide-react";
+import Image from 'next/image';
 
 export default function LogoGeneratorClient() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -261,11 +260,13 @@ export default function LogoGeneratorClient() {
                 ) : generatedLogo ? (
                   <div className="space-y-4 text-center">
                     <div className="bg-white p-4 rounded-lg shadow-sm border">
-                      <img 
+                      <Image 
                         src={generatedLogo} 
-                        alt="Generated Logo" 
-                        className="max-w-full h-auto mx-auto"
-                        style={{ maxHeight: '300px' }}
+                        alt="Generated Logo"
+                        width={500}  
+                        height={500}
+                        className="w-full h-auto" 
+                        unoptimized={generatedLogo.startsWith('data:')}  // Add this for data URLs
                       />
                     </div>
                     <Button onClick={downloadLogo} variant="outline" className="flex items-center gap-2">
