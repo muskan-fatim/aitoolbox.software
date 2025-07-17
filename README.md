@@ -46,17 +46,11 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## 🤝 Contribution Guidelines
 
-We welcome contributions to AIToolbox! To ensure a smooth and effective collaboration, we ask that you please follow these guidelines.
+We welcome contributions to AIToolbox! To ensure a smooth and effective collaboration, please refer to our detailed [Contribution Guidelines](contributions/CONTRIBUTING.md) and [Code of Conduct](contributions/CODE_OF_CONDUCT.md).
 
-1.  **Assigned Issues Only:** To prevent overlapping work, please only work on issues that have been assigned to you. If you have an idea for a new feature or a bug fix, please open a new issue and wait for it to be assigned to you by a maintainer.
 
-2.  **Code Quality:**
-    *   **Readability & Scalability:** Write code that is clean, readable, and scalable. Follow the existing architectural patterns and conventions used throughout the project.
-    *   **Consistency:** Adhere to the existing coding style and structure. Your code should feel like it was written by the same person who wrote the rest of the codebase.
 
-3.  **Theme and Design:**
-    *   **Consistency is Key:** All UI/UX changes must align with the existing design and theme of the application. New components should be visually consistent with existing ones.
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 4.  **Pull Requests (PRs):**
     *   **Assigned Members Only:** Only individuals assigned to an issue may submit a PR for it. Unsolicited or unassigned PRs will be closed.
     *   **Clear and Descriptive:** Your PR description should clearly explain the changes you've made and reference the issue it resolves (e.g., `Closes #123`).
