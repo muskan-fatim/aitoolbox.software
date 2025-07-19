@@ -6,6 +6,7 @@ import Navbar from "@/components/common/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -109,6 +110,7 @@ export default function RootLayout({
         )}
       >
         <GoogleAnalytics />
+        <Analytics />
         <div className="flex flex-col h-screen">
           <Navbar />
           <div className="flex flex-1 overflow-hidden relative">
