@@ -2,36 +2,36 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Textarea } from "@/components/ui/textarea"
-import { Bot, Check, Copy, Edit } from "lucide-react"
+import { Bot, Check, Copy, Edit, RefreshCw, FileText } from "lucide-react"
 
 interface EmailOutputProps {
   generatedEmail: string
   isLoading: boolean
+  onRegenerate?: () => void
 }
 
-export function EmailOutput({ generatedEmail, isLoading }: EmailOutputProps) {
+export function EmailOutput({ generatedEmail, isLoading, onRegenerate }: EmailOutputProps) {
   const [isCopied, setIsCopied] = React.useState(false)
   const [isEditing, setIsEditing] = React.useState(false)
   const [subject, setSubject] = React.useState("")
   const [body, setBody] = React.useState("")
+
+  // Helper function to properly process escaped newlines
+  const processEscapedNewlines = (text: string): string => {
+    // Replace literal \n with actual newlines
+    return text.replace(/\\n/g, '\n');
+  }
 
   React.useEffect(() => {
     if (generatedEmail) {
       try {
         const parsed = JSON.parse(generatedEmail)
         setSubject(parsed.subject || "Generated Subject")
-        setBody(parsed.body || generatedEmail)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        // Process the body to handle escaped newlines
+        setBody(processEscapedNewlines(parsed.body || generatedEmail))
       } catch (_) {
         const lines = generatedEmail.split("\n")
         if (
@@ -39,10 +39,10 @@ export function EmailOutput({ generatedEmail, isLoading }: EmailOutputProps) {
           lines[0].toLowerCase().startsWith("subject:")
         ) {
           setSubject(lines[0].substring(8).trim())
-          setBody(lines.slice(1).join("\n").trim())
+          setBody(processEscapedNewlines(lines.slice(1).join("\n").trim()))
         } else {
           setSubject("Generated Subject")
-          setBody(generatedEmail)
+          setBody(processEscapedNewlines(generatedEmail))
         }
       }
       setIsEditing(false)
@@ -60,51 +60,69 @@ export function EmailOutput({ generatedEmail, isLoading }: EmailOutputProps) {
     setIsEditing(!isEditing)
   }
 
+  // Function to format text with newlines preserved
+  const formatEmailText = (text: string) => {
+    return text.split('\n').map((line, i) => (
+      <React.Fragment key={i}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  }
+
   if (isLoading) {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Generated Email</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <Skeleton className="h-8 w-1/3" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-full" />
-            <Skeleton className="h-4 w-5/6" />
-          </div>
-          <Skeleton className="h-8 w-1/4" />
-        </CardContent>
-      </Card>
+      <div className="space-y-4">
+        <Skeleton className="h-8 w-1/3" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-5/6" />
+        </div>
+        <Skeleton className="h-8 w-1/4" />
+      </div>
     )
   }
 
   if (!generatedEmail) {
     return (
-      <Card className="flex flex-col items-center justify-center h-full text-center p-6">
-        <CardHeader>
-          <div className="flex items-center justify-center w-16 h-16 mx-auto bg-primary/10 rounded-full mb-4">
-            <Bot className="w-8 h-8 text-primary" />
-          </div>
-          <CardTitle>Your email will appear here</CardTitle>
-          <CardDescription>
-            Fill in the details and let the AI work its magic.
-          </CardDescription>
-        </CardHeader>
-      </Card>
+      <div className="flex flex-col items-center justify-center h-52 text-center p-6 border bg-zinc-50">
+        <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary/10 rounded-full mb-4">
+          <Bot className="w-6 h-6 text-primary" />
+        </div>
+        <h3 className="text-lg font-medium mb-1">Your email will appear here</h3>
+        <p className="text-zinc-500 text-sm">
+          Fill in the details and let the AI work its magic.
+        </p>
+      </div>
     )
   }
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Generated Email</CardTitle>
+    <div className="bg-white">
+      <div className="flex flex-row items-center justify-between pb-3 mb-3 border-b">
+        <h3 className="text-base font-medium flex items-center gap-2">
+          <FileText className="h-4 w-4 text-zinc-600" />
+          Generated Email
+        </h3>
         <div className="flex gap-2">
+          {onRegenerate && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={onRegenerate}
+              title="Regenerate"
+              className="h-8 w-8 rounded-none"
+            >
+              <RefreshCw className="h-4 w-4" />
+            </Button>
+          )}
           <Button
             variant="outline"
             size="icon"
             onClick={handleEditToggle}
             title={isEditing ? "Save" : "Edit"}
+            className="h-8 w-8 rounded-none"
           >
             <Edit className="h-4 w-4" />
           </Button>
@@ -113,6 +131,7 @@ export function EmailOutput({ generatedEmail, isLoading }: EmailOutputProps) {
             size="icon"
             onClick={handleCopy}
             title="Copy"
+            className="h-8 w-8 rounded-none"
           >
             {isCopied ? (
               <Check className="h-4 w-4" />
@@ -121,32 +140,30 @@ export function EmailOutput({ generatedEmail, isLoading }: EmailOutputProps) {
             )}
           </Button>
         </div>
-      </CardHeader>
-      <CardContent>
-        {isEditing ? (
-          <div className="space-y-4">
-            <Input
-              value={subject}
-              onChange={e => setSubject(e.target.value)}
-              className="font-semibold text-lg"
-              placeholder="Subject"
-            />
-            <Textarea
-              value={body}
-              onChange={e => setBody(e.target.value)}
-              className="w-full h-80 resize-y"
-              placeholder="Email body"
-            />
+      </div>
+      {isEditing ? (
+        <div className="space-y-4">
+          <Input
+            value={subject}
+            onChange={e => setSubject(e.target.value)}
+            className="font-medium text-base rounded-none"
+            placeholder="Subject"
+          />
+          <Textarea
+            value={body}
+            onChange={e => setBody(e.target.value)}
+            className="w-full min-h-[200px] resize-y rounded-none"
+            placeholder="Email body"
+          />
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <h3 className="font-medium border-b pb-2 text-base">Subject: {subject}</h3>
+          <div className="whitespace-pre-wrap text-base p-4 border rounded-md">
+            {formatEmailText(body)}
           </div>
-        ) : (
-          <div className="space-y-4">
-            <h3 className="font-semibold border-b pb-2 text-lg">{subject}</h3>
-            <div className="prose prose-sm max-w-none whitespace-pre-wrap text-sm">
-              {body}
-            </div>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+        </div>
+      )}
+    </div>
   )
-} 
+}

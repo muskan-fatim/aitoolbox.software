@@ -97,7 +97,7 @@ export function PromptGeneratorForm({
   })
 
   return (
-    <Card className="  rounded-none">
+    <Card className="rounded-none border-0 shadow-none">
       <CardContent className="p-4 pt-4">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

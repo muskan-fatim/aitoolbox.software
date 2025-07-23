@@ -89,8 +89,7 @@ ${data.text}
         let errorData;
         try {
           errorData = await response.json();
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (_) {
+        } catch (error) {
           errorData = { error: "An unexpected error occurred. Please try again." }
         }
         throw new Error(errorData.error || `Request failed with status ${response.status}`);
@@ -230,4 +229,4 @@ ${data.text}
       </div>
     </>
   )
-} 
+}

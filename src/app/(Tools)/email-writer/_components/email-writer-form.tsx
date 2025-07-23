@@ -23,8 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2 } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Loader2, User, Mail, MessageSquare, AtSign, Languages, FileType, Send, Palette, Target } from "lucide-react"
 
 const tones = [
   "Formal",
@@ -83,22 +83,26 @@ export function EmailWriterForm({
   })
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Email Details</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <Card className="rounded-none border-0 shadow-none">
+      <CardContent className="p-4 pt-4">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
                 name="recipientName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recipient Name (Optional)</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <User className="h-4 w-4 text-zinc-500" />
+                      Recipient Name (Optional)
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input
+                        placeholder="John Doe"
+                        className="rounded-none text-base"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -109,11 +113,15 @@ export function EmailWriterForm({
                 name="recipientEmail"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recipient Email (Optional)</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <Mail className="h-4 w-4 text-zinc-500" />
+                      Recipient Email (Optional)
+                    </FormLabel>
                     <FormControl>
                       <Input
                         type="email"
                         placeholder="john.doe@example.com"
+                        className="rounded-none text-base"
                         {...field}
                       />
                     </FormControl>
@@ -128,13 +136,21 @@ export function EmailWriterForm({
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject (Optional)</FormLabel>
+                  <FormLabel className="text-base flex items-center gap-2">
+                    <FileType className="h-4 w-4 text-zinc-500" />
+                    Subject (Optional)
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="AI will generate one if left blank"
+                      className="rounded-none text-base"
                       {...field}
                     />
                   </FormControl>
+                  <FormDescription className="text-sm text-zinc-500">
+                    If left blank, our AI will create a suitable subject based on
+                    your content.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -146,17 +162,20 @@ export function EmailWriterForm({
                 name="tone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tone</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <Palette className="h-4 w-4 text-zinc-500" />
+                      Tone
+                    </FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="rounded-none text-sm">
                           <SelectValue placeholder="Select a tone" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-none">
                         {tones.map(tone => (
                           <SelectItem key={tone} value={tone}>
                             {tone}
@@ -173,17 +192,20 @@ export function EmailWriterForm({
                 name="purpose"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Purpose</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <Target className="h-4 w-4 text-zinc-500" />
+                      Purpose
+                    </FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="rounded-none text-sm">
                           <SelectValue placeholder="Select a purpose" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-none">
                         {purposes.map(purpose => (
                           <SelectItem key={purpose} value={purpose}>
                             {purpose}
@@ -202,15 +224,18 @@ export function EmailWriterForm({
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Key Points / Message</FormLabel>
+                  <FormLabel className="text-base flex items-center gap-2">
+                    <MessageSquare className="h-4 w-4 text-zinc-500" />
+                    Key Points / Message
+                  </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="e.g., Follow up on our meeting yesterday. I've attached the document we discussed."
-                      className="resize-y min-h-[120px]"
+                      className="resize-y min-h-[120px] rounded-none text-base"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
+                  <FormDescription className="text-sm text-zinc-500">
                     Provide the main points or a rough draft. The AI will refine
                     it.
                   </FormDescription>
@@ -225,9 +250,16 @@ export function EmailWriterForm({
                 name="senderName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Your Name (Optional)</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <AtSign className="h-4 w-4 text-zinc-500" />
+                      Your Name (Optional)
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Jane Smith" {...field} />
+                      <Input
+                        placeholder="Jane Smith"
+                        className="rounded-none text-base"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -238,17 +270,20 @@ export function EmailWriterForm({
                 name="language"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Language (Optional)</FormLabel>
+                    <FormLabel className="text-base flex items-center gap-2">
+                      <Languages className="h-4 w-4 text-zinc-500" />
+                      Language (Optional)
+                    </FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="rounded-none text-sm">
                           <SelectValue placeholder="Select language" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
+                      <SelectContent className="rounded-none">
                         {languages.map(lang => (
                           <SelectItem key={lang} value={lang}>
                             {lang}
@@ -262,14 +297,21 @@ export function EmailWriterForm({
               />
             </div>
 
-            <Button type="submit" disabled={isLoading} className="w-full">
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full rounded-none text-base py-6"
+            >
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating...
+                  Generating Email...
                 </>
               ) : (
-                "Generate Email"
+                <>
+                  <Send className="mr-2 h-4 w-4" />
+                  Generate Email
+                </>
               )}
             </Button>
           </form>
@@ -277,4 +319,4 @@ export function EmailWriterForm({
       </CardContent>
     </Card>
   )
-} 
+}

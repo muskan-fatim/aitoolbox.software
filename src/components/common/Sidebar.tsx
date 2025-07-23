@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Menu,
@@ -141,20 +140,10 @@ const aiTools: Tool[] = [
 ];
 
 export default function Sidebar() {
-  const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const isMobile = useIsMobile();
-
-  // Simulate loading state
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // Filter tools based on search query (disabled when collapsed)
   const filteredTools = aiTools.filter((tool) =>
@@ -202,17 +191,7 @@ export default function Sidebar() {
           }}
         >
           <div className="space-y-1">
-            {isLoading ? (
-              // Skeleton loading state
-              Array(17)
-                .fill(0)
-                .map((_, i) => (
-                  <div key={i} className="flex items-center gap-3 py-1 px-2">
-                    <Skeleton className="h-5 w-5 rounded" />
-                    {!isCollapsed && <Skeleton className="h-4 flex-1" />}
-                  </div>
-                ))
-            ) : filteredTools.length === 0 ? (
+            {filteredTools.length === 0 ? (
               <div className="text-center text-sm text-muted-foreground py-4">
                 No tools found
               </div>
@@ -303,3 +282,4 @@ export default function Sidebar() {
     </>
   );
 }
+  

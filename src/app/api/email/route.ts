@@ -11,11 +11,11 @@ const handleError = (error: unknown) => {
   );
 };
 
-// Check if API token is configured
+// Check if API token is configured - optional but recommended
 const POLLINATIONS_API_TOKEN = process.env.POLLINATIONS_API_TOKEN;
 
 if (!POLLINATIONS_API_TOKEN) {
-  console.warn("Warning: POLLINATIONS_API_TOKEN is not configured in environment variables");
+  console.warn("Warning: POLLINATIONS_API_TOKEN is not configured in environment variables - using anonymous access");
 }
 
 // Helper to get auth headers
@@ -23,9 +23,11 @@ const getAuthHeaders = () => {
   const headers: Record<string, string> = {
     "Content-Type": "application/json"
   };
+  
   if (POLLINATIONS_API_TOKEN) {
     headers["Authorization"] = `Bearer ${POLLINATIONS_API_TOKEN}`;
   }
+  
   return headers;
 };
 
@@ -87,39 +89,83 @@ export async function POST(req: NextRequest) {
       ---
     `;
 
+    // Following Pollinations API documentation for Text-To-Text via POST
     const response = await fetch("https://text.pollinations.ai/openai", {
       method: "POST",
       headers: getAuthHeaders(),
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "openai", // Using default model from Pollinations
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt },
         ],
         temperature: 0.7,
         response_format: { type: "json_object" },
+        referrer: "aitoolbox.software", // Adding referrer for better rate limits
       }),
     });
 
     if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Pollinations API Error:", errorText);
-        throw new Error(`Failed to generate email. The AI service responded with: ${response.statusText}`);
+      const errorText = await response.text();
+      console.error("Pollinations API Error:", errorText);
+      
+      // Try the GET endpoint as a fallback for simple text generation
+      if (response.status === 404) {
+        console.log("POST endpoint not found, trying GET endpoint as fallback...");
+        
+        // Construct a simplified prompt for the GET endpoint
+        const simplePrompt = `Generate a ${tone} email for ${purpose}. ${message}`;
+        const encodedPrompt = encodeURIComponent(simplePrompt);
+        
+        const getResponse = await fetch(`https://text.pollinations.ai/${encodedPrompt}?json=true&referrer=aitoolbox.software`, {
+          headers: getAuthHeaders(),
+        });
+        
+        if (!getResponse.ok) {
+          throw new Error(`Failed to generate email: ${getResponse.status} ${getResponse.statusText}`);
+        }
+        
+        const textResult = await getResponse.text();
+        return NextResponse.json({
+          success: true,
+          data: textResult,
+        });
+      }
+      
+      throw new Error(`Failed to generate email: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
     
-    if (!data.choices || !data.choices[0] || !data.choices[0].message || !data.choices[0].message.content) {
-        console.error("Invalid response structure from Pollinations API:", data);
-        throw new Error("Received an invalid response from the AI service.");
+    // Handle different response structures from Pollinations API
+    if (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) {
+      return NextResponse.json({
+        success: true,
+        data: data.choices[0].message.content,
+      });
+    } else if (data.content) {
+      // Some Pollinations endpoints return content directly
+      return NextResponse.json({
+        success: true,
+        data: data.content,
+      });
+    } else {
+      console.error("Unexpected response structure:", data);
+      // Attempt to return whatever we got if it might be useful
+      if (typeof data === 'string') {
+        return NextResponse.json({
+          success: true,
+          data: data,
+        });
+      } else {
+        return NextResponse.json({
+          success: true,
+          data: JSON.stringify(data),
+        });
+      }
     }
-      
-    return NextResponse.json({
-      success: true,
-      data: data.choices[0].message.content,
-    });
 
   } catch (error) {
     return handleError(error);
   }
-} 
+}

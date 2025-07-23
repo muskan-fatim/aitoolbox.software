@@ -246,8 +246,7 @@ Please provide a comprehensive, well-structured idea that addresses all these re
         let errorData;
         try {
           errorData = await response.json();
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (_) {
+        } catch (error) {
           errorData = {
             error: "An unexpected error occurred. Please try again.",
           };
@@ -400,4 +399,4 @@ Please provide a comprehensive, well-structured idea that addresses all these re
       </div>
     </div>
   )
-} 
+}

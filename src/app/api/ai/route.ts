@@ -164,7 +164,6 @@ export async function POST(req: NextRequest) {
 }
 
 // Get available models
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function GET(_req: NextRequest) {
   try {
     const [imageModels, textModels] = await Promise.all([
@@ -182,4 +181,4 @@ export async function GET(_req: NextRequest) {
   } catch (error) {
     return handleError(error);
   }
-} 
+}
