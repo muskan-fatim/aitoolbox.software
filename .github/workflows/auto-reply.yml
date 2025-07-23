@@ -1,0 +1,32 @@
+name: Auto Reply to Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on new issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueComment = `
+Thanks for opening this issue.
+
+**Before moving ahead:**
+- ⭐ Please star the repository(Mandatory for gssoc 25).
+- 📖 Read the [Contribution Guidelines](/contribution/CONTRIBUTING.md).
+- 📂 All contribution info is inside the [\`/contribution\`](https://github.com/${{ github.repository }}/contribution) folder.
+- 📚 AI and AdSense related documentation is inside the [\`/doc\`](https://github.com/${{ github.repository }}/doc) folder.
+
+We’ll review your issue soon.
+`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: issueComment
+            });

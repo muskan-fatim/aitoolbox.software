@@ -16,6 +16,13 @@ AIToolbox is an open-source platform that provides a variety of AI tools, includ
 - **💻 Developer Tools:** AI Code Explainer and AI Chatbot.
 - **... and many more useful tools!**
 
+## 📋 Before moving ahead
+
+- ⭐ Please star the repository(Mandatory for gssoc 25).
+- 📖 Read the [Contribution Guidelines](/contribution/CONTRIBUTING.md).
+- 📂 All contribution info is inside the [`/contribution`](https://github.com/${{ github.repository }}/contribution) folder.
+- 📚 AI and AdSense related documentation is inside the [`/doc`](https://github.com/${{ github.repository }}/doc) folder.
+
 ## 🚀 Getting Started
 
 First, run the development server:
@@ -59,8 +66,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 This project is owned and maintained by **[amanraj.me](https://amanraj.me)**.
 
-## Deploy on Vercel
+## 👥 Contributors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Thanks to these amazing people for their contributions:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<a href="https://github.com/amanrajme/aitoolbox.software/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=amanrajme/aitoolbox.software" />
+</a>
+
