@@ -23,7 +23,6 @@ export default function TextSummarizerClient() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "chat",
-          prompt: data.text,
           options: {
             messages: [
               { role: "system", content: systemPrompt },
@@ -33,8 +32,7 @@ export default function TextSummarizerClient() {
             temperature: 0.3,
             max_tokens: 2000,
           },
-        }),
-      })
+        }),      })
 
       if (!response.ok) throw new Error("Failed to generate summary")
 

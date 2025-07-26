@@ -15,13 +15,14 @@ import {
 } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
 
+const countWords = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
+
 const formSchema = z.object({
   text: z.string().refine((val) => {
-    const words = val.trim().split(/\s+/).length
+    const words = countWords(val)
     return words >= 100 && words <= 5000
   }, { message: "Text must be between 100 and 5000 words." }),
 })
-
 export type FormValues = z.infer<typeof formSchema>
 
 export function TextSummarizerForm({
@@ -39,7 +40,7 @@ export function TextSummarizerForm({
   })
 
   const watchText = form.watch("text")
-  const wordCount = watchText.trim().split(/\s+/).filter(Boolean).length
+  const wordCount = countWords(watchText)
 
   return (
     <Form {...form}>

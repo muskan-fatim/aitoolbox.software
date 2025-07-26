@@ -24,11 +24,24 @@ export function TextSummarizerOutput({
 
   if (!summary) return null
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(summary)
-    toast.success("Summary copied to clipboard")
+  const handleCopy = async () => {
+    try {
+      if (!navigator.clipboard) {
+        // Fallback for older browsers or non-HTTPS contexts
+        const textArea = document.createElement('textarea')
+        textArea.value = summary
+        document.body.appendChild(textArea)
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+      } else {
+        await navigator.clipboard.writeText(summary)
+      }
+      toast.success("Summary copied to clipboard")
+    } catch (error) {
+      toast.error("Failed to copy summary to clipboard")
+    }
   }
-
   return (
     <Card>
       <CardHeader>
