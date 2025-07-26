@@ -218,7 +218,7 @@ ${data.text}
                     <Globe className="h-5 w-5 " />
                   </div>
                   <div>
-                    <h3 className="font-medium">AI Chatbot</h3>
+                    <h3 className="font-medium ">AI Chatbot</h3>
                     <p className="text-sm text-muted-foreground">Chat with our AI assistant</p>
                   </div>
                 </Link>
