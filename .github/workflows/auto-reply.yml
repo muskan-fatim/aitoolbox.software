@@ -17,7 +17,7 @@ jobs:
               "Thanks for opening this issue.",
               "",
               "**Before moving ahead:**",
-              "- ⭐ Please star the repository (Mandatory for GSSoC 25). ",
+              "- ⭐ Please star the repository (Mandatory for GSSoC 25).",
               "- 📖 Read the [Contribution Guidelines](/contribution/CONTRIBUTING.md).",
               `- 📂 All contribution info is inside the [\`/contribution\`](https://github.com/${context.repo.owner}/${context.repo.repo}/tree/main/contribution) folder.`,
               `- 📚 AI and AdSense related documentation is inside the [\`/doc\`](https://github.com/${context.repo.owner}/${context.repo.repo}/tree/main/doc) folder.`,
