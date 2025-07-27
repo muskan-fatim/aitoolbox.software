@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 const countWords = (text: string) => text.trim().split(/\s+/).filter(Boolean).length;
 
@@ -22,6 +23,9 @@ const formSchema = z.object({
     const words = countWords(val)
     return words >= 100 && words <= 5000
   }, { message: "Text must be between 100 and 5000 words." }),
+  summaryLength: z.enum(["very-short", "short", "medium", "detailed"], {
+    required_error: "Please select a summary length.",
+  }),
 })
 export type FormValues = z.infer<typeof formSchema>
 
@@ -36,6 +40,7 @@ export function TextSummarizerForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       text: "",
+      summaryLength: "medium",
     },
   })
 
@@ -54,13 +59,36 @@ export function TextSummarizerForm({
               <FormControl>
                 <Textarea
                   placeholder="Paste your text here (100-5000 words)..."
-                  className="min-h-[300px] resize-y"
+                  className="h-[300px] resize-none overflow-auto"
                   {...field}
                 />
               </FormControl>
               <div className="text-sm text-muted-foreground mt-1">
                 {wordCount} words
               </div>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="summaryLength"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Summary Length</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select summary length" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="very-short">Very Short (~50 words)</SelectItem>
+                  <SelectItem value="short">Short (~100 words)</SelectItem>
+                  <SelectItem value="medium">Medium (~250 words)</SelectItem>
+                  <SelectItem value="detailed">Detailed (~500 words)</SelectItem>
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

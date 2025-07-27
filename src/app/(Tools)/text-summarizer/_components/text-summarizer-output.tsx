@@ -48,7 +48,7 @@ export function TextSummarizerOutput({
         <CardTitle>Generated Summary</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="prose max-w-none">
+        <div className="max-h-[300px] overflow-auto prose max-w-none">
           {summary.split('\n').map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
