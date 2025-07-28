@@ -30,7 +30,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t bg-background text-muted-foreground text-sm mt-8">
-      {/* First Row */}
+
       <div className="max-w-6xl mx-auto w-full px-4 py-8 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
         {/* Logo */}
         <div className="flex flex-col items-start gap-2 md:col-span-2">
@@ -41,9 +41,8 @@ export default function Footer() {
           />
           <span className="font-mono text-lg text-foreground">AIToolbox</span>
         </div>
-        {/* Tools Col 1 */}
+        {/* Tools Col - 1 */}
         <div>
-          {/* <p className="font-mono text-lg mb-2 text-foreground">Tools</p> */}
           <ul className="space-y-1">
             {toolsCol1.map((link) => (
               <li key={link.href}>
@@ -55,9 +54,8 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        {/* Tools Col 2 */}
+        {/* Tools Col - 2 */}
         <div>
-          {/* <p className="font-mono text-lg mb-2 text-foreground">Tools</p> */}
           <ul className="space-y-1">
             {toolsCol2.map((link) => (
               <li key={link.href}>
@@ -71,7 +69,6 @@ export default function Footer() {
         </div>
         {/* Info Col */}
         <div>
-          {/* <p className="font-mono text-lg mb-2 text-foreground">Info</p> */}
           <ul className="space-y-1">
             {infoLinks.map((link) => (
               <li key={link.href}>
@@ -84,7 +81,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      {/* Second Row */}
+
       <div className="max-w-6xl mx-auto w-full px-4 pb-4 flex flex-col md:flex-row justify-between items-center border-t pt-4">
         <div className="font-mono text-md text-foreground mb-2 md:mb-0">
           @aiToolbox
