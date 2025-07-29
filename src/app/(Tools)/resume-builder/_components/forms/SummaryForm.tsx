@@ -11,9 +11,6 @@ import { summarySchema, SummaryValues } from "@/lib/resume/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import GeneralInfoForm from "./GeneralInfoForm";
-import { Button } from "@/components/ui/button";
-import GenerateSummaryButton from "./GenerateSummaryButton";
 import { EditorFormProps } from "@/types/types";
 
 export default function SummaryForm({

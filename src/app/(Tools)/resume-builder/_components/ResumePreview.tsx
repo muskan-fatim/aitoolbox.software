@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { formatDate } from "date-fns";
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { ResumeValues } from "@/lib/resume/validation";
 import { Badge } from "@/components/ui/badge";

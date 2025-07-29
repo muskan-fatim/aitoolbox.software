@@ -1,10 +1,9 @@
 "use client";
 import Head from "next/head";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
 import ResumeForm from "./_components/ResumeForm";
-import ResumePreview from "./_components/ResumePreview";
 import { initialResumeValues } from "./constant";
 import ResumePreviewSection from "./_components/ResumePreviewSection";
 import { useResume } from "@/contexts/resume-context";

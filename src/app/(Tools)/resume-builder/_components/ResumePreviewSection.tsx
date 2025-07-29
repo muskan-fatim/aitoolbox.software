@@ -1,8 +1,6 @@
-import { ResumeValues } from "@/lib/resume/validation";
 import ResumePreview from "./ResumePreview";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { initialResumeValues, resumeValue } from "../constant";
+import { initialResumeValues } from "../constant";
 import { OptionMenu } from "./OptionMenu";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
