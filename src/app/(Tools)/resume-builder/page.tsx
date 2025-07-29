@@ -1,0 +1,111 @@
+"use client";
+import Head from "next/head";
+import { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Eye } from "lucide-react";
+import ResumeForm from "./_components/ResumeForm";
+import ResumePreview from "./_components/ResumePreview";
+import { initialResumeValues } from "./constant";
+import ResumePreviewSection from "./_components/ResumePreviewSection";
+
+// Debounce function
+const debounce = (func: Function, delay: number) => {
+  let timeoutId: NodeJS.Timeout;
+  return (...args: any[]) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+};
+
+export default function Page() {
+  const [resumeData, setResumeData] = useState(() => {
+    // Load from localStorage if available
+    if (typeof window !== "undefined") {
+      const savedData = localStorage.getItem("resumeData");
+      return savedData ? JSON.parse(savedData) : initialResumeValues;
+    }
+    return initialResumeValues;
+  });
+  const [mobileView, setMobileView] = useState<"form" | "preview">("form");
+
+  // Debounced save function
+  const saveToLocalStorage = debounce((data: typeof initialResumeValues) => {
+    localStorage.setItem("resumeData", JSON.stringify(data));
+  }, 1000); // 1 second debounce
+
+  // Save to localStorage whenever resumeData changes
+  useEffect(() => {
+    saveToLocalStorage(resumeData);
+  }, [resumeData]);
+
+  return (
+    <>
+      <Head key="resume-builder">
+        <title>AI Resume Builder</title>
+        <meta
+          name="description"
+          content="Create professional resumes with AI"
+        />
+      </Head>
+
+      <div className="container mx-auto px-4 py-8">
+        <header className="mb-8 text-center lg:mb-12">
+          <h1 className="text-3xl font-bold lg:text-4xl">AI Resume Builder</h1>
+          <p className="mt-2 text-gray-600 lg:text-lg">
+            Create professional resumes in seconds with AI
+          </p>
+        </header>
+
+        {/* Mobile Toggle Button */}
+        <div className="mb-4 flex justify-center lg:hidden">
+          <Button
+            variant="outline"
+            onClick={() =>
+              setMobileView(mobileView === "form" ? "preview" : "form")
+            }
+            className="gap-2"
+          >
+            <Eye className="h-4 w-4" />
+            {mobileView === "form" ? "Show Preview" : "Show Form"}
+          </Button>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex lg:gap-8">
+          {/* Form Section */}
+          <div className="w-full lg:w-1/2">
+            <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+          </div>
+
+          {/* Preview Section */}
+          <div className="sticky top-4 h-fit w-full lg:w-1/2">
+            <div suppressHydrationWarning className="rounded-lg border p-4 shadow-sm">
+              <ResumePreviewSection
+                resumeData={resumeData}
+                setResumeData={setResumeData}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          {mobileView === "form" ? (
+            <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+          ) : (
+            <div suppressHydrationWarning className="rounded-lg border p-4 shadow-sm">
+              <ResumePreviewSection
+                resumeData={resumeData}
+                setResumeData={setResumeData}
+              />
+            </div>
+          )}
+        </div>
+
+        <footer className="mt-8 text-center text-sm text-gray-500 lg:mt-16">
+          <p>Powered by Pollinations AI and Next.js</p>
+        </footer>
+      </div>
+    </>
+  );
+}
