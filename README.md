@@ -70,7 +70,23 @@ This project is owned and maintained by **[amanraj.me](https://amanraj.me)**.
 
 Thanks to these amazing people for their contributions:
 
-<a href="https://github.com/amanrajme/aitoolbox.software/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=amanrajme/aitoolbox.software" />
-</a>
-
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+  <a href="https://github.com/huamanraj" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/113578582?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Aman Raj" title="Aman Raj"/>
+  </a>
+  <a href="https://github.com/MohdWaqar98" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/98345819?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Mohd Waqar Ahemed" title="Mohd Waqar Ahemed"/>
+  </a>
+  <a href="https://github.com/GxAditya" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/177012111?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Aditya Kumar" title="Aditya Kumar"/>
+  </a>
+  <a href="https://github.com/Codewizkashish" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/166716383?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Kashish Nandwani" title="Kashish Nandwani"/>
+  </a>
+  <a href="https://github.com/ketakigalgale" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/173990863?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Ketaki Galgale" title="Ketaki Galgale"/>
+  </a>
+  <a href="https://github.com/Sahilxrajput" style="display: inline-block;">
+    <img src="https://avatars.githubusercontent.com/u/189414656?v=4" width="100" height="100" style="border-radius: 50%; object-fit: cover; border: 3px solid #4a90e2;" alt="Sahil Rajput" title="Sahil Rajput"/>
+  </a>
+</div>
