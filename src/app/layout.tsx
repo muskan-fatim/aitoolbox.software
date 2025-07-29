@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Analytics } from "@vercel/analytics/next";
+import Footer from "@/components/common/Footer";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -115,7 +116,10 @@ export default function RootLayout({
           <Navbar />
           <div className="flex flex-1 overflow-hidden relative">
             <Sidebar />
-            <main className="flex-1 overflow-auto">{children}</main>
+            <main className="flex-1 overflow-auto">
+              {children}
+              <Footer />
+            </main>
           </div>
         </div>
         <Toaster />
