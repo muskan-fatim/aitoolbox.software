@@ -1,7 +1,9 @@
-export default function PromptGeneratorLayout({
+import { ResumeProvider } from "@/contexts/resume-context";
+
+export default function ResumeBuilderLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <ResumeProvider>{children}</ResumeProvider>;
 }

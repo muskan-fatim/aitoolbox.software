@@ -7,6 +7,8 @@ import ResumeForm from "./_components/ResumeForm";
 import ResumePreview from "./_components/ResumePreview";
 import { initialResumeValues } from "./constant";
 import ResumePreviewSection from "./_components/ResumePreviewSection";
+import { useResume } from "@/contexts/resume-context";
+import Loader from "./_components/Loader";
 
 // Debounce function
 const debounce = (func: Function, delay: number) => {
@@ -18,15 +20,18 @@ const debounce = (func: Function, delay: number) => {
 };
 
 export default function Page() {
-  const [resumeData, setResumeData] = useState(() => {
-    // Load from localStorage if available
-    if (typeof window !== "undefined") {
-      const savedData = localStorage.getItem("resumeData");
-      return savedData ? JSON.parse(savedData) : initialResumeValues;
-    }
-    return initialResumeValues;
-  });
+    const { resumeData, setResumeData,isLoaded } = useResume();
   const [mobileView, setMobileView] = useState<"form" | "preview">("form");
+
+  useEffect(() => {
+  // Only access localStorage after mount
+  if (typeof window !== "undefined") {
+    const savedData = localStorage.getItem("resumeData");
+    if (savedData) {
+      setResumeData(JSON.parse(savedData));
+    }
+  }
+}, []);
 
   // Debounced save function
   const saveToLocalStorage = debounce((data: typeof initialResumeValues) => {
@@ -37,6 +42,12 @@ export default function Page() {
   useEffect(() => {
     saveToLocalStorage(resumeData);
   }, [resumeData]);
+
+
+  
+  if (!isLoaded) {
+    return <Loader/>
+  }
 
   return (
     <>
@@ -74,15 +85,13 @@ export default function Page() {
         <div className="hidden lg:flex lg:gap-8">
           {/* Form Section */}
           <div className="w-full lg:w-1/2">
-            <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+            <ResumeForm />
           </div>
 
           {/* Preview Section */}
           <div className="sticky top-4 h-fit w-full lg:w-1/2">
             <div suppressHydrationWarning className="rounded-lg border p-4 shadow-sm">
               <ResumePreviewSection
-                resumeData={resumeData}
-                setResumeData={setResumeData}
               />
             </div>
           </div>
@@ -91,12 +100,10 @@ export default function Page() {
         {/* Mobile Layout */}
         <div className="lg:hidden">
           {mobileView === "form" ? (
-            <ResumeForm resumeData={resumeData} setResumeData={setResumeData} />
+            <ResumeForm  />
           ) : (
             <div suppressHydrationWarning className="rounded-lg border p-4 shadow-sm">
               <ResumePreviewSection
-                resumeData={resumeData}
-                setResumeData={setResumeData}
               />
             </div>
           )}

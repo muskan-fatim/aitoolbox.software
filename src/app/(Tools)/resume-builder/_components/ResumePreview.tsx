@@ -79,7 +79,8 @@ function PersonalInfoHeader({ resumeData }: ResumeSectionProps) {
               color: colorHex,
             }}
           >
-            {firstName} {lastName}
+            <span>{firstName}</span>{" "}
+            <span>{lastName}</span>
           </p>
           <p
             className="font-medium"

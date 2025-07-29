@@ -11,6 +11,7 @@ import WorkExperienceForm from "./forms/WorkExperienceForm";
 import EducationForm from "./forms/EducationForm";
 import SkillsForm from "./forms/SkillsForm";
 import SummaryForm from "./forms/SummaryForm";
+import { useResume } from "@/contexts/resume-context";
 
 const steps = [
   { id: "personal", title: "Personal" },
@@ -20,16 +21,10 @@ const steps = [
   { id: "summary", title: "Summary" },
 ];
 
-interface ResumeFormProps {
-  resumeData: ResumeValues;
-  setResumeData: (data: ResumeValues) => void;
-}
 
-export default function ResumeForm({
-  resumeData,
-  setResumeData,
-}: ResumeFormProps) {
+export default function ResumeForm() {
   const [currentStep, setCurrentStep] = useState(0);
+  const {resumeData, setResumeData}= useResume()
 
   const nextStep = () => {
     if (currentStep < steps.length - 1) {

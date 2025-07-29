@@ -3,25 +3,21 @@ import ResumePreview from "./ResumePreview";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { initialResumeValues, resumeValue } from "../constant";
-import { ResumeFormData } from "@/types/types";
 import { OptionMenu } from "./OptionMenu";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useResume } from "@/contexts/resume-context";
 
 interface ResumePreviewSectionProps {
-  resumeData: ResumeValues;
-  setResumeData?: (data: ResumeValues) => void;
   className?: string;
   contentRef?: React.Ref<HTMLDivElement>;
 }
 
 export default function ResumePreviewSection({
-  resumeData,
-  setResumeData,
-
   className,
 }: ResumePreviewSectionProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const { resumeData, setResumeData } = useResume();
 
   const handleReset = () => {
     localStorage.removeItem("resumeData");
@@ -36,14 +32,10 @@ export default function ResumePreviewSection({
   });
   return (
     <div className={cn("w-full relative", className)}>
-      {setResumeData && (
-        <div>
-          <OptionMenu
-            onPrintClick={reactToPrintFn}
-            handleDelete={handleReset}
-          />
-        </div>
-      )}
+      <div>
+        <OptionMenu onPrintClick={reactToPrintFn} handleDelete={handleReset} />
+      </div>
+
       <div className="flex w-full justify-center overflow-y-auto">
         <ResumePreview
           contentRef={contentRef}
