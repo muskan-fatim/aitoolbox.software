@@ -1,20 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Copy, MapPin, Calendar, DollarSign, Clock, Star } from "lucide-react";
+import { Copy, MapPin, Calendar, DollarSign, Clock, Star, Check, RefreshCw, Edit, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { TripPlannerResult } from "./trip-planner-client";
 
 interface TripPlannerOutputProps {
   result: TripPlannerResult | null;
   isLoading: boolean;
+  onRegenerate?: () => void;
 }
 
-export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutputProps) {
+export default function TripPlannerOutput({ result, isLoading, onRegenerate }: TripPlannerOutputProps) {
   const [copiedDay, setCopiedDay] = useState<number | null>(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   const copyToClipboard = async (text: string, dayIndex?: number) => {
     try {
@@ -22,6 +23,9 @@ export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutp
       if (dayIndex !== undefined) {
         setCopiedDay(dayIndex);
         setTimeout(() => setCopiedDay(null), 2000);
+      } else {
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
       }
       toast.success("Copied to clipboard!");
     } catch (error) {
@@ -92,25 +96,63 @@ export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutp
 
   if (!result) {
     return (
-      <div className="text-center py-8 text-muted-foreground">
-        <MapPin className="h-12 w-12 mx-auto mb-4 opacity-50" />
-        <p>Your personalized trip plan will appear here</p>
+      <div className="flex flex-col items-center justify-center h-52 text-center p-6 border bg-zinc-50">
+        <div className="flex items-center justify-center w-12 h-12 mx-auto bg-primary/10 rounded-full mb-4">
+          <MapPin className="w-6 h-6 text-primary" />
+        </div>
+        <h3 className="text-lg font-medium mb-1">Your trip plan will appear here</h3>
+        <p className="text-zinc-500 text-sm">
+          Fill in the details and let the AI work its magic.
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Trip Overview */}
-      <Card>
-        <CardHeader>
+    <div className="bg-white">
+      <div className="flex flex-row items-center justify-between pb-3 mb-3 border-b">
+        <h3 className="text-base font-medium flex items-center gap-2">
+          <FileText className="h-4 w-4 text-zinc-600" />
+          Generated Trip Plan
+        </h3>
+        <div className="flex gap-2">
+          {onRegenerate && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={onRegenerate}
+              title="Regenerate"
+              className="h-8 w-8 rounded-none"
+            >
+              <RefreshCw className="h-4 w-4" />
+            </Button>
+          )}
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={copyFullItinerary}
+            title="Copy All"
+            className="h-8 w-8 rounded-none"
+          >
+            {isCopied ? (
+              <Check className="h-4 w-4" />
+            ) : (
+              <Copy className="h-4 w-4" />
+            )}
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        {/* Trip Overview */}
+        <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
+              <h3 className="font-medium border-b pb-2 text-base flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
                 {result.destination}
-              </CardTitle>
-              <CardDescription className="flex items-center gap-4 mt-2">
+              </h3>
+              <div className="flex items-center gap-4 mt-2 text-sm text-zinc-600">
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
                   {result.duration} days
@@ -119,43 +161,34 @@ export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutp
                   <DollarSign className="h-4 w-4" />
                   {result.budget}
                 </span>
-              </CardDescription>
-            </div>
-            <Button onClick={copyFullItinerary} variant="outline" size="sm">
-              <Copy className="h-4 w-4 mr-2" />
-              Copy All
-            </Button>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-2">
-            <div>
-              <strong>Interests:</strong>
-              <div className="flex flex-wrap gap-1 mt-1">
-                {result.interests.map((interest, index) => (
-                  <Badge key={index} variant="secondary">
-                    {interest}
-                  </Badge>
-                ))}
               </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
+          
+          <div className="space-y-2">
+            <strong className="text-sm">Interests:</strong>
+            <div className="flex flex-wrap gap-1">
+              {result.interests.map((interest, index) => (
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {interest}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
 
-      {/* Daily Itinerary */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-semibold">Daily Itinerary</h3>
-        {result.dailyItinerary.map((day, dayIndex) => (
-          <Card key={dayIndex}>
-            <CardHeader>
+        {/* Daily Itinerary */}
+        <div className="space-y-4">
+          <h4 className="text-base font-medium">Daily Itinerary</h4>
+          {result.dailyItinerary.map((day, dayIndex) => (
+            <div key={dayIndex} className="border rounded-none p-4 space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-lg">Day {dayIndex + 1}: {day.title}</CardTitle>
-                  <CardDescription className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
+                  <h5 className="font-medium text-base">Day {dayIndex + 1}: {day.title}</h5>
+                  <p className="text-sm text-zinc-600 flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
                     {day.timeOfDay}
-                  </CardDescription>
+                  </p>
                 </div>
                 <Button
                   onClick={() => {
@@ -164,35 +197,35 @@ export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutp
                   }}
                   variant="ghost"
                   size="sm"
+                  className="h-8 px-2 rounded-none"
                 >
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-3 w-3" />
                   {copiedDay === dayIndex ? "Copied!" : ""}
                 </Button>
               </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
+
               {/* Activities */}
               <div>
-                <h4 className="font-medium mb-2">Activities</h4>
+                <h6 className="font-medium text-sm mb-2">Activities</h6>
                 <div className="space-y-3">
                   {day.activities.map((activity, actIndex) => (
-                    <div key={actIndex} className="border-l-2 border-primary/20 pl-4">
+                    <div key={actIndex} className="border-l-2 border-primary/20 pl-3">
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
-                          <h5 className="font-medium">{activity.name}</h5>
-                          <p className="text-sm text-muted-foreground flex items-center gap-2">
+                          <h6 className="font-medium text-sm">{activity.name}</h6>
+                          <p className="text-xs text-zinc-600 flex items-center gap-2 mt-1">
                             <MapPin className="h-3 w-3" />
                             {activity.location}
-                            <Clock className="h-3 w-3 ml-2" />
+                            <Clock className="h-3 w-3" />
                             {activity.duration}
                             {activity.cost && (
                               <>
-                                <DollarSign className="h-3 w-3 ml-2" />
+                                <DollarSign className="h-3 w-3" />
                                 {activity.cost}
                               </>
                             )}
                           </p>
-                          <p className="text-sm mt-1">{activity.description}</p>
+                          <p className="text-xs mt-1">{activity.description}</p>
                         </div>
                       </div>
                     </div>
@@ -203,66 +236,58 @@ export default function TripPlannerOutput({ result, isLoading }: TripPlannerOutp
               {/* Restaurants */}
               {day.restaurants.length > 0 && (
                 <div>
-                  <h4 className="font-medium mb-2">Recommended Restaurants</h4>
-                  <div className="grid gap-2">
+                  <h6 className="font-medium text-sm mb-2">Recommended Restaurants</h6>
+                  <div className="space-y-2">
                     {day.restaurants.map((restaurant, restIndex) => (
-                      <div key={restIndex} className="p-3 border rounded-lg">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <h5 className="font-medium">{restaurant.name}</h5>
-                            <p className="text-sm text-muted-foreground">
-                              {restaurant.cuisine} • {restaurant.location}
-                              {restaurant.priceRange && (
-                                <span className="ml-2 flex items-center gap-1">
-                                  <DollarSign className="h-3 w-3" />
-                                  {restaurant.priceRange}
-                                </span>
-                              )}
-                            </p>
-                            <p className="text-sm mt-1">{restaurant.description}</p>
-                          </div>
+                      <div key={restIndex} className="p-3 border rounded-none">
+                        <div>
+                          <h6 className="font-medium text-sm">{restaurant.name}</h6>
+                          <p className="text-xs text-zinc-600">
+                            {restaurant.cuisine} • {restaurant.location}
+                            {restaurant.priceRange && (
+                              <span className="ml-2 flex items-center gap-1">
+                                <DollarSign className="h-3 w-3" />
+                                {restaurant.priceRange}
+                              </span>
+                            )}
+                          </p>
+                          <p className="text-xs mt-1">{restaurant.description}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
 
-      {/* Accommodation */}
-      {result.accommodation.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Recommended Accommodation</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-4">
+        {/* Accommodation */}
+        {result.accommodation.length > 0 && (
+          <div className="space-y-4">
+            <h4 className="text-base font-medium">Recommended Accommodation</h4>
+            <div className="space-y-3">
               {result.accommodation.map((hotel, index) => (
-                <div key={index} className="p-4 border rounded-lg">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h4 className="font-medium">{hotel.name}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        {hotel.type} • {hotel.location}
-                        {hotel.priceRange && (
-                          <span className="ml-2 flex items-center gap-1">
-                            <DollarSign className="h-3 w-3" />
-                            {hotel.priceRange}
-                          </span>
-                        )}
-                      </p>
-                      <p className="text-sm mt-1">{hotel.description}</p>
-                    </div>
+                <div key={index} className="p-4 border rounded-none">
+                  <div>
+                    <h5 className="font-medium text-sm">{hotel.name}</h5>
+                    <p className="text-xs text-zinc-600">
+                      {hotel.type} • {hotel.location}
+                      {hotel.priceRange && (
+                        <span className="ml-2 flex items-center gap-1">
+                          <DollarSign className="h-3 w-3" />
+                          {hotel.priceRange}
+                        </span>
+                      )}
+                    </p>
+                    <p className="text-xs mt-1">{hotel.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

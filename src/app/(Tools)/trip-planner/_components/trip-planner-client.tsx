@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useRef, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import TripPlannerForm from "./trip-planner-form";
 import TripPlannerOutput from "./trip-planner-output";
+import { Progress } from "@/components/ui/progress";
 import { toast } from "sonner";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button";
+import { ChevronsUpDown, MapPin, Star, Clock, ThumbsUp, Plane, Settings, AlertCircle, RefreshCw, HelpCircle, FileEdit, User, FileText } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export interface Activity {
   name: string;
@@ -50,6 +58,13 @@ export interface TripPlannerResult {
 export default function TripPlannerClient() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [result, setResult] = useState<TripPlannerResult | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const [isOutputOpen, setIsOutputOpen] = useState(false);
+  const [currentFormData, setCurrentFormData] = useState<any>(null);
+
+  const outputRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const handleSubmit = async (formData: {
     destination: string;
@@ -59,7 +74,22 @@ export default function TripPlannerClient() {
     additionalInfo: string;
   }) => {
     setIsLoading(true);
-    
+    setResult(null);
+    setError(null);
+    setProgress(0);
+    setIsOutputOpen(true);
+    setCurrentFormData(formData);
+
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 95) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 5;
+      });
+    }, 200);
+
     try {
       const prompt = `
         Create a detailed ${formData.duration}-day trip itinerary for ${formData.destination}.
@@ -137,8 +167,17 @@ export default function TripPlannerClient() {
         }),
       });
 
+      clearInterval(interval);
+      setProgress(100);
+
       if (!response.ok) {
-        throw new Error("Failed to generate trip plan");
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (_) {
+          errorData = { error: "An unexpected error occurred. Please try again." }
+        }
+        throw new Error(errorData.error || `Request failed with status ${response.status}`);
       }
 
       const data = await response.json();
@@ -146,48 +185,97 @@ export default function TripPlannerClient() {
       // Parse the JSON string response
       const parsedResult = JSON.parse(data.data);
       setResult(parsedResult);
+      toast.success("Trip Plan Generated!", {
+        description: "Your AI-powered travel itinerary is ready.",
+      });
     } catch (error) {
+      const message = error instanceof Error ? error.message : "An unknown error occurred.";
       console.error("Error generating trip plan:", error);
-      toast.error("Failed to generate trip plan. Please try again.");
+      setError(message);
+      toast.error(message);
     } finally {
       setIsLoading(false);
+      setTimeout(() => setProgress(0), 1000);
     }
   };
 
+  const handleRegenerate = () => {
+    if (currentFormData) {
+      handleSubmit(currentFormData);
+    }
+  };
+
+  useEffect(() => {
+    if ((result || error) && isMobile && outputRef.current) {
+      setTimeout(() => {
+        outputRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, [result, error, isMobile]);
+
   return (
-    <div className="container mx-auto py-6 space-y-6">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold">AI Trip Planner</h1>
-        <p className="text-muted-foreground">
-          Get personalized travel itineraries with AI-powered recommendations
-        </p>
+    <div className="w-full max-w-4xl mx-auto">
+      <section>
+        <h2 className="sr-only">Trip Planning Form</h2>
+        <TripPlannerForm onSubmit={handleSubmit} isLoading={isLoading} />
+      </section>
+
+      <div ref={outputRef} className="mt-6">
+        <Collapsible
+          open={isOutputOpen}
+          onOpenChange={setIsOutputOpen}
+          className="w-full"
+        >
+          {(isLoading || result || error) && (
+            <div className="flex items-center justify-between border bg-zinc-50 px-4 py-3 rounded-none">
+              <h4 className="font-medium flex items-center gap-2 text-base">
+                <FileText className="h-4 w-4 text-zinc-600" />
+                <span>Generated Trip Plan</span>
+              </h4>
+              <CollapsibleTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-9 p-0 rounded-none"
+                >
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </CollapsibleTrigger>
+            </div>
+          )}
+
+          <CollapsibleContent className="border border-t-0 p-4 data-[state=closed]:hidden rounded-none">
+            <div className="space-y-4">
+              {isLoading && (
+                <div className="w-full space-y-2">
+                  <div className="flex items-center gap-2 text-base text-zinc-600 font-medium">
+                    <RefreshCw className="h-4 w-4 animate-spin" />
+                    Generating your trip plan with AI...
+                  </div>
+                  <Progress value={progress} className="h-2 rounded-none" />
+                </div>
+              )}
+              {error && !isLoading && (
+                <div className="text-destructive p-4 bg-destructive/10 border border-destructive/20 rounded-none">
+                  <div className="flex items-center gap-2 font-medium">
+                    <AlertCircle className="h-4 w-4" />
+                    Error
+                  </div>
+                  <p className="mt-1 text-base">{error}</p>
+                </div>
+              )}
+              <TripPlannerOutput
+                result={result}
+                isLoading={isLoading}
+                onRegenerate={handleRegenerate}
+              />
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="lg:col-span-1 lg:sticky lg:top-6 lg:h-fit lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
-          <CardHeader>
-            <CardTitle>Trip Details</CardTitle>
-            <CardDescription>
-              Enter your travel preferences and requirements
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <TripPlannerForm onSubmit={handleSubmit} isLoading={isLoading} />
-          </CardContent>
-        </Card>
-
-        <Card className="lg:col-span-1">
-          <CardHeader>
-            <CardTitle>Your Trip Plan</CardTitle>
-            <CardDescription>
-              AI-generated personalized travel itinerary
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <TripPlannerOutput result={result} isLoading={isLoading} />
-          </CardContent>
-        </Card>
-      </div>
+      
     </div>
   );
 }
