@@ -20,6 +20,7 @@ import {
   Lightbulb,
   Search,
   Globe,
+  Map,
 } from "lucide-react";
 
 // List of AI tools
@@ -108,6 +109,13 @@ const aiTools = [
     description: "Generate creative ideas",
     category: "creativity"
   },
+  {
+  name: "AI Trip Planner",
+  href: "/trip-planner",
+  icon: <Map className="h-6 w-6" />, // or use a relevant Lucide/FontAwesome icon
+  description: "Plan your travels intelligently with AI",
+  category: "travel"
+},
 ];
 
 const categories = [...new Set(aiTools.map(tool => tool.category))];
