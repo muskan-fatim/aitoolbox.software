@@ -64,7 +64,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## 👑 Project Owner
 
-This project is owned and maintained by **[amanraj.me](https://amanraj.me)**.
+This project is owned and maintained by [Aman Raj](https://amanraj.me)  
+- [GitHub](https://github.com/huamanraj)
+- [LinkedIn](https://www.linkedin.com/in/huamanraj/)
+
+## 🧑‍🏫 Project Mentor
+
+Project mentor: [Varun Maramreddy](https://www.linkedin.com/in/varunmaramreddy/)  
+- [GitHub](https://github.com/DrMyth)
+- [LinkedIn](https://www.linkedin.com/in/varunmaramreddy/)
 
 ## 👥 Contributors
 
