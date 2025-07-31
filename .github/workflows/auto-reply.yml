@@ -1,22 +1,35 @@
-uses: actions/github-script@v7
-with:
-  github-token: ${{ secrets.GITHUB_TOKEN }}
-  script: |
-    const issueComment = [
-      "Thanks for opening this issue.",
-      "",
-      "**Before moving ahead:**",
-      "- ⭐ Please star the repository (Mandatory for GSSoC 25).",
-      "- 📖 Read the [Contribution Guidelines](https://github.com/${{ github.repository }}/blob/main/contribution/CONTRIBUTING.md).",
-      `- 📂 All contribution info is inside the [\`/contribution\`](https://github.com/${{ github.repository }}/tree/main/contribution) folder.`,
-      `- 📚 AI and AdSense related documentation is inside the [\`/doc\`](https://github.com/${{ github.repository }}/tree/main/doc) folder.`,
-      "",
-      "We’ll review your issue soon."
-    ].join("\n");
+name: Auto Comment on New Issues
 
-    await github.rest.issues.createComment({
-      issue_number: context.issue.number,
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      body: issueComment
-    });
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Comment on new issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueComment = [
+              "Thanks for opening this issue.",
+              "",
+              "**Before moving ahead:**",
+              "- ⭐ Please star the repository (Mandatory for GSSoC 25).",
+              "- 📖 Read the [Contribution Guidelines](https://github.com/${{ github.repository }}/blob/main/contribution/CONTRIBUTING.md).",
+              `- 📂 All contribution info is inside the [\`/contribution\`](https://github.com/${{ github.repository }}/tree/main/contribution) folder.`,
+              `- 📚 AI and AdSense related documentation is inside the [\`/doc\`](https://github.com/${{ github.repository }}/tree/main/doc) folder.`,
+              "",
+              "We’ll review your issue soon."
+            ].join("\n");
+
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: issueComment
+            });
