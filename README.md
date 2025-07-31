@@ -70,7 +70,6 @@ This project is owned and maintained by **[amanraj.me](https://amanraj.me)**.
 
 Thanks to these amazing people for their contributions:
 
-<a href="https://github.com/amanrajme/aitoolbox.software/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=amanrajme/aitoolbox.software" />
+<a href="https://github.com/huamanraj/aitoolbox.software/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=huamanraj/aitoolbox.software" />
 </a>
-
