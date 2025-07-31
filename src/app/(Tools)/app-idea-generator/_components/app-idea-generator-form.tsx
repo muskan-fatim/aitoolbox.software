@@ -49,21 +49,21 @@ import {
 } from "lucide-react"
 
 const appCategories = [
-  { value: "Productivity", icon: <Settings className="h-4 w-4" />, color: "text-blue-600" },
-  { value: "Social Networking", icon: <Users className="h-4 w-4" />, color: "text-purple-600" },
-  { value: "E-commerce", icon: <ShoppingCart className="h-4 w-4" />, color: "text-green-600" },
-  { value: "Health & Fitness", icon: <Heart className="h-4 w-4" />, color: "text-red-600" },
-  { value: "Entertainment", icon: <Music className="h-4 w-4" />, color: "text-pink-600" },
-  { value: "Education", icon: <FileText className="h-4 w-4" />, color: "text-yellow-600" },
-  { value: "Finance", icon: <DollarSign className="h-4 w-4" />, color: "text-emerald-600" },
-  { value: "Gaming", icon: <Gamepad2 className="h-4 w-4" />, color: "text-indigo-600" },
-  { value: "Travel", icon: <Map className="h-4 w-4" />, color: "text-teal-600" },
-  { value: "Photography", icon: <Camera className="h-4 w-4" />, color: "text-orange-600" },
-  { value: "Communication", icon: <MessageSquare className="h-4 w-4" />, color: "text-cyan-600" },
-  { value: "Utilities", icon: <Layers className="h-4 w-4" />, color: "text-violet-600" },
-  { value: "Business", icon: <BarChart className="h-4 w-4" />, color: "text-amber-600" },
-  { value: "Lifestyle", icon: <Calendar className="h-4 w-4" />, color: "text-lime-600" },
-  { value: "AR/VR", icon: <Smartphone className="h-4 w-4" />, color: "text-rose-600" }
+  { value: "Productivity", icon: <Settings className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Social Networking", icon: <Users className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "E-commerce", icon: <ShoppingCart className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Health & Fitness", icon: <Heart className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Entertainment", icon: <Music className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Education", icon: <FileText className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Finance", icon: <DollarSign className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Gaming", icon: <Gamepad2 className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Travel", icon: <Map className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Photography", icon: <Camera className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Communication", icon: <MessageSquare className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Utilities", icon: <Layers className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Business", icon: <BarChart className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Lifestyle", icon: <Calendar className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "AR/VR", icon: <Smartphone className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 const targetAudiences = [
@@ -73,19 +73,19 @@ const targetAudiences = [
 ]
 
 const platforms = [
-  { id: "ios", label: "iOS", icon: <Smartphone className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "android", label: "Android", icon: <Smartphone className="h-4 w-4" />, color: "text-green-600" },
-  { id: "web", label: "Web App", icon: <Code className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "cross-platform", label: "Cross-Platform", icon: <Layers className="h-4 w-4" />, color: "text-orange-600" }
+  { id: "ios", label: "iOS", icon: <Smartphone className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "android", label: "Android", icon: <Smartphone className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "web", label: "Web App", icon: <Code className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "cross-platform", label: "Cross-Platform", icon: <Layers className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 const appPurposes = [
-  { id: "solve-problem", label: "Solve a Problem", icon: <Target className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "entertain", label: "Entertainment", icon: <Gamepad2 className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "connect-people", label: "Connect People", icon: <Users className="h-4 w-4" />, color: "text-green-600" },
-  { id: "improve-efficiency", label: "Improve Efficiency", icon: <Zap className="h-4 w-4" />, color: "text-orange-600" },
-  { id: "make-money", label: "Generate Revenue", icon: <DollarSign className="h-4 w-4" />, color: "text-red-600" },
-  { id: "education", label: "Education", icon: <FileText className="h-4 w-4" />, color: "text-indigo-600" }
+  { id: "solve-problem", label: "Solve a Problem", icon: <Target className="h-4 w-4 text-gray-600" />, color: "text-gray-600" },
+  { id: "entertain", label: "Entertainment", icon: <Gamepad2 className="h-4 w-4 text-gray-600" />, color: "text-gray-600" },
+  { id: "connect-people", label: "Connect People", icon: <Users className="h-4 w-4 text-gray-600" />, color: "text-gray-600" },
+  { id: "improve-efficiency", label: "Improve Efficiency", icon: <Zap className="h-4 w-4 text-gray-600" />, color: "text-gray-600" },
+  { id: "make-money", label: "Generate Revenue", icon: <DollarSign className="h-4 w-4 text-gray-600" />, color: "text-gray-600" },
+  { id: "education", label: "Education", icon: <FileText className="h-4 w-4 text-gray-600" />, color: "text-gray-600" }
 ]
 
 const complexityLevels = [
@@ -136,13 +136,13 @@ export function AppIdeaGeneratorForm({
   })
 
   return (
-    <Card className="border-2 border-green-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-green-50 to-teal-50">
+    <Card className="border-2 border-gray-300 shadow-lg">
+      <CardHeader className="bg-gradient-to-r from-gray-100 to-gray-200">
         <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg">
+          <div className="p-2 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg">
             <Smartphone className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-green-700 to-teal-700 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text text-transparent">
             App Idea Requirements
           </span>
         </CardTitle>
@@ -156,23 +156,23 @@ export function AppIdeaGeneratorForm({
               name="appCategory"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-green-700 font-semibold">
-                    <Tag className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <Tag className="h-4 w-4 text-gray-700" />
                     App Category *
                   </FormLabel>
                   <div className="space-y-3">
                     <FormControl>
                       <Input
                         placeholder="Enter app category or industry"
-                        className="border-green-200 focus:border-green-400"
+                        className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-green-200 focus:border-green-400">
+                      <SelectTrigger className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400">
                         <SelectValue placeholder="Or select a common category" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="border-gray-300">
                         {appCategories.map(category => (
                           <SelectItem key={category.value} value={category.value}>
                             <div className="flex items-center gap-2">
@@ -184,7 +184,7 @@ export function AppIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-green-600">
+                  <FormDescription className="text-gray-600">
                     Specify what type of app you want to create
                   </FormDescription>
                   <FormMessage />
@@ -198,20 +198,20 @@ export function AppIdeaGeneratorForm({
               name="targetAudience"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-teal-700 font-semibold">
-                    <Users className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <Users className="h-4 w-4 text-gray-700" />
                     Target Audience *
                   </FormLabel>
                   <div className="space-y-3">
                     <FormControl>
                       <Input
                         placeholder="Enter your target audience"
-                        className="border-teal-200 focus:border-teal-400"
+                        className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-teal-200 focus:border-teal-400">
+                      <SelectTrigger className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400">
                         <SelectValue placeholder="Or select from common audiences" />
                       </SelectTrigger>
                       <SelectContent>
@@ -223,7 +223,7 @@ export function AppIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-teal-600">
+                  <FormDescription className="text-gray-600">
                     Who will be using your app?
                   </FormDescription>
                   <FormMessage />
@@ -237,8 +237,8 @@ export function AppIdeaGeneratorForm({
               name="targetPlatform"
               render={() => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
-                    <Smartphone className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <Smartphone className="h-4 w-4 text-gray-700" />
                     Target Platform *
                   </FormLabel>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -251,7 +251,7 @@ export function AppIdeaGeneratorForm({
                           return (
                             <FormItem
                               key={platform.id}
-                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-blue-200 p-3 hover:bg-blue-50"
+                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-300 p-3 hover:bg-gray-100"
                             >
                               <FormControl>
                                 <Checkbox
@@ -268,7 +268,7 @@ export function AppIdeaGeneratorForm({
                                 />
                               </FormControl>
                               <FormLabel className="font-normal cursor-pointer flex items-center gap-2">
-                                <span className={platform.color}>{platform.icon}</span>
+                                <span className="text-gray-600">{platform.icon}</span>
                                 {platform.label}
                               </FormLabel>
                             </FormItem>
@@ -277,7 +277,7 @@ export function AppIdeaGeneratorForm({
                       />
                     ))}
                   </div>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Which platforms will your app target?
                   </FormDescription>
                   <FormMessage />
@@ -291,8 +291,8 @@ export function AppIdeaGeneratorForm({
               name="appPurpose"
               render={() => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-purple-700 font-semibold">
-                    <Target className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <Target className="h-4 w-4 text-gray-700" />
                     App Purpose *
                   </FormLabel>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -305,7 +305,7 @@ export function AppIdeaGeneratorForm({
                           return (
                             <FormItem
                               key={purpose.id}
-                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-purple-200 p-3 hover:bg-purple-50"
+                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-300 p-3 hover:bg-gray-100"
                             >
                               <FormControl>
                                 <Checkbox
@@ -322,7 +322,7 @@ export function AppIdeaGeneratorForm({
                                 />
                               </FormControl>
                               <FormLabel className="font-normal cursor-pointer flex items-center gap-2">
-                                <span className={purpose.color}>{purpose.icon}</span>
+                                <span className="text-gray-600">{purpose.icon}</span>
                                 {purpose.label}
                               </FormLabel>
                             </FormItem>
@@ -331,7 +331,7 @@ export function AppIdeaGeneratorForm({
                       />
                     ))}
                   </div>
-                  <FormDescription className="text-purple-600">
+                  <FormDescription className="text-gray-600">
                     What is the main purpose of your app?
                   </FormDescription>
                   <FormMessage />
@@ -345,13 +345,13 @@ export function AppIdeaGeneratorForm({
               name="technicalComplexity"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-orange-700 font-semibold">
-                    <Code className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <Code className="h-4 w-4 text-gray-700" />
                     Technical Complexity *
                   </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="border-orange-200 focus:border-orange-400">
+                      <SelectTrigger className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400">
                         <SelectValue placeholder="Select complexity level" />
                       </SelectTrigger>
                     </FormControl>
@@ -363,7 +363,7 @@ export function AppIdeaGeneratorForm({
                       ))}
                     </SelectContent>
                   </Select>
-                  <FormDescription className="text-orange-600">
+                  <FormDescription className="text-gray-600">
                     How complex should the app be technically?
                   </FormDescription>
                   <FormMessage />
@@ -378,18 +378,18 @@ export function AppIdeaGeneratorForm({
                 name="keyFeatures"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-indigo-700 font-semibold">
-                      <Layers className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                      <Layers className="h-4 w-4 text-gray-700" />
                       Must-Have Features (Optional)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., User authentication, messaging, etc."
-                        className="border-indigo-200 focus:border-indigo-400"
+                        className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription className="text-indigo-600">
+                    <FormDescription className="text-gray-600">
                       Key features you want in your app
                     </FormDescription>
                     <FormMessage />
@@ -403,18 +403,18 @@ export function AppIdeaGeneratorForm({
                 name="competitorApps"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
-                      <BarChart className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                      <BarChart className="h-4 w-4 text-gray-700" />
                       Similar/Competitor Apps (Optional)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., Uber, Instagram, Notion, etc."
-                        className="border-red-200 focus:border-red-400"
+                        className="border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription className="text-red-600">
+                    <FormDescription className="text-gray-600">
                       Existing apps similar to your idea
                     </FormDescription>
                     <FormMessage />
@@ -429,18 +429,18 @@ export function AppIdeaGeneratorForm({
               name="additionalInfo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-teal-700 font-semibold">
-                    <FileText className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-semibold">
+                    <FileText className="h-4 w-4 text-gray-700" />
                     Additional Information (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Any other details that might help generate better app ideas..."
-                      className="resize-y min-h-[80px] border-teal-200 focus:border-teal-400"
+                      className="resize-y min-h-[80px] border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-teal-600">
+                  <FormDescription className="text-gray-600">
                     Any specific requirements, monetization preferences, or other details
                   </FormDescription>
                   <FormMessage />
@@ -450,8 +450,8 @@ export function AppIdeaGeneratorForm({
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white"
               disabled={isLoading}
+              className="w-full bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold py-6 text-base shadow-lg transition-all duration-200 transform hover:scale-[1.01]"
             >
               {isLoading ? (
                 <>

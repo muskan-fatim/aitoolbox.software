@@ -139,13 +139,13 @@ export function IdeaGeneratorForm({
   })
 
   return (
-    <Card className="border-2 border-purple-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-purple-50 to-blue-50">
+    <Card className="border border-gray-200 shadow-sm">
+      <CardHeader className="bg-gray-50">
         <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg">
+          <div className="p-2 bg-gray-800 rounded-lg">
             <Lightbulb className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-purple-700 to-blue-700 bg-clip-text text-transparent">
+          <span className="text-gray-900">
             Idea Requirements
           </span>
         </CardTitle>
@@ -159,20 +159,20 @@ export function IdeaGeneratorForm({
               name="topic"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-purple-700 font-semibold">
-                    <Target className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                    <Target className="h-4 w-4 text-gray-600" />
                     Topic / Category *
                   </FormLabel>
                   <div className="space-y-3">
                     <FormControl>
                       <Input
                         placeholder="Enter custom topic or select from dropdown"
-                        className="border-purple-200 focus:border-purple-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-purple-200 focus:border-purple-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Or select a category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -187,7 +187,7 @@ export function IdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-purple-600">
+                  <FormDescription className="text-gray-600">
                     Specify what type of idea you&apos;re looking for
                   </FormDescription>
                   <FormMessage />
@@ -201,18 +201,18 @@ export function IdeaGeneratorForm({
               name="purpose"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
-                    <Zap className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                    <Zap className="h-4 w-4 text-gray-600" />
                     Purpose / Goal *
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="e.g., To make money, To help students, For entertainment, To improve productivity..."
-                      className="resize-y min-h-[80px] border-blue-200 focus:border-blue-400"
+                      className="resize-y min-h-[80px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     What do you want to achieve with this idea?
                   </FormDescription>
                   <FormMessage />
@@ -227,20 +227,20 @@ export function IdeaGeneratorForm({
                 name="targetAudience"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-green-700 font-semibold">
-                      <Users className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                      <Users className="h-4 w-4 text-gray-600" />
                       Target Audience *
                     </FormLabel>
                     <div className="space-y-2">
                       <FormControl>
                         <Input
                           placeholder="Enter custom audience"
-                          className="border-green-200 focus:border-green-400"
+                          className="border-gray-200 focus:border-gray-400"
                           {...field}
                         />
                       </FormControl>
                       <Select onValueChange={field.onChange}>
-                        <SelectTrigger className="border-green-200 focus:border-green-400">
+                        <SelectTrigger className="border-gray-200 focus:border-gray-400">
                           <SelectValue placeholder="Or select from common audiences" />
                         </SelectTrigger>
                         <SelectContent>
@@ -263,18 +263,18 @@ export function IdeaGeneratorForm({
                 name="keyword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-orange-700 font-semibold">
-                      <Tag className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                      <Tag className="h-4 w-4 text-gray-600" />
                       Keyword (Optional)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., AI, Travel, Fitness..."
-                        className="border-orange-200 focus:border-orange-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription className="text-orange-600">
+                    <FormDescription className="text-gray-600">
                       Force-inject a specific keyword
                     </FormDescription>
                     <FormMessage />
@@ -290,11 +290,11 @@ export function IdeaGeneratorForm({
               render={() => (
                 <FormItem>
                   <div className="mb-4">
-                    <FormLabel className="flex items-center gap-2 text-indigo-700 font-semibold">
-                      <Globe className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                      <Globe className="h-4 w-4 text-gray-600" />
                       Platform Preference (Optional)
                     </FormLabel>
-                    <FormDescription className="text-indigo-600">
+                    <FormDescription className="text-gray-600">
                       Select platforms where your idea could be implemented
                     </FormDescription>
                   </div>
@@ -313,7 +313,7 @@ export function IdeaGeneratorForm({
                               <FormControl>
                                 <Checkbox
                                   checked={field.value?.includes(platform)}
-                                  className="border-indigo-300 data-[state=checked]:bg-indigo-600"
+                                  className="border-gray-300 data-[state=checked]:bg-gray-600"
                                   onCheckedChange={(checked) => {
                                     return checked
                                       ? field.onChange([...(field.value || []), platform])
@@ -325,7 +325,7 @@ export function IdeaGeneratorForm({
                                   }}
                                 />
                               </FormControl>
-                              <FormLabel className="text-sm font-normal text-gray-700 hover:text-indigo-700 cursor-pointer">
+                              <FormLabel className="text-sm font-normal text-gray-700 hover:text-gray-800 cursor-pointer">
                                 {platform}
                               </FormLabel>
                             </FormItem>
@@ -345,8 +345,8 @@ export function IdeaGeneratorForm({
               name="innovationLevel"
               render={({ field }) => (
                 <FormItem className="space-y-3">
-                  <FormLabel className="flex items-center gap-2 text-pink-700 font-semibold">
-                    <Lightbulb className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                    <Lightbulb className="h-4 w-4 text-gray-600" />
                     Innovation Level *
                   </FormLabel>
                   <FormControl>
@@ -355,17 +355,17 @@ export function IdeaGeneratorForm({
                       defaultValue={field.value}
                       className="flex flex-col space-y-2"
                     >
-                      <div className="flex items-center space-x-3 p-3 rounded-lg border border-pink-200 hover:bg-pink-50">
-                        <RadioGroupItem value="common" id="common" className="border-pink-400" />
-                        <Label htmlFor="common" className="text-pink-700 font-medium cursor-pointer">Common/Trending</Label>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="common" id="common" className="text-gray-600" />
+                        <Label htmlFor="common" className="text-gray-700">Common (Existing Solutions)</Label>
                       </div>
-                      <div className="flex items-center space-x-3 p-3 rounded-lg border border-pink-200 hover:bg-pink-50">
-                        <RadioGroupItem value="unique" id="unique" className="border-pink-400" />
-                        <Label htmlFor="unique" className="text-pink-700 font-medium cursor-pointer">Unique/Cutting-edge</Label>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="unique" id="unique" className="text-gray-600" />
+                        <Label htmlFor="unique" className="text-gray-700">Unique (Novel Approach)</Label>
                       </div>
-                      <div className="flex items-center space-x-3 p-3 rounded-lg border border-pink-200 hover:bg-pink-50">
-                        <RadioGroupItem value="problem-solving" id="problem-solving" className="border-pink-400" />
-                        <Label htmlFor="problem-solving" className="text-pink-700 font-medium cursor-pointer">Problem-solving</Label>
+                      <div className="flex items-center space-x-2">
+                        <RadioGroupItem value="problem-solving" id="problem-solving" className="text-gray-600" />
+                        <Label htmlFor="problem-solving" className="text-gray-700">Problem-Solving (Addresses Pain Points)</Label>
                       </div>
                     </RadioGroup>
                   </FormControl>
@@ -381,11 +381,11 @@ export function IdeaGeneratorForm({
               render={() => (
                 <FormItem>
                   <div className="mb-4">
-                    <FormLabel className="flex items-center gap-2 text-teal-700 font-semibold">
-                      <Layers className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                      <Layers className="h-4 w-4 text-gray-600" />
                       Idea Type *
                     </FormLabel>
-                    <FormDescription className="text-teal-600">
+                    <FormDescription className="text-gray-600">
                       Select what type of idea you want to generate
                     </FormDescription>
                   </div>
@@ -404,7 +404,7 @@ export function IdeaGeneratorForm({
                               <FormControl>
                                 <Checkbox
                                   checked={field.value?.includes(type.id)}
-                                  className="border-teal-300 data-[state=checked]:bg-teal-600"
+                                  className="border-gray-300 data-[state=checked]:bg-gray-600"
                                   onCheckedChange={(checked) => {
                                     return checked
                                       ? field.onChange([...(field.value || []), type.id])
@@ -417,8 +417,8 @@ export function IdeaGeneratorForm({
                                 />
                               </FormControl>
                               <FormLabel className="text-sm font-normal cursor-pointer flex items-center gap-2">
-                                <span className={type.color}>{type.icon}</span>
-                                <span className="text-gray-700 hover:text-teal-700">{type.label}</span>
+                                <span className="text-gray-600">{type.icon}</span>
+                                <span className="text-gray-700 hover:text-gray-800">{type.label}</span>
                               </FormLabel>
                             </FormItem>
                           )
@@ -437,18 +437,18 @@ export function IdeaGeneratorForm({
               name="additionalInput"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-slate-700 font-semibold">
-                    <PenTool className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-800 font-medium">
+                    <PenTool className="h-4 w-4 text-gray-600" />
                     Additional Input / Description (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Any specific requirements, constraints, or additional context you'd like to provide..."
-                      className="resize-y min-h-[100px] border-slate-200 focus:border-slate-400"
+                      className="resize-y min-h-[100px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-slate-600">
+                  <FormDescription className="text-gray-600">
                     Provide any additional context or specific requirements
                   </FormDescription>
                   <FormMessage />
@@ -459,7 +459,7 @@ export function IdeaGeneratorForm({
             <Button 
               type="submit" 
               disabled={isLoading} 
-              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+              className="w-full bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
             >
               {isLoading ? (
                 <>

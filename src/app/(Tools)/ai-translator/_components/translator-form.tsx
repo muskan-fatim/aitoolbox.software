@@ -105,24 +105,24 @@ export function TranslatorForm({
   }
 
   return (
-    <Card className="border-blue-100 shadow-md">
-      <CardHeader className="bg-gradient-to-r from-blue-50 to-cyan-50 border-b border-blue-100">
-        <CardTitle className="text-xl text-blue-800">Translation Details</CardTitle>
-        <CardDescription>
+    <Card className="border-gray-200 shadow-md">
+      <CardHeader className="border-b border-gray-200">
+        <CardTitle className="text-xl text-black">Translation Details</CardTitle>
+        <CardDescription className="text-gray-700">
           Enter your text and select languages to translate between
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="flex flex-col md:flex-row gap-4 items-end">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full">
+              <div className="w-full max-w-[280px] md:max-w-none md:flex-1">
                 <FormField
                   control={form.control}
                   name="sourceLanguage"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-blue-700">Source Language</FormLabel>
+                      <FormLabel className="text-black">Source Language</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -146,24 +146,24 @@ export function TranslatorForm({
                 />
               </div>
               
-              <Button 
-                type="button" 
-                variant="outline" 
-                size="icon" 
-                className="mb-1 border-blue-200 hover:bg-blue-50"
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
                 onClick={handleSwapLanguages}
+                className="h-10 w-10 rounded-full border-2 border-gray-200 bg-white hover:bg-gray-50 self-center md:self-end mb-1"
               >
                 <ArrowRightLeft className="h-4 w-4 text-blue-600" />
                 <span className="sr-only">Swap languages</span>
               </Button>
               
-              <div className="flex-1">
+              <div className="w-full max-w-[280px] md:max-w-none md:flex-1">
                 <FormField
                   control={form.control}
                   name="targetLanguage"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-blue-700">Target Language</FormLabel>
+                      <FormLabel className="text-black">Target Language</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -193,15 +193,15 @@ export function TranslatorForm({
               name="text"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-blue-700">Text to Translate</FormLabel>
+                  <FormLabel className="text-black">Text to Translate</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Enter the text you want to translate..."
-                      className="resize-y min-h-[150px] border-blue-200 focus-visible:ring-blue-400"
+                      className="resize-y min-h-[150px] border-black focus-visible:ring-black"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Enter the text you want to translate. Maximum 5000 characters.
                   </FormDescription>
                   <FormMessage />
@@ -212,7 +212,7 @@ export function TranslatorForm({
             <Button 
               type="submit" 
               disabled={isLoading} 
-              className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+              className="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
             >
               {isLoading ? (
                 <>

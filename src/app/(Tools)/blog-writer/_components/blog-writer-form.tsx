@@ -70,7 +70,7 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="topic">Blog Topic</Label>
+        <Label htmlFor="topic" className="text-gray-700">Blog Topic</Label>
         <Input
           id="topic"
           placeholder="Enter your blog topic or title"
@@ -78,18 +78,19 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
           onChange={(e) => setTopic(e.target.value)}
           disabled={isLoading}
           required
+          className="border-gray-300 focus:border-gray-500 focus:ring-gray-500"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="tone">Tone</Label>
+          <Label htmlFor="tone" className="text-gray-700">Tone</Label>
           <Select
             value={tone}
             onValueChange={setTone}
             disabled={isLoading}
           >
-            <SelectTrigger id="tone" className="w-full">
+            <SelectTrigger id="tone" className="w-full border-gray-300 focus:ring-gray-500 focus:border-gray-500">
               <SelectValue placeholder="Select tone" />
             </SelectTrigger>
             <SelectContent>
@@ -103,13 +104,13 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="length">Length</Label>
+          <Label htmlFor="length" className="text-gray-700">Length</Label>
           <Select
             value={length}
             onValueChange={setLength}
             disabled={isLoading}
           >
-            <SelectTrigger id="length" className="w-full">
+            <SelectTrigger id="length" className="w-full border-gray-300 focus:ring-gray-500 focus:border-gray-500">
               <SelectValue placeholder="Select length" />
             </SelectTrigger>
             <SelectContent>
@@ -124,13 +125,13 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="targetAudience">Target Audience</Label>
+        <Label htmlFor="targetAudience" className="text-gray-700">Target Audience</Label>
         <Select
           value={targetAudience}
           onValueChange={setTargetAudience}
           disabled={isLoading}
         >
-          <SelectTrigger id="targetAudience" className="w-full">
+          <SelectTrigger id="targetAudience" className="w-full border-gray-300 focus:ring-gray-500 focus:border-gray-500">
             <SelectValue placeholder="Select target audience" />
           </SelectTrigger>
           <SelectContent>
@@ -144,11 +145,11 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="additionalInfo">Additional Information (Optional)</Label>
+        <Label htmlFor="additionalInfo" className="text-gray-700">Additional Information (Optional)</Label>
         <Textarea
           id="additionalInfo"
           placeholder="Add any specific points, keywords, or requirements you want included in the blog post"
-          className="min-h-[100px] resize-y"
+          className="min-h-[100px] resize-y border-gray-300 focus:border-gray-500 focus:ring-gray-500"
           value={additionalInfo}
           onChange={(e) => setAdditionalInfo(e.target.value)}
           disabled={isLoading}
@@ -157,7 +158,7 @@ export default function BlogWriterForm({ onSubmit, isLoading }: BlogWriterFormPr
 
       <Button 
         type="submit" 
-        className="w-full" 
+        className="w-full bg-gray-700 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" 
         disabled={isLoading || !topic.trim()}
       >
         {isLoading ? (

@@ -59,22 +59,22 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('blog post') || titleLower.includes('idea') || titleLower.includes('headline')) {
-      return <Newspaper className="h-5 w-5 text-blue-600" />
+      return <Newspaper className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('description') || titleLower.includes('overview')) {
-      return <FileText className="h-5 w-5 text-purple-600" />
+      return <FileText className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('key points') || titleLower.includes('sections') || titleLower.includes('outline')) {
-      return <ListChecks className="h-5 w-5 text-green-600" />
+      return <ListChecks className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('keywords') || titleLower.includes('seo')) {
-      return <Hash className="h-5 w-5 text-orange-600" />
+      return <Hash className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('audience') || titleLower.includes('target')) {
-      return <Users className="h-5 w-5 text-indigo-600" />
+      return <Users className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('strategy') || titleLower.includes('tips')) {
-      return <Sparkles className="h-5 w-5 text-pink-600" />
+      return <Sparkles className="h-5 w-5 text-gray-700" />
     }
     
     return <ArrowRight className="h-5 w-5 text-gray-600" />
@@ -84,22 +84,22 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('blog post') || titleLower.includes('idea') || titleLower.includes('headline')) {
-      return "border-blue-300 bg-gradient-to-r from-blue-50 to-blue-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('description') || titleLower.includes('overview')) {
-      return "border-purple-300 bg-gradient-to-r from-purple-50 to-purple-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('key points') || titleLower.includes('sections') || titleLower.includes('outline')) {
-      return "border-green-300 bg-gradient-to-r from-green-50 to-green-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('keywords') || titleLower.includes('seo')) {
-      return "border-orange-300 bg-gradient-to-r from-orange-50 to-orange-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('audience') || titleLower.includes('target')) {
-      return "border-indigo-300 bg-gradient-to-r from-indigo-50 to-indigo-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('strategy') || titleLower.includes('tips')) {
-      return "border-pink-300 bg-gradient-to-r from-pink-50 to-pink-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     
     return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
@@ -118,7 +118,7 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
         const text = trimmedLine.replace(/^[-*]\s+/, '')
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <Circle className="h-4 w-4 mt-1 text-blue-500 fill-current" />
+            <Circle className="h-4 w-4 mt-1 text-gray-500 fill-current" />
             <span className="text-gray-700 leading-relaxed">{text}</span>
           </div>
         )
@@ -129,7 +129,7 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
         const number = trimmedLine.match(/^(\d+)\./)?.[1] || '1'
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <div className="flex items-center justify-center w-6 h-6 bg-blue-500 text-white text-xs font-bold rounded-full mt-0.5">
+            <div className="flex items-center justify-center w-6 h-6 bg-gray-600 text-white text-xs font-bold rounded-full mt-0.5">
               {number}
             </div>
             <span className="text-gray-700 leading-relaxed">{text}</span>
@@ -143,11 +143,11 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
             {isChecked ? (
-              <CheckCircle className="h-4 w-4 mt-1 text-green-500" />
+              <CheckCircle className="h-4 w-4 mt-1 text-gray-600" />
             ) : (
               <Circle className="h-4 w-4 mt-1 text-gray-400" />
             )}
-            <span className={`leading-relaxed ${isChecked ? 'text-green-700 line-through' : 'text-gray-700'}`}>
+            <span className={`leading-relaxed ${isChecked ? 'text-gray-700 line-through' : 'text-gray-700'}`}>
               {text}
             </span>
           </div>
@@ -227,12 +227,12 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
         })
         
         return (
-          <div key={index} className="p-6 rounded-xl border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-indigo-50 mb-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <div key={index} className="p-6 rounded-xl border-l-4 border-gray-600 bg-gradient-to-r from-gray-50 to-gray-100 mb-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-8 h-8 bg-blue-500 text-white text-sm font-bold rounded-full">
+              <div className="flex items-center justify-center w-8 h-8 bg-gray-600 text-white text-sm font-bold rounded-full">
                 {number}
               </div>
-              <h3 className="font-bold text-xl text-blue-800">
+              <h3 className="font-bold text-xl text-gray-800">
                 {title}
               </h3>
             </div>
@@ -265,7 +265,7 @@ export function BlogIdeaOutput({ generatedIdeas, isLoading }: BlogIdeaOutputProp
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="text-xs flex items-center gap-1 text-blue-600 border-blue-200 hover:bg-blue-50"
+                className="text-xs flex items-center gap-1 text-gray-700 border-gray-300 hover:bg-gray-100"
               >
                 <Bookmark className="h-3 w-3" />
                 Save Idea

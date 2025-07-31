@@ -146,32 +146,40 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
       name: "Startup Idea Generator",
       description: "Create business concepts",
       href: "/startup-idea-generator",
-      icon: <Rocket className="h-5 w-5 text-purple-500" />,
+      icon: <Rocket className="h-5 w-5 text-gray-600" />,
     },
     {
       name: "Business Model Canvas",
       description: "Develop your business model",
       href: "/business-model-canvas",
-      icon: <Briefcase className="h-5 w-5 text-blue-500" />,
+      icon: <Briefcase className="h-5 w-5 text-gray-600" />,
     },
     {
       name: "Marketing Plan Creator",
       description: "Create product marketing plans",
       href: "/marketing-plan-creator",
-      icon: <ShoppingBag className="h-5 w-5 text-green-500" />,
+      icon: <ShoppingBag className="h-5 w-5 text-gray-600" />,
     },
   ]
 
   return (
     <div className="container max-w-6xl mx-auto px-4 py-8">
       <div className="flex flex-col gap-8">
+        {/* Main Heading */}
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 bg-clip-text text-transparent">
+            Product Idea Generator
+          </h1>
+          <p className="mt-2 text-gray-600">Generate innovative product ideas with AI</p>
+        </div>
+        
         {/* Form Section */}
         <Collapsible
           open={isOpen}
           onOpenChange={setIsOpen}
           className="w-full space-y-4"
         >
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <h2 className="text-2xl font-bold text-gray-800">Generate Product Ideas</h2>
             <CollapsibleTrigger asChild>
               <Button variant="ghost" size="sm" className="w-9 p-0">
@@ -206,7 +214,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
         {!isLoading && generatedIdeas && (
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
-              <Package className="h-5 w-5 text-blue-500" />
+              <Package className="h-5 w-5 text-gray-600" />
               <span>Related Tools You Might Like</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -214,7 +222,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
                 <Link
                   key={index}
                   href={tool.href}
-                  className="flex items-start p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+                  className="flex items-start p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex-shrink-0 mr-3">{tool.icon}</div>
                   <div>
@@ -251,7 +259,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
-                <Lightbulb className="h-4 w-4 text-blue-500" />
+                <Lightbulb className="h-4 w-4 text-gray-600" />
                 Overcome Creative Blocks
               </h4>
               <p className="text-gray-600 text-sm">
@@ -260,7 +268,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
             </div>
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
-                <Target className="h-4 w-4 text-blue-500" />
+                <Target className="h-4 w-4 text-gray-600" />
                 Market-Focused Ideas
               </h4>
               <p className="text-gray-600 text-sm">
@@ -269,7 +277,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
             </div>
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
-                <Zap className="h-4 w-4 text-blue-500" />
+                <Zap className="h-4 w-4 text-gray-600" />
                 Complete Product Concepts
               </h4>
               <p className="text-gray-600 text-sm">
@@ -278,7 +286,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
             </div>
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2">
-                <Rocket className="h-4 w-4 text-blue-500" />
+                <Rocket className="h-4 w-4 text-gray-600" />
                 Accelerate Innovation
               </h4>
               <p className="text-gray-600 text-sm">

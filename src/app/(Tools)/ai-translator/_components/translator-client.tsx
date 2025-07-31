@@ -124,10 +124,10 @@ ${data.text}
       <div className="container mx-auto p-4 md:p-8">
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-black">
               AI Translator
             </h1>
-            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
               Translate text between multiple languages with AI-powered accuracy and natural fluency.
             </p>
           </header>
@@ -144,10 +144,10 @@ ${data.text}
                 className="w-full"
               >
                 {(isLoading || translatedText || error) && (
-                  <div className="flex items-center justify-between rounded-t-lg border bg-gradient-to-r from-blue-50 to-cyan-50 px-4 py-3">
+                  <div className="flex items-center justify-between rounded-t-lg border border-gray-200 px-4 py-3">
                     <h4 className="font-semibold flex items-center gap-2">
-                      <Globe className="h-4 w-4 text-blue-600" />
-                      <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                      <Globe className="h-4 w-4 text-black" />
+                      <span className="text-black">
                         Translation Result
                       </span>
                     </h4>
@@ -164,7 +164,7 @@ ${data.text}
                   <div className="space-y-4">
                     {isLoading && (
                       <div className="w-full">
-                        <Progress value={progress} className="h-2 bg-blue-100" />
+                        <Progress value={progress} className="h-2 bg-gray-100" />
                       </div>
                     )}
                     {error && !isLoading && (
@@ -184,14 +184,14 @@ ${data.text}
             
             {/* Related tools section */}
             <div className="mt-12 border-t pt-8">
-              <h2 className="text-xl font-semibold mb-4 text-blue-800">Related Tools</h2>
+              <h2 className="text-xl font-semibold mb-4 text-black">Related Tools</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <Link 
                   href="/grammar-fixer" 
                   className="p-4 border rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-3"
                 >
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <Languages className="h-5 w-5 text-blue-600" />
+                  <div className="bg-gray-100 p-2 rounded-full">
+                    <Languages className="h-5 w-5 text-black" />
                   </div>
                   <div>
                     <h3 className="font-medium">Grammar Fixer</h3>
@@ -202,8 +202,8 @@ ${data.text}
                   href="/text-summarizer" 
                   className="p-4 border rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-3"
                 >
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <Globe className="h-5 w-5 text-blue-600" />
+                  <div className="bg-gray-100 p-2 rounded-full">
+                    <Globe className="h-5 w-5 text-black" />
                   </div>
                   <div>
                     <h3 className="font-medium">Text Summarizer</h3>
@@ -214,8 +214,8 @@ ${data.text}
                   href="/chatbot" 
                   className="p-4 border rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-3"
                 >
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <Globe className="h-5 w-5 text-blue-600" />
+                  <div className="bg-gray-100 p-2 rounded-full">
+                    <Globe className="h-5 w-5 text-black" />
                   </div>
                   <div>
                     <h3 className="font-medium">AI Chatbot</h3>
