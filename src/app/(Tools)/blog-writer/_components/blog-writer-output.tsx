@@ -34,11 +34,11 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <Skeleton className="h-8 w-3/4" />
-        <Skeleton className="h-[400px] w-full" />
+        <Skeleton className="h-8 w-3/4 bg-gray-200" />
+        <Skeleton className="h-[400px] w-full bg-gray-200" />
         <div className="space-y-2">
-          <Skeleton className="h-4 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
+          <Skeleton className="h-4 w-3/4 bg-gray-200" />
+          <Skeleton className="h-4 w-1/2 bg-gray-200" />
         </div>
       </div>
     );
@@ -46,10 +46,10 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
 
   if (!result) {
     return (
-      <div className="flex flex-col items-center justify-center h-[400px] border border-dashed rounded-md p-6 text-center">
-        <AlertCircle className="h-10 w-10 text-muted-foreground mb-2" />
-        <h3 className="text-lg font-medium">No Blog Generated Yet</h3>
-        <p className="text-sm text-muted-foreground mt-1">
+      <div className="flex flex-col items-center justify-center h-[400px] border border-dashed border-gray-300 rounded-md p-6 text-center">
+        <AlertCircle className="h-10 w-10 text-gray-400 mb-2" />
+        <h3 className="text-lg font-medium text-gray-700">No Blog Generated Yet</h3>
+        <p className="text-sm text-gray-500 mt-1">
           Fill out the form and click &quot;Generate Blog&quot; to create your content
         </p>
       </div>
@@ -59,28 +59,28 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
   return (
     <div className="space-y-4">
       <Tabs defaultValue="content" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="content">
-            <FileText className="h-4 w-4 mr-2" />
+        <TabsList className="grid w-full grid-cols-4 bg-gray-100">
+          <TabsTrigger value="content" className="text-gray-700 data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900">
+            <FileText className="h-4 w-4 mr-2 text-gray-600" />
             Content
           </TabsTrigger>
-          <TabsTrigger value="outline">
-            <List className="h-4 w-4 mr-2" />
+          <TabsTrigger value="outline" className="text-gray-700 data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900">
+            <List className="h-4 w-4 mr-2 text-gray-600" />
             Outline
           </TabsTrigger>
-          <TabsTrigger value="keywords">
-            <Tag className="h-4 w-4 mr-2" />
+          <TabsTrigger value="keywords" className="text-gray-700 data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900">
+            <Tag className="h-4 w-4 mr-2 text-gray-600" />
             Keywords
           </TabsTrigger>
-          <TabsTrigger value="meta">
-            <Info className="h-4 w-4 mr-2" />
+          <TabsTrigger value="meta" className="text-gray-700 data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900">
+            <Info className="h-4 w-4 mr-2 text-gray-600" />
             Meta
           </TabsTrigger>
         </TabsList>
         
         <TabsContent value="content" className="space-y-4 pt-4">
           <div className="relative">
-            <h2 className="text-2xl font-bold mb-4">{result.title}</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{result.title}</h2>
             <div className="prose prose-sm max-w-none">
               {result.content.split('\n\n').map((paragraph, index) => {
                 // Check if the paragraph is a heading (starts with # or ##)
@@ -98,13 +98,13 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
             <Button
               size="sm"
               variant="ghost"
-              className="absolute top-2 right-2"
+              className="absolute top-2 right-2 text-gray-600 hover:bg-gray-100"
               onClick={() => handleCopy(result.content)}
             >
               {copied ? (
-                <Check className="h-4 w-4" />
+                <Check className="h-4 w-4 text-gray-700" />
               ) : (
-                <ClipboardCopy className="h-4 w-4" />
+                <ClipboardCopy className="h-4 w-4 text-gray-600" />
               )}
               <span className="sr-only">Copy to clipboard</span>
             </Button>
@@ -112,7 +112,7 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
 
           <Button
             variant="outline"
-            className="w-full"
+            className="w-full border-gray-300 text-gray-700 hover:bg-gray-50"
             onClick={() => handleCopy(result.content)}
           >
             {copied ? "Copied!" : "Copy Blog Content"}
@@ -120,12 +120,12 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
         </TabsContent>
         
         <TabsContent value="outline" className="pt-4">
-          <Card>
+          <Card className="border-gray-200">
             <CardContent className="pt-6">
-              <h3 className="text-lg font-medium mb-4">Blog Outline</h3>
-              <ol className="list-decimal pl-6 space-y-2">
+              <h3 className="text-lg font-medium text-gray-800 mb-4">Blog Outline</h3>
+              <ol className="list-decimal pl-6 space-y-2 text-gray-700">
                 {result.outline.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <li key={index} className="text-gray-700">{item}</li>
                 ))}
               </ol>
             </CardContent>
@@ -133,12 +133,12 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
         </TabsContent>
         
         <TabsContent value="keywords" className="pt-4">
-          <Card>
+          <Card className="border-gray-200">
             <CardContent className="pt-6">
-              <h3 className="text-lg font-medium mb-4">SEO Keywords</h3>
+              <h3 className="text-lg font-medium text-gray-800 mb-4">SEO Keywords</h3>
               <div className="flex flex-wrap gap-2">
                 {result.keywords.map((keyword, index) => (
-                  <Badge key={index} variant="secondary">
+                  <Badge key={index} variant="secondary" className="bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200">
                     {keyword}
                   </Badge>
                 ))}
@@ -148,12 +148,12 @@ export default function BlogWriterOutput({ result, isLoading }: BlogWriterOutput
         </TabsContent>
         
         <TabsContent value="meta" className="pt-4">
-          <Card>
+          <Card className="border-gray-200">
             <CardContent className="pt-6">
-              <h3 className="text-lg font-medium mb-4">Meta Description</h3>
-              <div className="border rounded-md p-4 bg-muted/50">
-                <p className="text-sm">{result.metaDescription}</p>
-                <div className="text-xs text-muted-foreground mt-2">
+              <h3 className="text-lg font-medium text-gray-800 mb-4">Meta Description</h3>
+              <div className="border border-gray-200 rounded-md p-4 bg-gray-50">
+                <p className="text-sm text-gray-700">{result.metaDescription}</p>
+                <div className="text-xs text-gray-500 mt-2">
                   {result.metaDescription.length} characters 
                   {result.metaDescription.length > 160 && 
                     <span className="text-red-500"> (exceeds 160 character limit)</span>

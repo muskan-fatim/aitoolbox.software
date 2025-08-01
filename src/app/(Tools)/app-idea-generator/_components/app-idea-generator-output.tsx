@@ -60,22 +60,22 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('app') || titleLower.includes('name') || titleLower.includes('title')) {
-      return <Smartphone className="h-5 w-5 text-green-600" />
+      return <Smartphone className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('description') || titleLower.includes('value') || titleLower.includes('proposition')) {
-      return <Sparkles className="h-5 w-5 text-teal-600" />
+      return <Sparkles className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('features') || titleLower.includes('functionality')) {
-      return <Layers className="h-5 w-5 text-blue-600" />
+      return <Layers className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('audience') || titleLower.includes('users') || titleLower.includes('target')) {
-      return <Users className="h-5 w-5 text-purple-600" />
+      return <Users className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('monetization') || titleLower.includes('revenue') || titleLower.includes('business')) {
-      return <DollarSign className="h-5 w-5 text-amber-600" />
+      return <DollarSign className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('technical') || titleLower.includes('implementation') || titleLower.includes('challenges')) {
-      return <Code className="h-5 w-5 text-red-600" />
+      return <Code className="h-5 w-5 text-gray-800" />
     }
     
     return <ArrowRight className="h-5 w-5 text-gray-600" />
@@ -85,25 +85,25 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('app') || titleLower.includes('name') || titleLower.includes('title')) {
-      return "border-green-300 bg-gradient-to-r from-green-50 to-green-100"
+      return "border-gray-300 bg-gray-50"
     }
     if (titleLower.includes('description') || titleLower.includes('value') || titleLower.includes('proposition')) {
-      return "border-teal-300 bg-gradient-to-r from-teal-50 to-teal-100"
+      return "border-gray-300 bg-gray-100"
     }
     if (titleLower.includes('features') || titleLower.includes('functionality')) {
-      return "border-blue-300 bg-gradient-to-r from-blue-50 to-blue-100"
+      return "border-gray-300 bg-gray-50"
     }
     if (titleLower.includes('audience') || titleLower.includes('users') || titleLower.includes('target')) {
-      return "border-purple-300 bg-gradient-to-r from-purple-50 to-purple-100"
+      return "border-gray-300 bg-gray-100"
     }
     if (titleLower.includes('monetization') || titleLower.includes('revenue') || titleLower.includes('business')) {
-      return "border-amber-300 bg-gradient-to-r from-amber-50 to-amber-100"
+      return "border-gray-300 bg-gray-50"
     }
     if (titleLower.includes('technical') || titleLower.includes('implementation') || titleLower.includes('challenges')) {
-      return "border-red-300 bg-gradient-to-r from-red-50 to-red-100"
+      return "border-gray-300 bg-gray-100"
     }
     
-    return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
+    return "border-gray-300 bg-gray-50"
   }
 
   const parseMarkdownList = (content: string) => {
@@ -119,8 +119,8 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
         const text = trimmedLine.replace(/^[-*]\s+/, '')
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <Circle className="h-4 w-4 mt-1 text-green-500 fill-current" />
-            <span className="text-gray-700 leading-relaxed">{text}</span>
+            <Circle className="h-4 w-4 mt-1 text-gray-400 fill-current flex-shrink-0" />
+            <span className="text-gray-800 leading-relaxed">{text}</span>
           </div>
         )
       }
@@ -130,10 +130,10 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
         const number = trimmedLine.match(/^(\d+)\./)?.[1] || '1'
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <div className="flex items-center justify-center w-6 h-6 bg-green-500 text-white text-xs font-bold rounded-full mt-0.5">
+            <div className="flex items-center justify-center w-6 h-6 bg-gray-600 text-white text-xs font-bold rounded-full mt-0.5 flex-shrink-0">
               {number}
             </div>
-            <span className="text-gray-700 leading-relaxed">{text}</span>
+            <span className="text-gray-800 leading-relaxed">{text}</span>
           </div>
         )
       }
@@ -144,11 +144,11 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
             {isChecked ? (
-              <CheckCircle className="h-4 w-4 mt-1 text-green-500" />
+              <CheckCircle className="h-4 w-4 mt-1 text-gray-600 flex-shrink-0" />
             ) : (
-              <Circle className="h-4 w-4 mt-1 text-gray-400" />
+              <Circle className="h-4 w-4 mt-1 text-gray-400 flex-shrink-0" />
             )}
-            <span className={`leading-relaxed ${isChecked ? 'text-green-700 line-through' : 'text-gray-700'}`}>
+            <span className={`leading-relaxed ${isChecked ? 'text-gray-600 line-through' : 'text-gray-800'}`}>
               {text}
             </span>
           </div>
@@ -157,7 +157,7 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
       // Regular text
       else if (trimmedLine && !trimmedLine.startsWith('#')) {
         items.push(
-          <p key={index} className="text-gray-700 leading-relaxed py-1">
+          <p key={index} className="text-gray-800 leading-relaxed py-1">
             {trimmedLine}
           </p>
         )
@@ -247,12 +247,12 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
         }
         
         return (
-          <div key={index} className="p-6 rounded-xl border-l-4 border-green-500 bg-gradient-to-r from-green-50 to-teal-50 mb-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
+          <div key={index} className="p-6 rounded-xl border-l-4 border-gray-500 bg-gradient-to-r from-gray-50 to-gray-100 mb-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 text-white text-sm font-bold rounded-full">
+              <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-700 text-white text-sm font-bold rounded-full">
                 {appNumber}
               </div>
-              <h3 className="font-bold text-xl text-teal-800">
+              <h3 className="font-bold text-xl text-gray-800">
                 {title}
               </h3>
             </div>
@@ -285,7 +285,7 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="text-xs flex items-center gap-1 text-green-600 border-green-200 hover:bg-green-50"
+                className="text-xs flex items-center gap-1 text-gray-600 border-gray-200 hover:bg-gray-100"
               >
                 <Bookmark className="h-3 w-3" />
                 Save Idea
@@ -293,7 +293,7 @@ export function AppIdeaOutput({ generatedIdeas, isLoading }: AppIdeaOutputProps)
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="text-xs flex items-center gap-1 text-teal-600 border-teal-200 hover:bg-teal-50"
+                className="text-xs flex items-center gap-1 text-gray-700 border-gray-300 hover:bg-gray-100"
               >
                 <Download className="h-3 w-3" />
                 Export

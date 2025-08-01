@@ -61,28 +61,28 @@ export function IdeaOutput({ generatedIdea, isLoading }: IdeaOutputProps) {
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('title') || titleLower.includes('idea')) {
-      return <Lightbulb className="h-5 w-5 text-yellow-600" />
+      return <Lightbulb className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('concept') || titleLower.includes('overview') || titleLower.includes('thesis')) {
-      return <Sparkles className="h-5 w-5 text-purple-600" />
+      return <Sparkles className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('audience') || titleLower.includes('target') || titleLower.includes('positioning')) {
-      return <Users className="h-5 w-5 text-blue-600" />
+      return <Users className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('feature') || titleLower.includes('component') || titleLower.includes('architecture')) {
-      return <Layers className="h-5 w-5 text-green-600" />
+      return <Layers className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('implementation') || titleLower.includes('strategy') || titleLower.includes('roadmap') || titleLower.includes('entry')) {
-      return <Target className="h-5 w-5 text-orange-600" />
+      return <Target className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('market') || titleLower.includes('potential') || titleLower.includes('competitive') || titleLower.includes('differentiation')) {
-      return <TrendingUp className="h-5 w-5 text-emerald-600" />
+      return <TrendingUp className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('value') || titleLower.includes('proposition') || titleLower.includes('ecosystem')) {
-      return <Star className="h-5 w-5 text-pink-600" />
+      return <Star className="h-5 w-5 text-gray-600" />
     }
     if (titleLower.includes('step') || titleLower.includes('next') || titleLower.includes('metrics') || titleLower.includes('evolution')) {
-      return <Rocket className="h-5 w-5 text-indigo-600" />
+      return <Rocket className="h-5 w-5 text-gray-600" />
     }
     
     return <ArrowRight className="h-5 w-5 text-gray-600" />
@@ -92,31 +92,31 @@ export function IdeaOutput({ generatedIdea, isLoading }: IdeaOutputProps) {
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('title') || titleLower.includes('idea')) {
-      return "border-yellow-300 bg-gradient-to-r from-yellow-50 to-yellow-100"
+      return "border-gray-500 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('concept') || titleLower.includes('overview') || titleLower.includes('thesis')) {
-      return "border-purple-300 bg-gradient-to-r from-purple-50 to-purple-100"
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('audience') || titleLower.includes('target') || titleLower.includes('positioning')) {
-      return "border-blue-300 bg-gradient-to-r from-blue-50 to-blue-100"
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('feature') || titleLower.includes('component') || titleLower.includes('architecture')) {
-      return "border-green-300 bg-gradient-to-r from-green-50 to-green-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('implementation') || titleLower.includes('strategy') || titleLower.includes('roadmap') || titleLower.includes('entry')) {
-      return "border-orange-300 bg-gradient-to-r from-orange-50 to-orange-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('market') || titleLower.includes('potential') || titleLower.includes('competitive') || titleLower.includes('differentiation')) {
-      return "border-emerald-300 bg-gradient-to-r from-emerald-50 to-emerald-100"
+      return "border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('value') || titleLower.includes('proposition') || titleLower.includes('ecosystem')) {
-      return "border-pink-300 bg-gradient-to-r from-pink-50 to-pink-100"
+      return "border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('step') || titleLower.includes('next') || titleLower.includes('metrics') || titleLower.includes('evolution')) {
-      return "border-indigo-300 bg-gradient-to-r from-indigo-50 to-indigo-100"
+      return "border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     
-    return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
+    return "border-gray-200 bg-gradient-to-r from-gray-50 to-gray-100"
   }
 
   const parseMarkdownList = (content: string) => {
@@ -132,7 +132,7 @@ export function IdeaOutput({ generatedIdea, isLoading }: IdeaOutputProps) {
         const text = trimmedLine.replace(/^[-*]\s+/, '')
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <Circle className="h-4 w-4 mt-1 text-blue-500 fill-current" />
+            <Circle className="h-4 w-4 mt-1 text-gray-500 fill-current" />
             <span className="text-gray-700 leading-relaxed">{text}</span>
           </div>
         )
@@ -143,7 +143,7 @@ export function IdeaOutput({ generatedIdea, isLoading }: IdeaOutputProps) {
         const number = trimmedLine.match(/^(\d+)\./)?.[1] || '1'
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <div className="flex items-center justify-center w-6 h-6 bg-blue-500 text-white text-xs font-bold rounded-full mt-0.5">
+            <div className="flex items-center justify-center w-6 h-6 bg-gray-600 text-white text-xs font-bold rounded-full mt-0.5">
               {number}
             </div>
             <span className="text-gray-700 leading-relaxed">{text}</span>
@@ -157,11 +157,11 @@ export function IdeaOutput({ generatedIdea, isLoading }: IdeaOutputProps) {
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
             {isChecked ? (
-              <CheckCircle className="h-4 w-4 mt-1 text-green-500" />
+              <CheckCircle className="h-4 w-4 mt-1 text-gray-600" />
             ) : (
               <Circle className="h-4 w-4 mt-1 text-gray-400" />
             )}
-            <span className={`leading-relaxed ${isChecked ? 'text-green-700 line-through' : 'text-gray-700'}`}>
+            <span className={`leading-relaxed ${isChecked ? 'text-gray-700 line-through' : 'text-gray-700'}`}>
               {text}
             </span>
           </div>

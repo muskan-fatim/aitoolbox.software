@@ -45,15 +45,15 @@ import {
 
 // Define YouTube channel types
 const channelTypes = [
-  { value: "educational", label: "Educational", icon: <Layers className="h-4 w-4" />, color: "text-blue-600" },
-  { value: "entertainment", label: "Entertainment", icon: <Film className="h-4 w-4" />, color: "text-purple-600" },
-  { value: "vlog", label: "Vlog", icon: <Camera className="h-4 w-4" />, color: "text-green-600" },
-  { value: "gaming", label: "Gaming", icon: <Play className="h-4 w-4" />, color: "text-red-600" },
-  { value: "tutorial", label: "Tutorial/How-To", icon: <Zap className="h-4 w-4" />, color: "text-orange-600" },
-  { value: "review", label: "Review", icon: <ThumbsUp className="h-4 w-4" />, color: "text-yellow-600" },
-  { value: "commentary", label: "Commentary", icon: <Eye className="h-4 w-4" />, color: "text-indigo-600" },
-  { value: "shorts", label: "Shorts/TikTok Style", icon: <Flame className="h-4 w-4" />, color: "text-pink-600" },
-  { value: "podcast", label: "Podcast/Interview", icon: <Users className="h-4 w-4" />, color: "text-teal-600" }
+  { value: "educational", label: "Educational", icon: <Layers className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "entertainment", label: "Entertainment", icon: <Film className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "vlog", label: "Vlog", icon: <Camera className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "gaming", label: "Gaming", icon: <Play className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "tutorial", label: "Tutorial/How-To", icon: <Zap className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "review", label: "Review", icon: <ThumbsUp className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "commentary", label: "Commentary", icon: <Eye className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "shorts", label: "Shorts/TikTok Style", icon: <Flame className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "podcast", label: "Podcast/Interview", icon: <Users className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 // Define target audience options
@@ -64,14 +64,14 @@ const targetAudiences = [
 
 // Define video formats
 const videoFormats = [
-  { id: "tutorial", label: "Tutorial/How-To", icon: <Layers className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "review", label: "Review", icon: <ThumbsUp className="h-4 w-4" />, color: "text-green-600" },
-  { id: "listicle", label: "List Video", icon: <TrendingUp className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "vlog", label: "Vlog", icon: <Camera className="h-4 w-4" />, color: "text-orange-600" },
-  { id: "reaction", label: "Reaction", icon: <Eye className="h-4 w-4" />, color: "text-red-600" },
-  { id: "shorts", label: "Shorts", icon: <Flame className="h-4 w-4" />, color: "text-pink-600" },
-  { id: "commentary", label: "Commentary", icon: <Tag className="h-4 w-4" />, color: "text-indigo-600" },
-  { id: "interview", label: "Interview", icon: <Users className="h-4 w-4" />, color: "text-teal-600" }
+  { id: "tutorial", label: "Tutorial/How-To" },
+  { id: "review", label: "Review" },
+  { id: "listicle", label: "List Video" },
+  { id: "vlog", label: "Vlog" },
+  { id: "reaction", label: "Reaction" },
+  { id: "shorts", label: "Shorts" },
+  { id: "commentary", label: "Commentary" },
+  { id: "interview", label: "Interview" }
 ]
 
 // Define video lengths
@@ -121,13 +121,13 @@ export function YouTubeIdeaGeneratorForm({
   })
 
   return (
-    <Card className="border-2 border-red-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-red-50 to-red-100">
-        <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-red-500 to-red-600 rounded-lg">
+    <Card className="border-2 border-gray-200 shadow-xl">
+      <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100">
+        <CardTitle className="flex items-center justify-center gap-3 text-center">
+          <div className="p-2 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg">
             <Youtube className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-red-700 to-red-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
             YouTube Video Requirements
           </span>
         </CardTitle>
@@ -141,18 +141,18 @@ export function YouTubeIdeaGeneratorForm({
               name="channelNiche"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Tag className="h-4 w-4" />
                     Channel Niche / Topic *
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="e.g., Tech Reviews, Cooking, Travel, Fitness"
-                      className="border-red-200 focus:border-red-400"
+                      className="border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     What is your channel about? Be specific about your niche.
                   </FormDescription>
                   <FormMessage />
@@ -166,13 +166,13 @@ export function YouTubeIdeaGeneratorForm({
               name="channelType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Video className="h-4 w-4" />
                     Channel Type *
                   </FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="border-red-200 focus:border-red-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Select a channel type" />
                       </SelectTrigger>
                     </FormControl>
@@ -187,7 +187,7 @@ export function YouTubeIdeaGeneratorForm({
                       ))}
                     </SelectContent>
                   </Select>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     What type of content do you primarily create?
                   </FormDescription>
                   <FormMessage />
@@ -201,7 +201,7 @@ export function YouTubeIdeaGeneratorForm({
               name="targetAudience"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Users className="h-4 w-4" />
                     Target Audience *
                   </FormLabel>
@@ -209,12 +209,12 @@ export function YouTubeIdeaGeneratorForm({
                     <FormControl>
                       <Input
                         placeholder="Enter your target audience"
-                        className="border-red-200 focus:border-red-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-red-200 focus:border-red-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Or select from common audiences" />
                       </SelectTrigger>
                       <SelectContent>
@@ -226,7 +226,7 @@ export function YouTubeIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     Who is your content primarily targeting?
                   </FormDescription>
                   <FormMessage />
@@ -241,11 +241,11 @@ export function YouTubeIdeaGeneratorForm({
               render={() => (
                 <FormItem>
                   <div className="mb-4">
-                    <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                    <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                       <Film className="h-4 w-4" />
                       Video Formats *
                     </FormLabel>
-                    <FormDescription className="text-red-600">
+                    <FormDescription className="text-gray-600">
                       Select the video formats you want to create
                     </FormDescription>
                   </div>
@@ -259,7 +259,7 @@ export function YouTubeIdeaGeneratorForm({
                           return (
                             <FormItem
                               key={format.id}
-                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-red-200 p-3 hover:bg-red-50"
+                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-200 p-3 hover:bg-gray-50"
                             >
                               <FormControl>
                                 <Checkbox
@@ -275,8 +275,7 @@ export function YouTubeIdeaGeneratorForm({
                                   }}
                                 />
                               </FormControl>
-                              <FormLabel className="font-normal cursor-pointer flex items-center gap-2">
-                                <span className={format.color}>{format.icon}</span>
+                              <FormLabel className="font-normal cursor-pointer">
                                 {format.label}
                               </FormLabel>
                             </FormItem>
@@ -296,7 +295,7 @@ export function YouTubeIdeaGeneratorForm({
               name="videoLength"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Clock className="h-4 w-4" />
                     Preferred Video Length *
                   </FormLabel>
@@ -304,9 +303,9 @@ export function YouTubeIdeaGeneratorForm({
                     {videoLengths.map((length) => (
                       <FormItem
                         key={length.id}
-                        className={`flex items-center space-x-3 space-y-0 rounded-md border p-4 cursor-pointer hover:bg-red-50 ${
+                        className={`flex items-center space-x-3 space-y-0 rounded-md border p-4 cursor-pointer hover:bg-gray-50 ${
                           field.value === length.id
-                            ? "border-red-400 bg-red-50"
+                            ? "border-gray-400 bg-gray-50"
                             : "border-gray-200"
                         }`}
                         onClick={() => form.setValue("videoLength", length.id)}
@@ -339,18 +338,18 @@ export function YouTubeIdeaGeneratorForm({
               name="competitorChannels"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <TrendingUp className="h-4 w-4" />
                     Similar Channels (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="List channels similar to yours or that inspire you..."
-                      className="resize-y min-h-[80px] border-red-200 focus:border-red-400"
+                      className="resize-y min-h-[80px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     Channels that create similar content or inspire you
                   </FormDescription>
                   <FormMessage />
@@ -364,18 +363,18 @@ export function YouTubeIdeaGeneratorForm({
               name="trendingTopics"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Flame className="h-4 w-4" />
                     Trending Topics (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Any current trends or topics you want to cover..."
-                      className="resize-y min-h-[80px] border-red-200 focus:border-red-400"
+                      className="resize-y min-h-[80px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     Current trends or topics you&apos;d like to cover in your videos
                   </FormDescription>
                   <FormMessage />
@@ -389,18 +388,18 @@ export function YouTubeIdeaGeneratorForm({
               name="additionalInfo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-600 font-semibold">
                     <Layers className="h-4 w-4" />
                     Additional Information (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Any other details that might help generate better video ideas..."
-                      className="resize-y min-h-[80px] border-red-200 focus:border-red-400"
+                      className="resize-y min-h-[80px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-red-600">
+                  <FormDescription className="text-gray-600">
                     Any specific requirements, constraints, or preferences
                   </FormDescription>
                   <FormMessage />
@@ -410,18 +409,18 @@ export function YouTubeIdeaGeneratorForm({
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+              className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
               disabled={isLoading}
             >
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Generating YouTube Video Ideas...
+                  Generating...
                 </>
               ) : (
                 <>
                   <Youtube className="mr-2 h-5 w-5" />
-                  Generate YouTube Video Ideas
+                  Generate
                 </>
               )}
             </Button>

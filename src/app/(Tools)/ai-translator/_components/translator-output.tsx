@@ -46,11 +46,11 @@ export function TranslatorOutput({
 
   if (isLoading) {
     return (
-      <Card className="border-blue-100">
+      <Card className="border-gray-200">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Globe className="h-5 w-5 text-blue-600" />
-            <span className="text-blue-800">
+            <Globe className="h-5 w-5 text-black" />
+            <span className="text-black">
               Translating to {targetLanguage || "target language"}...
             </span>
           </CardTitle>
@@ -68,23 +68,23 @@ export function TranslatorOutput({
 
   if (!translatedText) {
     return (
-      <Card className="flex flex-col items-center justify-center h-full text-center p-6 border-blue-100">
+      <Card className="flex flex-col items-center justify-center h-full text-center p-6 border-gray-200">
         <CardHeader>
-          <div className="flex items-center justify-center w-16 h-16 mx-auto bg-blue-100 rounded-full mb-4">
-            <Globe className="w-8 h-8 text-blue-600" />
+          <div className="flex items-center justify-center w-16 h-16 mx-auto bg-gray-100 rounded-full mb-4">
+            <Globe className="w-8 h-8 text-black" />
           </div>
-          <CardTitle className="text-blue-800">Your translation will appear here</CardTitle>
+          <CardTitle className="text-black">Your translation will appear here</CardTitle>
         </CardHeader>
       </Card>
     )
   }
 
   return (
-    <Card className="border-blue-100">
-      <CardHeader className="flex flex-row items-center justify-between bg-gradient-to-r from-blue-50 to-cyan-50 border-b border-blue-100">
+    <Card className="border-gray-200">
+      <CardHeader className="flex flex-row items-center justify-between border-b border-gray-200">
         <CardTitle className="flex items-center gap-2">
-          <Globe className="h-5 w-5 text-blue-600" />
-          <span className="text-blue-800">
+          <Globe className="h-5 w-5 text-black" />
+          <span className="text-black">
             Translated to {targetLanguage}
           </span>
         </CardTitle>
@@ -92,7 +92,7 @@ export function TranslatorOutput({
           <Button
             variant="outline"
             size="icon"
-            className="border-blue-200 hover:bg-blue-50"
+            className="border-gray-200 hover:bg-gray-100"
             onClick={handleEditToggle}
             title={isEditing ? "Save" : "Edit"}
           >
@@ -101,7 +101,7 @@ export function TranslatorOutput({
           <Button
             variant="outline"
             size="icon"
-            className="border-blue-200 hover:bg-blue-50"
+            className="border-gray-200 hover:bg-gray-100"
             onClick={handleCopy}
             title="Copy"
           >
@@ -118,7 +118,7 @@ export function TranslatorOutput({
           <Textarea
             value={editedText}
             onChange={e => setEditedText(e.target.value)}
-            className="w-full min-h-[150px] resize-y border-blue-200 focus-visible:ring-blue-400"
+            className="w-full min-h-[150px] resize-y border-gray-200 focus-visible:ring-black"
           />
         ) : (
           <div className="prose prose-sm max-w-none whitespace-pre-wrap text-sm">

@@ -159,32 +159,23 @@ Please provide 10 well-structured blog post ideas with headlines, descriptions, 
           <div className="absolute inset-0 -top-10 bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50 rounded-3xl -z-10"></div>
           
           <div className="relative pt-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-lg">
-                <Newspaper className="h-8 w-8 text-white" />
-              </div>
-              <div className="p-2 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg shadow-md animate-pulse">
-                <PenTool className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-3">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 bg-clip-text text-transparent mb-3">
               Blog Post Idea Generator
             </h1>
             
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full mb-4">
-              <BookOpen className="h-4 w-4 text-indigo-600" />
-              <span className="text-sm font-medium text-indigo-700">Powered by Advanced AI</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full mb-4">
+              <BookOpen className="h-4 w-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Powered by Advanced AI</span>
             </div>
             
-            <p className="text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            <p className="text-gray-600 mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
               Generate engaging blog post ideas and titles for any topic or niche with AI. 
-              <span className="text-indigo-600 font-medium"> Create content that drives traffic and engages readers</span>.
+              <span className="text-gray-700 font-medium"> Create content that drives traffic and engages readers</span>.
             </p>
 
             {/* Related Blog Tools */}
             <div className="mt-6 md:mt-8">
-              <p className="text-sm text-gray-600 mb-4 font-medium">
+              <p className="text-sm text-gray-500 mb-4 font-medium">
                 Complete your content creation workflow with these tools:
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
@@ -192,9 +183,9 @@ Please provide 10 well-structured blog post ideas with headlines, descriptions, 
                   <Link key={tool.name} href={tool.href}>
                     <Button
                       size="sm"
-                      className={`${tool.color} text-white text-xs md:text-sm px-3 py-2 h-auto shadow-md transition-all duration-200 transform hover:scale-105`}
+                      className="bg-gray-600 hover:bg-gray-700 text-white text-xs md:text-sm px-3 py-2 h-auto shadow-md transition-all duration-200 transform hover:scale-105"
                     >
-                      <span className="mr-2">{tool.icon}</span>
+                      <span className="mr-2 text-gray-200">{tool.icon}</span>
                       {tool.name}
                     </Button>
                   </Link>

@@ -12,26 +12,30 @@ import {
 import { Skeleton } from "@/components/ui/skeleton"
 import { Textarea } from "@/components/ui/textarea"
 import { 
-  Bot, 
+  AlertCircle, 
+  ArrowRight, 
+  Bot,
+  Camera, 
   Check, 
+  CheckCircle, 
+  ChevronRight, 
+  Circle, 
+  Clock, 
   Copy, 
   Edit, 
-  Youtube, 
+  FileText, 
+  Film, 
+  Flame, 
+  Layers, 
+  ListChecks, 
   Sparkles, 
   Tag, 
-  Users, 
-  Layers, 
+  ThumbsUp, 
   TrendingUp, 
-  ArrowRight,
-  Zap,
-  CheckCircle,
-  Circle,
-  Video,
-  Camera,
-  Film,
-  Clock,
-  ThumbsUp,
-  Flame
+  Users, 
+  Video, 
+  Youtube, 
+  Zap
 } from "lucide-react"
 
 interface YouTubeIdeaOutputProps {
@@ -65,34 +69,28 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('title') || titleLower.includes('idea') || titleLower.includes('#')) {
-      return <Video className="h-5 w-5 text-red-600" />
+      return <Video className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('hook') || titleLower.includes('intro') || titleLower.includes('opening')) {
-      return <Flame className="h-5 w-5 text-orange-600" />
+      return <Flame className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('thumbnail') || titleLower.includes('preview')) {
-      return <Camera className="h-5 w-5 text-blue-600" />
+      return <Camera className="h-5 w-5 text-gray-700" />
     }
-    if (titleLower.includes('outline') || titleLower.includes('structure') || titleLower.includes('format')) {
-      return <Layers className="h-5 w-5 text-green-600" />
+    if (titleLower.includes('script') || titleLower.includes('outline') || titleLower.includes('content')) {
+      return <FileText className="h-5 w-5 text-gray-600" />
     }
-    if (titleLower.includes('script') || titleLower.includes('talking')) {
-      return <Film className="h-5 w-5 text-indigo-600" />
-    }
-    if (titleLower.includes('keywords') || titleLower.includes('tags') || titleLower.includes('seo')) {
-      return <Tag className="h-5 w-5 text-purple-600" />
-    }
-    if (titleLower.includes('audience') || titleLower.includes('viewers') || titleLower.includes('demographic')) {
-      return <Users className="h-5 w-5 text-emerald-600" />
+    if (titleLower.includes('seo') || titleLower.includes('keywords') || titleLower.includes('tags')) {
+      return <Tag className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('engagement') || titleLower.includes('cta') || titleLower.includes('call to action')) {
-      return <ThumbsUp className="h-5 w-5 text-yellow-600" />
+      return <ThumbsUp className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('duration') || titleLower.includes('length') || titleLower.includes('time')) {
-      return <Clock className="h-5 w-5 text-pink-600" />
+      return <Clock className="h-5 w-5 text-gray-700" />
     }
     if (titleLower.includes('trending') || titleLower.includes('viral') || titleLower.includes('popular')) {
-      return <TrendingUp className="h-5 w-5 text-teal-600" />
+      return <TrendingUp className="h-5 w-5 text-gray-700" />
     }
     
     return <ArrowRight className="h-5 w-5 text-gray-600" />
@@ -102,34 +100,28 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
     const titleLower = title.toLowerCase()
     
     if (titleLower.includes('title') || titleLower.includes('idea') || titleLower.includes('#')) {
-      return "border-red-300 bg-gradient-to-r from-red-50 to-red-100"
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('hook') || titleLower.includes('intro') || titleLower.includes('opening')) {
-      return "border-orange-300 bg-gradient-to-r from-orange-50 to-orange-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-75"
     }
     if (titleLower.includes('thumbnail') || titleLower.includes('preview')) {
-      return "border-blue-300 bg-gradient-to-r from-blue-50 to-blue-100"
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
-    if (titleLower.includes('outline') || titleLower.includes('structure') || titleLower.includes('format')) {
-      return "border-green-300 bg-gradient-to-r from-green-50 to-green-100"
+    if (titleLower.includes('script') || titleLower.includes('outline') || titleLower.includes('content')) {
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-75"
     }
-    if (titleLower.includes('script') || titleLower.includes('talking')) {
-      return "border-indigo-300 bg-gradient-to-r from-indigo-50 to-indigo-100"
-    }
-    if (titleLower.includes('keywords') || titleLower.includes('tags') || titleLower.includes('seo')) {
-      return "border-purple-300 bg-gradient-to-r from-purple-50 to-purple-100"
-    }
-    if (titleLower.includes('audience') || titleLower.includes('viewers') || titleLower.includes('demographic')) {
-      return "border-emerald-300 bg-gradient-to-r from-emerald-50 to-emerald-100"
+    if (titleLower.includes('seo') || titleLower.includes('keywords') || titleLower.includes('tags')) {
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('engagement') || titleLower.includes('cta') || titleLower.includes('call to action')) {
-      return "border-yellow-300 bg-gradient-to-r from-yellow-50 to-yellow-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-75"
     }
     if (titleLower.includes('duration') || titleLower.includes('length') || titleLower.includes('time')) {
-      return "border-pink-300 bg-gradient-to-r from-pink-50 to-pink-100"
+      return "border-gray-400 bg-gradient-to-r from-gray-50 to-gray-100"
     }
     if (titleLower.includes('trending') || titleLower.includes('viral') || titleLower.includes('popular')) {
-      return "border-teal-300 bg-gradient-to-r from-teal-50 to-teal-100"
+      return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-75"
     }
     
     return "border-gray-300 bg-gradient-to-r from-gray-50 to-gray-100"
@@ -148,7 +140,7 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
         const text = trimmedLine.replace(/^[-*]\s+/, '')
         items.push(
           <div key={index} className="flex items-start gap-3 py-2">
-            <Circle className="h-4 w-4 mt-1 text-red-500 fill-current" />
+            <Circle className="h-4 w-4 mt-1 text-gray-500 fill-current" />
             <span className="text-gray-700 leading-relaxed">{text}</span>
           </div>
         )
@@ -177,7 +169,7 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
             ) : (
               <Circle className="h-4 w-4 mt-1 text-gray-400" />
             )}
-            <span className={`leading-relaxed ${isChecked ? 'text-green-700 line-through' : 'text-gray-700'}`}>
+            <span className={`leading-relaxed ${isChecked ? 'text-gray-600 line-through' : 'text-gray-700'}`}>
               {text}
             </span>
           </div>
@@ -335,13 +327,13 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
 
   if (isLoading) {
     return (
-      <Card className="border-2 border-red-100">
-        <CardHeader className="bg-gradient-to-r from-red-50 to-red-100">
+      <Card className="border-2 border-gray-200">
+        <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100">
           <CardTitle className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-br from-red-500 to-red-600 rounded-lg">
+            <div className="p-2 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg">
               <Sparkles className="h-5 w-5 text-white animate-pulse" />
             </div>
-            <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
               Generating Your YouTube Video Ideas...
             </span>
           </CardTitle>
@@ -349,9 +341,9 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
         <CardContent className="space-y-6 p-6">
           <div className="space-y-6">
             {/* Idea 1 Skeleton */}
-            <div className="p-4 rounded-lg border-l-4 border-red-200 bg-red-50">
+            <div className="p-4 rounded-lg border-l-4 border-gray-200 bg-gray-50">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-red-200 rounded-full"></div>
+                <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
                 <Skeleton className="h-6 w-48" />
               </div>
               <Skeleton className="h-4 w-full" />
@@ -359,9 +351,9 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
             </div>
             
             {/* Idea 2 Skeleton */}
-            <div className="p-4 rounded-lg border-l-4 border-red-200 bg-red-50">
+            <div className="p-4 rounded-lg border-l-4 border-gray-200 bg-gray-50">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 bg-red-200 rounded-full"></div>
+                <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
                 <Skeleton className="h-6 w-40" />
               </div>
               <Skeleton className="h-4 w-full" />
@@ -375,36 +367,36 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
 
   if (!generatedIdeas) {
     return (
-      <Card className="flex flex-col items-center justify-center h-full text-center p-8 min-h-[400px] border-2 border-dashed border-gray-200">
-        <CardHeader>
-          <div className="flex items-center justify-center w-24 h-24 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full mb-6">
-            <Youtube className="w-12 h-12 text-red-600" />
+      <Card className="flex flex-col items-center justify-center h-full min-h-[400px] border-2 border-dashed border-gray-200 bg-gray-50/50">
+        <div className="w-full max-w-md px-6 py-8 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full shadow-sm">
+            <Youtube className="w-10 h-10 text-gray-600" />
           </div>
-          <CardTitle className="text-2xl bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+          <h3 className="mb-4 text-2xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
             Your AI-Generated YouTube Ideas Will Appear Here
-          </CardTitle>
-          <CardDescription className="text-lg text-gray-600 mt-4">
+          </h3>
+          <p className="mb-6 text-gray-600">
             Fill out the form above and click{" "}
-            <span className="font-semibold text-red-600">&quot;Generate YouTube Video Ideas&quot;</span>{" "}
+            <span className="font-semibold text-gray-800">"Generate YouTube Video Ideas"</span>{" "}
             to get creative content suggestions.
-          </CardDescription>
-          <div className="flex items-center justify-center gap-2 mt-6 text-sm text-gray-500">
-            <Zap className="h-4 w-4" />
+          </p>
+          <div className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-600 bg-white rounded-full shadow-sm">
+            <Zap className="w-4 h-4 mr-2 text-yellow-500" />
             <span>Powered by Advanced AI</span>
           </div>
-        </CardHeader>
+        </div>
       </Card>
     )
   }
 
   return (
-    <Card className="border-2 border-red-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-red-50 to-red-100 flex flex-row items-center justify-between">
+    <Card className="border-2 border-gray-200 shadow-xl">
+      <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100 flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-red-500 to-red-600 rounded-lg">
+          <div className="p-2 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg">
             <Bot className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
             Your AI-Generated YouTube Video Ideas
           </span>
         </CardTitle>
@@ -414,7 +406,7 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
             size="icon"
             onClick={handleEditToggle}
             title={isEditing ? "Save" : "Edit"}
-            className="border-red-300 text-red-700 hover:bg-red-100"
+            className="border-gray-300 text-gray-700 hover:bg-gray-100"
           >
             <Edit className="h-4 w-4" />
           </Button>
@@ -423,7 +415,7 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
             size="icon"
             onClick={handleCopy}
             title="Copy to clipboard"
-            className="border-red-300 text-red-700 hover:bg-red-100"
+            className="border-gray-300 text-gray-700 hover:bg-gray-100"
           >
             {isCopied ? (
               <Check className="h-4 w-4" />
@@ -454,7 +446,7 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
                 onClick={() => {
                   setIsEditing(false)
                 }}
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white"
+                className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white"
               >
                 Save Changes
               </Button>
@@ -467,8 +459,8 @@ export function YouTubeIdeaOutput({ generatedIdeas, isLoading }: YouTubeIdeaOutp
             </div>
             
             {/* Success message */}
-            <div className="mt-8 p-4 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-lg">
-              <div className="flex items-center gap-2 text-red-700 font-medium">
+            <div className="mt-8 p-4 bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 rounded-lg">
+              <div className="flex items-center gap-2 text-gray-700 font-medium">
                 <Sparkles className="h-5 w-5" />
                 <span>Your YouTube video ideas are ready! Use the buttons above to copy or edit.</span>
               </div>

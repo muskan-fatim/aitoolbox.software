@@ -88,9 +88,9 @@ export default function GrammarFixerClient() {
 
   return (
     <div className="container mx-auto py-6 space-y-6">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col items-center text-center gap-2 md:items-start md:text-left">
         <h1 className="text-3xl font-bold">Grammar Fixer</h1>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground max-w-md">
           Fix grammar, spelling, and punctuation errors in your text
         </p>
       </div>
