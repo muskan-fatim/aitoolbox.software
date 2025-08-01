@@ -11,8 +11,11 @@ import { ArrowUp, Bot, Sparkles, MessageSquare, Code, FileText, Lightbulb } from
 interface RealtimeChatProps {
   systemPrompt?: string;
 }
-
-const WelcomeScreen = () => {
+interface WelcomeScreenProps {
+  setInput: (input: string) => void;
+  handleSubmit: () => void;
+}
+const WelcomeScreen = ({setInput,handleSubmit}:WelcomeScreenProps) => {
   const capabilities = [
     {
       icon: <MessageSquare className="h-5 w-5" />,
@@ -93,8 +96,11 @@ const WelcomeScreen = () => {
                 key={index}
                 className="p-3 rounded-lg bg-muted/20 border border-border/30 text-sm text-muted-foreground hover:bg-muted/40 transition-colors cursor-default"
               >
-                &ldquo;{prompt}&rdquo;
+                <button onClick={() => { setInput(prompt);   setTimeout(() => handleSubmit(), 0); }} className="w-full text-left">
+                  &ldquo;{prompt}&rdquo;
+                </button>
               </div>
+            
             ))}
           </div>
         </div>
@@ -112,8 +118,9 @@ const WelcomeScreen = () => {
 export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { messages, input, setInput, handleSubmit, isLoading } = useRealtimeChat({ systemPrompt });
+  const { messages, input, setInput, handleSubmit, isLoading} = useRealtimeChat({ systemPrompt });
 
+  
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
@@ -135,9 +142,10 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
       <div 
         ref={containerRef}
         className="flex-1 overflow-y-auto"
+        suppressHydrationWarning={true}
       >
         {messages.length === 0 ? (
-          <WelcomeScreen />
+          <WelcomeScreen setInput={setInput} handleSubmit={handleSubmit} />
         ) : (
           <div className="px-4 md:px-8 lg:px-16 py-6 space-y-8">
             {messages.map((message) => (
