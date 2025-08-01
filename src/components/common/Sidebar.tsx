@@ -35,6 +35,7 @@ import {
   Package,
   Globe,
   MapPin,
+  Linkedin,
 } from "lucide-react";
 import {
   Tooltip,
@@ -70,6 +71,11 @@ const aiTools: Tool[] = [
     name: "AI Translator",
     href: "/ai-translator",
     icon: <Globe className="h-5 w-5" />,
+  },
+  {
+    name: "LinkedIn Post Generator",
+    href: "/linkedin-post-generator",
+    icon: <Linkedin className="h-5 w-5" />,
   },
   {
     name: "Trip Planner",
