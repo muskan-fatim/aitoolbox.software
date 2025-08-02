@@ -68,7 +68,7 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
               <Textarea
                 id="topic"
                 placeholder="e.g., launching a new product, sharing an article, celebrating a work anniversary..."
-                className="min-h-[100px] resize-none rounded-none text-base"
+                className="min-h-[100px] resize-none rounded-lg text-base"
                 {...form.register("topic")}
               />
               {form.formState.errors.topic && (
@@ -99,10 +99,10 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
                 control={form.control}
                 render={({ field }) => (
                   <Select onValueChange={field.onChange} value={field.value}>
-                    <SelectTrigger className="rounded-none text-sm">
+                    <SelectTrigger className="rounded-lg text-sm">
                       <SelectValue placeholder="Select a tone" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-none">
+                    <SelectContent className="rounded-lg">
                       {toneOptions.map((tone) => (
                         <SelectItem key={tone.value} value={tone.value}>
                           {tone.label}
@@ -127,7 +127,7 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
               <Textarea
                 id="keyPoints"
                 placeholder="e.g., specific achievements, metrics, hashtags, or points you want to emphasize..."
-                className="min-h-[80px] resize-none rounded-none text-base"
+                className="min-h-[80px] resize-none rounded-lg text-base"
                 {...form.register("keyPoints")}
               />
               <p className="text-sm text-muted-foreground">
@@ -140,11 +140,11 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
             <Button
               type="submit"
               disabled={isLoading || !form.formState.isValid}
-              className="w-full rounded-none text-base py-6"
+              className="w-full rounded-lg text-base py-6"
             >
               {isLoading ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                  <div className="animate-spin rounded-lg h-4 w-4 border-b-2 border-white mr-2" />
                   Generating Post...
                 </>
               ) : (
