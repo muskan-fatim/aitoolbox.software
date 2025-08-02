@@ -9,6 +9,7 @@ const toolLinks = [
   { name: "Image Generator", href: "/image-generator" },
   { name: "YouTube Summarizer", href: "/youtube-summarizer" },
   { name: "Code Explainer", href: "/code-explainer" },
+  { name: "LinkedIn Post Generator", href: "/linkedin-post-generator" },
 ];
 
 const legalLinks = [
