@@ -35,6 +35,7 @@ import {
   Package,
   Globe,
   MapPin,
+  Target,
 } from "lucide-react";
 import {
   Tooltip,
@@ -85,6 +86,11 @@ const aiTools: Tool[] = [
     name: "Logo Generator",
     href: "/logo-generator",
     icon: <Box className="h-5 w-5" />,
+  },
+  {
+    name: "Project Recommender",
+    href: "/project-recommender",
+    icon: <Target className="h-5 w-5" />,
   },
   {
     name: "YouTube Summarizer",
