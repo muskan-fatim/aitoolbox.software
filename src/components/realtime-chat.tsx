@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, KeyboardEvent, useEffect } from "react";
+import { useRef, KeyboardEvent, useEffect, useState } from "react";
 import { useRealtimeChat } from "@/hooks/use-realtime-chat";
 import { ChatMessage } from "./chat-message";
 import { Button } from "./ui/button";
@@ -15,7 +15,7 @@ interface WelcomeScreenProps {
   setInput: (input: string) => void;
   handleSubmit: () => void;
 }
-const WelcomeScreen = ({setInput,handleSubmit}:WelcomeScreenProps) => {
+const WelcomeScreen = ({ setInput, handleSubmit }: WelcomeScreenProps) => {
   const capabilities = [
     {
       icon: <MessageSquare className="h-5 w-5" />,
@@ -60,7 +60,7 @@ const WelcomeScreen = ({setInput,handleSubmit}:WelcomeScreenProps) => {
               <p className="text-muted-foreground">Your intelligent AI assistant</p>
             </div>
           </div>
-          
+
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <Sparkles className="h-4 w-4" />
             <span>Powered by advanced AI technology</span>
@@ -96,11 +96,11 @@ const WelcomeScreen = ({setInput,handleSubmit}:WelcomeScreenProps) => {
                 key={index}
                 className="p-3 rounded-lg bg-muted/20 border border-border/30 text-sm text-muted-foreground hover:bg-muted/40 transition-colors cursor-default"
               >
-                <button onClick={() => { setInput(prompt);   setTimeout(() => handleSubmit(), 0); }} className="w-full text-left">
+                <button onClick={() => { setInput(prompt); setTimeout(() => handleSubmit(), 0); }} className="w-full text-left">
                   &ldquo;{prompt}&rdquo;
                 </button>
               </div>
-            
+
             ))}
           </div>
         </div>
@@ -116,11 +116,16 @@ const WelcomeScreen = ({setInput,handleSubmit}:WelcomeScreenProps) => {
 };
 
 export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
+  const [mounted, setMounted] = useState(false);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { messages, input, setInput, handleSubmit, isLoading} = useRealtimeChat({ systemPrompt });
+  const { messages, input, setInput, handleSubmit, isLoading } = useRealtimeChat({ systemPrompt });
 
-  
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
@@ -136,10 +141,10 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
       handleSubmit();
     }
   };
-
+  if (!mounted) return null;
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col bg-background">
-      <div 
+      <div
         ref={containerRef}
         className="flex-1 overflow-y-auto"
         suppressHydrationWarning={true}
@@ -152,9 +157,9 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
               <ChatMessage key={message.id} message={message} />
             ))}
             {isLoading && (
-              <ChatMessage 
-                message={{ id: 'typing', role: 'assistant', content: '' }} 
-                isTyping={true} 
+              <ChatMessage
+                message={{ id: 'typing', role: 'assistant', content: '' }}
+                isTyping={true}
               />
             )}
           </div>
@@ -162,8 +167,8 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
       </div>
 
       <div className="border-t bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-4 md:p-6 lg:px-16">
-        <form 
-          onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} 
+        <form
+          onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}
           className="flex items-start gap-4 max-w-4xl mx-auto"
         >
           <Textarea
@@ -175,8 +180,8 @@ export function RealtimeChat({ systemPrompt }: RealtimeChatProps) {
             className="min-h-[60px] w-full resize-none rounded-xl bg-muted/50 px-4 py-[1.3rem] text-base focus-within:bg-muted/70 border-2 border-transparent focus-within:border-primary/50 transition-all"
             rows={1}
           />
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             size="icon"
             disabled={isLoading || !input.trim()}
             className={cn(
