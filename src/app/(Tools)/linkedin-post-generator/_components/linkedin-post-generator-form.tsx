@@ -1,6 +1,6 @@
 "use client"
 
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Linkedin, Send, Lightbulb, MessageSquare, TrendingUp, Users, Award, Building2 } from "lucide-react"
+import { Linkedin, Send } from "lucide-react"
 
 const linkedinPostSchema = z.object({
   topic: z.string().min(10, "Topic must be at least 10 characters").max(500, "Topic must be less than 500 characters"),
@@ -24,12 +24,12 @@ interface LinkedInPostGeneratorFormProps {
 }
 
 const toneOptions = [
-  { value: "Professional", label: "Professional", description: "Formal and business-focused" },
-  { value: "Casual", label: "Casual", description: "Friendly and approachable" },
-  { value: "Inspirational", label: "Inspirational", description: "Motivational and uplifting" },
-  { value: "Technical", label: "Technical", description: "Detailed and expertise-focused" },
-  { value: "Conversational", label: "Conversational", description: "Natural and engaging" },
-  { value: "Authoritative", label: "Authoritative", description: "Confident and leadership-focused" },
+  { value: "Professional", label: "Professional" },
+  { value: "Casual", label: "Casual" },
+  { value: "Inspirational", label: "Inspirational" },
+  { value: "Technical", label: "Technical" },
+  { value: "Conversational", label: "Conversational" },
+  { value: "Authoritative", label: "Authoritative" },
 ]
 
 const topicExamples = [
@@ -57,17 +57,8 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Linkedin className="h-5 w-5 text-blue-600" />
-            LinkedIn Post Generator
-          </CardTitle>
-          <CardDescription>
-            Create engaging, professional LinkedIn posts that drive engagement and build your network.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+      <Card className="rounded-none border-0 shadow-none">
+        <CardContent className="p-4 pt-4">
           <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
             {/* Topic Input */}
             <div className="space-y-2">
@@ -77,7 +68,7 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
               <Textarea
                 id="topic"
                 placeholder="e.g., launching a new product, sharing an article, celebrating a work anniversary..."
-                className="min-h-[100px] resize-none"
+                className="min-h-[100px] resize-none rounded-none text-base"
                 {...form.register("topic")}
               />
               {form.formState.errors.topic && (
@@ -103,24 +94,29 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
               <Label htmlFor="tone" className="text-base font-medium">
                 Desired Tone *
               </Label>
-              <Select
-                value={form.watch("tone")}
-                onValueChange={(value) => form.setValue("tone", value as any)}
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Select a tone" />
-                </SelectTrigger>
-                <SelectContent>
-                  {toneOptions.map((tone) => (
-                    <SelectItem key={tone.value} value={tone.value}>
-                      <div className="flex flex-col">
-                        <span className="font-medium">{tone.label}</span>
-                        <span className="text-sm text-muted-foreground">{tone.description}</span>
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Controller
+                name="tone"
+                control={form.control}
+                render={({ field }) => (
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <SelectTrigger className="rounded-none text-sm">
+                      <SelectValue placeholder="Select a tone" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-none">
+                      {toneOptions.map((tone) => (
+                        <SelectItem key={tone.value} value={tone.value}>
+                          {tone.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                )}
+              />
+              {form.formState.errors.tone && (
+                <p className="text-sm text-destructive">
+                  {form.formState.errors.tone.message}
+                </p>
+              )}
             </div>
 
             {/* Key Points Input */}
@@ -131,7 +127,7 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
               <Textarea
                 id="keyPoints"
                 placeholder="e.g., specific achievements, metrics, hashtags, or points you want to emphasize..."
-                className="min-h-[80px] resize-none"
+                className="min-h-[80px] resize-none rounded-none text-base"
                 {...form.register("keyPoints")}
               />
               <p className="text-sm text-muted-foreground">
@@ -140,11 +136,11 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
             </div>
 
             {/* Submit Button */}
+          
             <Button
               type="submit"
               disabled={isLoading || !form.formState.isValid}
-              className="w-full"
-              size="lg"
+              className="w-full rounded-none text-base py-6"
             >
               {isLoading ? (
                 <>
@@ -153,62 +149,12 @@ export function LinkedInPostGeneratorForm({ onSubmit, isLoading }: LinkedInPostG
                 </>
               ) : (
                 <>
-                  <Send className="h-4 w-4 mr-2" />
+                  <Send className="mr-2 h-4 w-4" />
                   Generate LinkedIn Post
                 </>
               )}
             </Button>
           </form>
-        </CardContent>
-      </Card>
-
-      {/* Tips Section */}
-      <Card className="bg-blue-50 border-blue-200">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-blue-800">
-            <Lightbulb className="h-5 w-5" />
-            Pro Tips for Better LinkedIn Posts
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3">
-              <MessageSquare className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div>
-                <h4 className="font-medium text-blue-800">Start with a Hook</h4>
-                <p className="text-sm text-blue-700">
-                  Capture attention in the first line to encourage reading.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <TrendingUp className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div>
-                <h4 className="font-medium text-blue-800">Include Metrics</h4>
-                <p className="text-sm text-blue-700">
-                  Share specific numbers and achievements when relevant.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Users className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div>
-                <h4 className="font-medium text-blue-800">Encourage Engagement</h4>
-                <p className="text-sm text-blue-700">
-                  End with questions to invite comments and discussions.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Award className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-              <div>
-                <h4 className="font-medium text-blue-800">Be Authentic</h4>
-                <p className="text-sm text-blue-700">
-                  Share real experiences and personal insights.
-                </p>
-              </div>
-            </div>
-          </div>
         </CardContent>
       </Card>
     </div>

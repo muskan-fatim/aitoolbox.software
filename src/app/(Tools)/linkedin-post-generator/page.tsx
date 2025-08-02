@@ -99,7 +99,72 @@ export default function LinkedInPostGeneratorPage() {
             <li>
               <strong>Use relevant hashtags:</strong> Increase discoverability with strategic hashtag use.
             </li>
+            <li>
+              <strong>Optimize for mobile:</strong> Keep paragraphs short and use bullet points for readability.
+            </li>
+            <li>
+              <strong>Post consistently:</strong> Maintain a regular posting schedule to build audience engagement.
+            </li>
+            <li>
+              <strong>Engage with comments:</strong> Respond to comments to build community and increase visibility.
+            </li>
           </ul>
+        </div>
+
+        <div className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold mb-4">LinkedIn Content Strategy</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Content Types That Perform Well</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Industry insights and analysis</li>
+                <li>• Career milestones and achievements</li>
+                <li>• Professional challenges and solutions</li>
+                <li>• Company culture and team highlights</li>
+                <li>• Educational content and tips</li>
+                <li>• Behind-the-scenes content</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Best Practices for Engagement</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• Post during peak hours (8-10 AM, 12-2 PM)</li>
+                <li>• Use 3-5 relevant hashtags per post</li>
+                <li>• Include images or videos when possible</li>
+                <li>• Keep posts between 100-300 words</li>
+                <li>• End with engaging questions</li>
+                <li>• Tag relevant people and companies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t pt-8">
+          <h2 className="text-2xl font-bold mb-4">Professional Networking on LinkedIn</h2>
+          <p className="text-muted-foreground mb-4">
+            LinkedIn is the world's largest professional network, with over 900 million members. 
+            Creating engaging content is essential for building your professional brand and expanding your network.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="border p-4 bg-white">
+              <h4 className="font-medium mb-2">Build Authority</h4>
+              <p className="text-sm text-muted-foreground">
+                Share insights and expertise to establish yourself as a thought leader in your industry.
+              </p>
+            </div>
+            <div className="border p-4 bg-white">
+              <h4 className="font-medium mb-2">Expand Network</h4>
+              <p className="text-sm text-muted-foreground">
+                Connect with professionals, potential clients, and industry leaders through valuable content.
+              </p>
+            </div>
+            <div className="border p-4 bg-white">
+              <h4 className="font-medium mb-2">Career Growth</h4>
+              <p className="text-sm text-muted-foreground">
+                Showcase achievements and skills to attract new opportunities and career advancement.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 border-t pt-8 prose max-w-none">
