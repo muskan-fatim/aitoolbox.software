@@ -22,6 +22,7 @@ import {
   Globe,
   Map,
   Brain,
+  Linkedin,
 } from "lucide-react";
 
 // List of AI tools
@@ -45,6 +46,13 @@ const aiTools = [
     href: "/ai-translator",
     icon: <Globe className="h-6 w-6" />,
     description: "Translate text between multiple languages",
+    category: "writing"
+  },
+  {
+    name: "LinkedIn Post Generator",
+    href: "/linkedin-post-generator",
+    icon: <Linkedin className="h-6 w-6" />,
+    description: "Create engaging professional LinkedIn posts",
     category: "writing"
   },
   {
