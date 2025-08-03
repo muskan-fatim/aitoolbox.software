@@ -139,8 +139,6 @@ ${data.text}
     <>
       <div className="container mx-auto p-4 md:p-8">
         <div className="max-w-4xl mx-auto">
-          
-
           <main className="space-y-8">
             <div>
               <TranslatorForm
@@ -301,8 +299,6 @@ ${data.text}
                 they perfectly match your intentions and voice.
               </p>
             </div>
-
-            
           </main>
         </div>
       </div>
