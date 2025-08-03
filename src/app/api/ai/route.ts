@@ -124,10 +124,38 @@ export async function POST(req: NextRequest) {
           })
         });
 
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Pollinations API Error:", response.status, errorText);
+          return NextResponse.json(
+            { error: `API request failed: ${response.status}` },
+            { status: response.status }
+          );
+        }
+
         const data = await response.json();
+        
+        // Validate response structure
+        if (!data || !data.choices || !Array.isArray(data.choices) || data.choices.length === 0) {
+          console.error("Invalid API response structure:", data);
+          return NextResponse.json(
+            { error: "Invalid response from AI service" },
+            { status: 500 }
+          );
+        }
+
+        const firstChoice = data.choices[0];
+        if (!firstChoice || !firstChoice.message || !firstChoice.message.content) {
+          console.error("Invalid choice structure:", firstChoice);
+          return NextResponse.json(
+            { error: "Invalid response format from AI service" },
+            { status: 500 }
+          );
+        }
+
         return NextResponse.json({ 
           success: true, 
-          data: data.choices[0].message.content 
+          data: firstChoice.message.content 
         });
       }
 
@@ -145,10 +173,38 @@ export async function POST(req: NextRequest) {
           })
         });
 
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Pollinations Audio API Error:", response.status, errorText);
+          return NextResponse.json(
+            { error: `Audio API request failed: ${response.status}` },
+            { status: response.status }
+          );
+        }
+
         const data = await response.json();
+        
+        // Validate response structure
+        if (!data || !data.choices || !Array.isArray(data.choices) || data.choices.length === 0) {
+          console.error("Invalid audio API response structure:", data);
+          return NextResponse.json(
+            { error: "Invalid response from audio service" },
+            { status: 500 }
+          );
+        }
+
+        const firstChoice = data.choices[0];
+        if (!firstChoice || !firstChoice.message || !firstChoice.message.audio || !firstChoice.message.audio.data) {
+          console.error("Invalid audio choice structure:", firstChoice);
+          return NextResponse.json(
+            { error: "Invalid audio response format" },
+            { status: 500 }
+          );
+        }
+
         return NextResponse.json({ 
           success: true, 
-          data: data.choices[0].message.audio.data // Returns base64 audio
+          data: firstChoice.message.audio.data // Returns base64 audio
         });
       }
 

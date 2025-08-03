@@ -374,24 +374,22 @@ export function ProductIdeaOutput({ generatedIdeas, isLoading }: ProductIdeaOutp
 
   if (!generatedIdeas) {
     return (
-      <Card className="flex flex-col items-center justify-center h-full text-center p-8 min-h-[400px] border-2 border-dashed border-gray-200">
-        <CardHeader>
-          <div className="flex items-center justify-center w-24 h-24 mx-auto bg-gradient-to-br from-blue-100 to-blue-200 rounded-full mb-6">
-            <Package className="w-12 h-12 text-blue-600" />
+      <Card className="flex flex-col items-center justify-center h-full p-8 min-h-[400px] border-2 border-dashed border-gray-200">
+        <div className="text-center max-w-lg">
+          <div className="flex items-center justify-center w-24 h-24 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full mb-6">
+            <Package className="w-12 h-12 text-gray-600" />
           </div>
-          <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-gray-800 bg-clip-text text-transparent mb-4">
             Your AI-Generated Product Ideas Will Appear Here
-          </CardTitle>
-          <CardDescription className="text-lg text-gray-600 mt-4">
-            Fill out the form above and click{" "}
-            <span className="font-semibold text-blue-600">&quot;Generate Product Ideas&quot;</span>{" "}
-            to get innovative product suggestions.
-          </CardDescription>
-          <div className="flex items-center justify-center gap-2 mt-6 text-sm text-gray-500">
-            <Zap className="h-4 w-4" />
+          </h2>
+          <p className="text-gray-600">
+            Fill out the form above and click <span className="font-semibold text-gray-700">"Generate Product Ideas"</span> to get innovative product suggestions.
+          </p>
+          <div className="flex items-center justify-center gap-1 text-sm text-gray-500 mt-4">
+            <Zap className="h-3.5 w-3.5" />
             <span>Powered by Advanced AI</span>
           </div>
-        </CardHeader>
+        </div>
       </Card>
     )
   }

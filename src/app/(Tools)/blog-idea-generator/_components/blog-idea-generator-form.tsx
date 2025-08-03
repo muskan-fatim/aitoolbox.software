@@ -43,21 +43,21 @@ import {
 } from "lucide-react"
 
 const blogNiches = [
-  { value: "Technology", icon: <PenTool className="h-4 w-4" />, color: "text-blue-600" },
-  { value: "Health & Wellness", icon: <PenTool className="h-4 w-4" />, color: "text-green-600" },
-  { value: "Finance & Money", icon: <PenTool className="h-4 w-4" />, color: "text-yellow-600" },
-  { value: "Travel", icon: <PenTool className="h-4 w-4" />, color: "text-purple-600" },
-  { value: "Food & Cooking", icon: <PenTool className="h-4 w-4" />, color: "text-orange-600" },
-  { value: "Lifestyle", icon: <PenTool className="h-4 w-4" />, color: "text-pink-600" },
-  { value: "Business & Entrepreneurship", icon: <PenTool className="h-4 w-4" />, color: "text-indigo-600" },
-  { value: "Marketing", icon: <PenTool className="h-4 w-4" />, color: "text-red-600" },
-  { value: "Personal Development", icon: <PenTool className="h-4 w-4" />, color: "text-cyan-600" },
-  { value: "Education", icon: <PenTool className="h-4 w-4" />, color: "text-emerald-600" },
-  { value: "Parenting", icon: <PenTool className="h-4 w-4" />, color: "text-violet-600" },
-  { value: "Fashion", icon: <PenTool className="h-4 w-4" />, color: "text-amber-600" },
-  { value: "Home & Garden", icon: <PenTool className="h-4 w-4" />, color: "text-lime-600" },
-  { value: "Entertainment", icon: <PenTool className="h-4 w-4" />, color: "text-rose-600" },
-  { value: "Sports & Fitness", icon: <PenTool className="h-4 w-4" />, color: "text-teal-600" }
+  { value: "Technology" },
+  { value: "Health & Wellness" },
+  { value: "Finance & Money" },
+  { value: "Travel" },
+  { value: "Food & Cooking" },
+  { value: "Lifestyle" },
+  { value: "Business & Entrepreneurship" },
+  { value: "Marketing" },
+  { value: "Personal Development" },
+  { value: "Education" },
+  { value: "Parenting" },
+  { value: "Fashion" },
+  { value: "Home & Garden" },
+  { value: "Entertainment" },
+  { value: "Sports & Fitness" }
 ]
 
 const targetAudiences = [
@@ -67,22 +67,22 @@ const targetAudiences = [
 ]
 
 const contentGoals = [
-  { id: "educate", label: "Educate & Inform", icon: <BookOpen className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "entertain", label: "Entertain & Engage", icon: <MessageCircle className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "solve-problems", label: "Solve Problems", icon: <HelpCircle className="h-4 w-4" />, color: "text-green-600" },
-  { id: "generate-leads", label: "Generate Leads", icon: <Target className="h-4 w-4" />, color: "text-orange-600" },
-  { id: "build-authority", label: "Build Authority", icon: <BarChart className="h-4 w-4" />, color: "text-red-600" },
-  { id: "seo-traffic", label: "Boost SEO & Traffic", icon: <Search className="h-4 w-4" />, color: "text-indigo-600" }
+  { id: "educate", label: "Educate & Inform" },
+  { id: "entertain", label: "Entertain & Engage" },
+  { id: "solve-problems", label: "Solve Problems" },
+  { id: "generate-leads", label: "Generate Leads" },
+  { id: "build-authority", label: "Build Authority" },
+  { id: "seo-traffic", label: "Boost SEO & Traffic" }
 ]
 
 const postTypes = [
-  { id: "how-to", label: "How-To Guides", icon: <FileText className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "listicle", label: "Listicles", icon: <ListChecks className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "case-study", label: "Case Studies", icon: <BarChart className="h-4 w-4" />, color: "text-green-600" },
-  { id: "opinion", label: "Opinion Pieces", icon: <MessageCircle className="h-4 w-4" />, color: "text-orange-600" },
-  { id: "tutorial", label: "Tutorials", icon: <BookOpen className="h-4 w-4" />, color: "text-red-600" },
-  { id: "comparison", label: "Comparisons", icon: <HelpCircle className="h-4 w-4" />, color: "text-indigo-600" },
-  { id: "tips", label: "Tips & Tricks", icon: <Lightbulb className="h-4 w-4" />, color: "text-yellow-600" }
+  { id: "how-to", label: "How-To Guides" },
+  { id: "listicle", label: "Listicles" },
+  { id: "case-study", label: "Case Studies" },
+  { id: "opinion", label: "Opinion Pieces" },
+  { id: "tutorial", label: "Tutorials" },
+  { id: "comparison", label: "Comparisons" },
+  { id: "tips", label: "Tips & Tricks" }
 ]
 
 const formSchema = z.object({
@@ -124,13 +124,13 @@ export function BlogIdeaGeneratorForm({
   })
 
   return (
-    <Card className="border-2 border-blue-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-        <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg">
+    <Card className="border-2 border-gray-200 shadow-xl">
+      <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100">
+        <CardTitle className="flex items-center justify-center gap-3 text-center">
+          <div className="p-2 bg-gray-600 rounded-lg">
             <Newspaper className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">
+          <span className="text-gray-700">
             Blog Idea Requirements
           </span>
         </CardTitle>
@@ -144,35 +144,31 @@ export function BlogIdeaGeneratorForm({
               name="blogNiche"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
-                    <Newspaper className="h-4 w-4" />
+                  <FormLabel className="text-gray-700 font-semibold">
                     Blog Niche / Topic *
                   </FormLabel>
                   <div className="space-y-3">
                     <FormControl>
                       <Input
                         placeholder="Enter your blog niche or topic"
-                        className="border-blue-200 focus:border-blue-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-blue-200 focus:border-blue-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Or select a common niche" />
                       </SelectTrigger>
                       <SelectContent>
                         {blogNiches.map(niche => (
                           <SelectItem key={niche.value} value={niche.value}>
-                            <div className="flex items-center gap-2">
-                              <span className={niche.color}>{niche.icon}</span>
-                              {niche.value}
-                            </div>
+                            {niche.value}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Specify what your blog is about or the topic you want ideas for
                   </FormDescription>
                   <FormMessage />
@@ -186,20 +182,19 @@ export function BlogIdeaGeneratorForm({
               name="targetAudience"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-indigo-700 font-semibold">
-                    <Users className="h-4 w-4" />
+                  <FormLabel className="text-gray-700 font-semibold">
                     Target Audience *
                   </FormLabel>
                   <div className="space-y-3">
                     <FormControl>
                       <Input
                         placeholder="Enter your target audience"
-                        className="border-indigo-200 focus:border-indigo-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-indigo-200 focus:border-indigo-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Or select from common audiences" />
                       </SelectTrigger>
                       <SelectContent>
@@ -211,7 +206,7 @@ export function BlogIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-indigo-600">
+                  <FormDescription className="text-gray-600">
                     Who will be reading your blog content?
                   </FormDescription>
                   <FormMessage />
@@ -225,8 +220,7 @@ export function BlogIdeaGeneratorForm({
               name="contentGoals"
               render={() => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-purple-700 font-semibold">
-                    <Target className="h-4 w-4" />
+                  <FormLabel className="text-gray-700 font-semibold">
                     Content Goals *
                   </FormLabel>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -239,7 +233,7 @@ export function BlogIdeaGeneratorForm({
                           return (
                             <FormItem
                               key={goal.id}
-                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-purple-200 p-3 hover:bg-purple-50"
+                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-200 p-3 hover:bg-gray-50"
                             >
                               <FormControl>
                                 <Checkbox
@@ -255,8 +249,7 @@ export function BlogIdeaGeneratorForm({
                                   }}
                                 />
                               </FormControl>
-                              <FormLabel className="font-normal cursor-pointer flex items-center gap-2">
-                                <span className={goal.color}>{goal.icon}</span>
+                              <FormLabel className="font-normal cursor-pointer">
                                 {goal.label}
                               </FormLabel>
                             </FormItem>
@@ -265,7 +258,7 @@ export function BlogIdeaGeneratorForm({
                       />
                     ))}
                   </div>
-                  <FormDescription className="text-purple-600">
+                  <FormDescription className="text-gray-600">
                     What do you want to achieve with your blog content?
                   </FormDescription>
                   <FormMessage />
@@ -279,8 +272,7 @@ export function BlogIdeaGeneratorForm({
               name="postTypes"
               render={() => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-green-700 font-semibold">
-                    <FileText className="h-4 w-4" />
+                  <FormLabel className="text-gray-700 font-semibold">
                     Post Types *
                   </FormLabel>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -293,7 +285,7 @@ export function BlogIdeaGeneratorForm({
                           return (
                             <FormItem
                               key={type.id}
-                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-green-200 p-3 hover:bg-green-50"
+                              className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-200 p-3 hover:bg-gray-50"
                             >
                               <FormControl>
                                 <Checkbox
@@ -309,8 +301,7 @@ export function BlogIdeaGeneratorForm({
                                   }}
                                 />
                               </FormControl>
-                              <FormLabel className="font-normal cursor-pointer flex items-center gap-2">
-                                <span className={type.color}>{type.icon}</span>
+                              <FormLabel className="font-normal cursor-pointer">
                                 {type.label}
                               </FormLabel>
                             </FormItem>
@@ -319,7 +310,7 @@ export function BlogIdeaGeneratorForm({
                       />
                     ))}
                   </div>
-                  <FormDescription className="text-green-600">
+                  <FormDescription className="text-gray-600">
                     What types of blog posts do you want to create?
                   </FormDescription>
                   <FormMessage />
@@ -334,18 +325,17 @@ export function BlogIdeaGeneratorForm({
                 name="keywords"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-orange-700 font-semibold">
-                      <Tag className="h-4 w-4" />
+                    <FormLabel className="text-gray-700 font-semibold">
                       Target Keywords (Optional)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="e.g., SEO, content marketing, blogging tips"
-                        className="border-orange-200 focus:border-orange-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription className="text-orange-600">
+                    <FormDescription className="text-gray-600">
                       Keywords you want to target for SEO
                     </FormDescription>
                     <FormMessage />
@@ -359,18 +349,18 @@ export function BlogIdeaGeneratorForm({
                 name="competitorTopics"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2 text-red-700 font-semibold">
-                      <Search className="h-4 w-4" />
+                    <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
+                      <Search className="h-4 w-4 text-gray-600" />
                       Competitor Topics (Optional)
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder="Topics your competitors are writing about"
-                        className="border-red-200 focus:border-red-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription className="text-red-600">
+                    <FormDescription className="text-gray-600">
                       Topics you want to create better content for
                     </FormDescription>
                     <FormMessage />
@@ -385,18 +375,18 @@ export function BlogIdeaGeneratorForm({
               name="additionalInfo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-indigo-700 font-semibold">
-                    <Lightbulb className="h-4 w-4" />
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
+                    <Lightbulb className="h-4 w-4 text-gray-600" />
                     Additional Information (Optional)
                   </FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Any other details that might help generate better blog ideas..."
-                      className="resize-y min-h-[80px] border-indigo-200 focus:border-indigo-400"
+                      className="resize-y min-h-[80px] border-gray-200 focus:border-gray-400"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-indigo-600">
+                  <FormDescription className="text-gray-600">
                     Any specific requirements, brand voice, or content preferences
                   </FormDescription>
                   <FormMessage />
@@ -406,19 +396,19 @@ export function BlogIdeaGeneratorForm({
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+              className="w-full bg-gray-700 hover:bg-gray-800 text-white"
               disabled={isLoading}
             >
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating Ideas...
+                  Generating...
                 </>
               ) : (
-                <>
-                  <Newspaper className="mr-2 h-4 w-4" />
+                <span className="flex items-center justify-center gap-2">
+                  <Lightbulb className="h-4 w-4" />
                   Generate Blog Ideas
-                </>
+                </span>
               )}
             </Button>
           </form>
@@ -426,4 +416,4 @@ export function BlogIdeaGeneratorForm({
       </CardContent>
     </Card>
   )
-} 
+}

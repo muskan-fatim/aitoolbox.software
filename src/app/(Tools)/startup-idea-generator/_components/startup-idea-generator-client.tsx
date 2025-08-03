@@ -138,22 +138,22 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
   // Related tools that might interest the user
   const relatedTools = [
     {
-      name: "Product Idea Generator",
-      description: "Generate innovative product ideas",
-      href: "/product-idea-generator",
-      icon: <Briefcase className="h-5 w-5 text-blue-500" />,
+      name: "Business Plan Generator",
+      description: "Create detailed business plans",
+      href: "/business-plan-generator",
+      icon: <Briefcase className="h-5 w-5 text-gray-600" />,
     },
     {
-      name: "Business Name Generator",
-      description: "Create catchy business names",
-      href: "/business-name-generator",
-      icon: <Lightbulb className="h-5 w-5 text-yellow-500" />,
+      name: "Idea Generator",
+      description: "Generate creative ideas",
+      href: "/idea-generator",
+      icon: <Lightbulb className="h-5 w-5 text-gray-600" />,
     },
     {
       name: "Marketing Plan Generator",
       description: "Create marketing strategies",
       href: "/marketing-plan-generator",
-      icon: <Zap className="h-5 w-5 text-purple-500" />,
+      icon: <Zap className="h-5 w-5 text-gray-600" />,
     },
   ]
 
@@ -166,11 +166,11 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
           onOpenChange={setIsOpen}
           className="w-full space-y-4"
         >
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-800">Generate Startup Ideas</h2>
-            <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm" className="w-9 p-0">
-                <ChevronsUpDown className="h-4 w-4" />
+          <div className="flex flex-col items-center space-y-4 w-full">
+            <h2 className="text-2xl font-bold text-gray-800 text-center w-full">Generate Startup Ideas</h2>
+            <CollapsibleTrigger asChild className="self-end -mt-8">
+              <Button variant="ghost" size="sm" className="w-9 p-0 hover:bg-gray-100">
+                <ChevronsUpDown className="h-4 w-4 text-gray-600" />
                 <span className="sr-only">Toggle</span>
               </Button>
             </CollapsibleTrigger>
@@ -185,8 +185,8 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
         {isLoading && (
           <div className="w-full space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-500">Generating startup ideas...</span>
-              <span className="text-sm font-medium text-gray-700">{Math.round(progress)}%</span>
+              <span className="text-sm text-gray-600">Generating startup ideas...</span>
+              <span className="text-sm font-medium text-gray-800">{Math.round(progress)}%</span>
             </div>
             <Progress value={progress} className="h-2" />
           </div>
@@ -201,7 +201,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
         {!isLoading && generatedIdeas && (
           <div className="mt-8">
             <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
-              <Rocket className="h-5 w-5 text-orange-500" />
+              <Rocket className="h-5 w-5 text-gray-600" />
               <span>Related Tools You Might Like</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -209,7 +209,7 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
                 <Link
                   key={index}
                   href={tool.href}
-                  className="flex items-start p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-colors"
+                  className="flex items-start p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex-shrink-0 mr-3">{tool.icon}</div>
                   <div>

@@ -159,14 +159,16 @@ Format each idea with clear sections using markdown headers (##) and bullet poin
           onOpenChange={setIsOpen}
           className="w-full space-y-4"
         >
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-gray-800">Generate YouTube Video Ideas</h2>
-            <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm" className="w-9 p-0">
-                <ChevronsUpDown className="h-4 w-4" />
-                <span className="sr-only">Toggle</span>
-              </Button>
-            </CollapsibleTrigger>
+          <div className="flex items-center justify-center relative w-full">
+            <h2 className="text-2xl font-bold text-gray-800 text-center">Generate YouTube Video Ideas</h2>
+            <div className="absolute right-0">
+              <CollapsibleTrigger asChild>
+                <Button variant="ghost" size="sm" className="w-9 p-0">
+                  <ChevronsUpDown className="h-4 w-4" />
+                  <span className="sr-only">Toggle</span>
+                </Button>
+              </CollapsibleTrigger>
+            </div>
           </div>
 
           <CollapsibleContent className="space-y-4">

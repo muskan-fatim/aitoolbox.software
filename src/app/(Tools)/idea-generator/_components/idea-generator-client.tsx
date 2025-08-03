@@ -31,31 +31,31 @@ export default function IdeaGeneratorClient() {
       name: "Startup Ideas",
       href: "/startup-idea-generator",
       icon: <Rocket className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600"
+      color: "bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700"
     },
     {
       name: "YouTube Ideas",
       href: "/youtube-idea-generator",
       icon: <Youtube className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800"
+      color: "bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800"
     },
     {
       name: "Blog Ideas", 
       href: "/blog-idea-generator",
       icon: <PenTool className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600"
+      color: "bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-600 hover:to-gray-800"
     },
     {
       name: "App Ideas",
       href: "/app-idea-generator", 
       icon: <Smartphone className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600"
+      color: "bg-gradient-to-r from-gray-500 to-gray-700 hover:from-gray-600 hover:to-gray-800"
     },
     {
       name: "Product Ideas",
       href: "/product-idea-generator",
       icon: <Package className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600"
+      color: "bg-gradient-to-r from-gray-400 to-gray-600 hover:from-gray-500 hover:to-gray-700"
     }
   ]
 
@@ -288,27 +288,13 @@ Please provide a comprehensive, well-structured idea that addresses all these re
           <div className="absolute inset-0 -top-10 bg-gradient-to-br from-purple-50/50 via-blue-50/30 to-indigo-50/50 rounded-3xl -z-10"></div>
           
           <div className="relative pt-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl shadow-lg">
-                <Sparkles className="h-8 w-8 text-white" />
-              </div>
-              <div className="p-2 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg shadow-md animate-pulse">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-3">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-gray-800 mb-3">
               AI Idea Generator
             </h1>
             
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mb-4">
-              <Sparkles className="h-4 w-4 text-purple-600" />
-              <span className="text-sm font-medium text-purple-700">Powered by Advanced AI</span>
-            </div>
-            
-            <p className="text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            <p className="text-gray-600 mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
               Generate innovative ideas for startups, businesses, apps, content, and projects. 
-              <span className="text-blue-600 font-medium"> Let AI spark your creativity</span> with tailored suggestions.
+              <span className="text-gray-800 font-medium">Let AI spark your creativity</span> with tailored suggestions.
             </p>
 
             {/* Specific Idea Generator Tools */}

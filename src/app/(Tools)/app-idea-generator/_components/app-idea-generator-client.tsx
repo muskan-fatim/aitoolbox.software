@@ -25,25 +25,25 @@ export default function AppIdeaGeneratorClient() {
   const outputRef = useRef<HTMLDivElement>(null)
   const isMobile = useIsMobile()
 
-  // Related app tools
+  // Related app tools with grayscale colors
   const relatedTools = [
     {
       name: "Idea Generator",
       href: "/idea-generator",
       icon: <Lightbulb className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+      color: "bg-gradient-to-r from-gray-300 to-gray-400 hover:from-gray-400 hover:to-gray-500"
     },
     {
       name: "Product Ideas",
       href: "/product-idea-generator",
       icon: <Rocket className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600"
+      color: "bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600"
     },
     {
       name: "Startup Ideas",
       href: "/startup-idea-generator",
       icon: <Zap className="h-4 w-4" />,
-      color: "bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600"
+      color: "bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700"
     }
   ]
 
@@ -160,30 +160,21 @@ Please provide 5 well-structured mobile app ideas with names, descriptions, feat
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-8 md:mb-10 relative">
           {/* Background decoration */}
-          <div className="absolute inset-0 -top-10 bg-gradient-to-br from-green-50/50 via-teal-50/30 to-blue-50/50 rounded-3xl -z-10"></div>
+          <div className="absolute inset-0 -top-10 bg-gradient-to-br from-gray-50/50 via-gray-50/30 to-gray-50/50 rounded-3xl -z-10"></div>
           
           <div className="relative pt-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl shadow-lg">
-                <Smartphone className="h-8 w-8 text-white" />
-              </div>
-              <div className="p-2 bg-gradient-to-br from-teal-400 to-blue-500 rounded-lg shadow-md animate-pulse">
-                <Code className="h-6 w-6 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-green-600 via-teal-600 to-blue-600 bg-clip-text text-transparent mb-3">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 bg-clip-text text-transparent mb-3">
               Mobile App Idea Generator
             </h1>
             
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-100 to-teal-100 rounded-full mb-4">
-              <Sparkles className="h-4 w-4 text-teal-600" />
-              <span className="text-sm font-medium text-teal-700">Powered by Advanced AI</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-full mb-4">
+              <Sparkles className="h-4 w-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">Powered by Advanced AI</span>
             </div>
             
-            <p className="text-muted-foreground mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            <p className="text-gray-600 mt-2 md:mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
               Generate innovative mobile app ideas and concepts for any platform or purpose with AI. 
-              <span className="text-teal-600 font-medium"> Turn your vision into the next big app</span>.
+              <span className="text-gray-700 font-medium"> Turn your vision into the next big app</span>.
             </p>
 
             {/* Related App Tools */}
@@ -196,7 +187,7 @@ Please provide 5 well-structured mobile app ideas with names, descriptions, feat
                   <Link key={tool.name} href={tool.href}>
                     <Button
                       size="sm"
-                      className={`${tool.color} text-white text-xs md:text-sm px-3 py-2 h-auto shadow-md transition-all duration-200 transform hover:scale-105`}
+                      className="bg-gray-600 hover:bg-gray-700 text-white text-xs md:text-sm px-3 py-2 h-auto shadow-md transition-all duration-200 transform hover:scale-105"
                     >
                       <span className="mr-2">{tool.icon}</span>
                       {tool.name}
@@ -220,16 +211,16 @@ Please provide 5 well-structured mobile app ideas with names, descriptions, feat
               className="w-full"
             >
               {(isLoading || generatedIdeas || error) && (
-                <div className="flex items-center justify-between rounded-t-lg border bg-gradient-to-r from-green-50 to-teal-50 px-4 py-3">
+                <div className="flex items-center justify-between rounded-t-lg border bg-gradient-to-r from-gray-50 to-gray-100 px-4 py-3">
                   <h4 className="font-semibold flex items-center gap-2">
-                    <Smartphone className="h-4 w-4 text-teal-600" />
-                    <span className="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+                    <Smartphone className="h-4 w-4 text-gray-600" />
+                    <span className="bg-gradient-to-r from-gray-600 to-gray-700 bg-clip-text text-transparent">
                       Generated App Ideas
                     </span>
                   </h4>
                   <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="w-9 p-0 hover:bg-teal-100">
-                      <ChevronsUpDown className="h-4 w-4 text-teal-600" />
+                    <Button variant="ghost" size="sm" className="w-9 p-0 hover:bg-gray-100">
+                      <ChevronsUpDown className="h-4 w-4 text-gray-600" />
                       <span className="sr-only">Toggle</span>
                     </Button>
                   </CollapsibleTrigger>
@@ -240,7 +231,7 @@ Please provide 5 well-structured mobile app ideas with names, descriptions, feat
                 <div className="space-y-4">
                   {isLoading && (
                     <div className="w-full space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-teal-600 font-medium">
+                      <div className="flex items-center gap-2 text-sm text-gray-600 font-medium">
                         <Zap className="h-4 w-4 animate-pulse" />
                         Generating your app ideas...
                       </div>

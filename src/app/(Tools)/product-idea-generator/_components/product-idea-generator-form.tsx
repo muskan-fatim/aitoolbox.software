@@ -46,15 +46,15 @@ import {
 
 // Define industry options
 const industries = [
-  { value: "Technology", icon: <Zap className="h-4 w-4" />, color: "text-blue-600" },
-  { value: "Health & Wellness", icon: <Target className="h-4 w-4" />, color: "text-green-600" },
-  { value: "Home & Kitchen", icon: <Building className="h-4 w-4" />, color: "text-emerald-600" },
-  { value: "Beauty & Personal Care", icon: <Briefcase className="h-4 w-4" />, color: "text-purple-600" },
-  { value: "Fashion & Apparel", icon: <ShoppingBag className="h-4 w-4" />, color: "text-orange-600" },
-  { value: "Sports & Outdoors", icon: <Target className="h-4 w-4" />, color: "text-red-600" },
-  { value: "Toys & Games", icon: <Lightbulb className="h-4 w-4" />, color: "text-pink-600" },
-  { value: "Food & Beverage", icon: <Store className="h-4 w-4" />, color: "text-teal-600" },
-  { value: "Sustainable Products", icon: <Layers className="h-4 w-4" />, color: "text-indigo-600" }
+  { value: "Technology", icon: <Zap className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Health & Wellness", icon: <Target className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Home & Kitchen", icon: <Building className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Beauty & Personal Care", icon: <Briefcase className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Fashion & Apparel", icon: <ShoppingBag className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Sports & Outdoors", icon: <Target className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Toys & Games", icon: <Lightbulb className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Food & Beverage", icon: <Store className="h-4 w-4" />, color: "text-gray-600" },
+  { value: "Sustainable Products", icon: <Layers className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 // Define target market options
@@ -65,18 +65,18 @@ const targetMarkets = [
 
 // Define price points
 const pricePoints = [
-  { id: "budget", label: "Budget-friendly", icon: <DollarSign className="h-4 w-4" />, color: "text-green-600" },
-  { id: "mid-range", label: "Mid-range", icon: <DollarSign className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "premium", label: "Premium", icon: <DollarSign className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "luxury", label: "Luxury", icon: <DollarSign className="h-4 w-4" />, color: "text-red-600" }
+  { id: "budget", label: "Budget-friendly", icon: <DollarSign className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "mid-range", label: "Mid-range", icon: <DollarSign className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "premium", label: "Premium", icon: <DollarSign className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "luxury", label: "Luxury", icon: <DollarSign className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 // Define product types
 const productTypes = [
-  { id: "physical", label: "Physical Product", icon: <Package className="h-4 w-4" />, color: "text-blue-600" },
-  { id: "digital", label: "Digital Product", icon: <Zap className="h-4 w-4" />, color: "text-purple-600" },
-  { id: "subscription", label: "Subscription", icon: <LineChart className="h-4 w-4" />, color: "text-green-600" },
-  { id: "service", label: "Service", icon: <Users className="h-4 w-4" />, color: "text-orange-600" }
+  { id: "physical", label: "Physical Product", icon: <Package className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "digital", label: "Digital Product", icon: <Zap className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "subscription", label: "Subscription", icon: <LineChart className="h-4 w-4" />, color: "text-gray-600" },
+  { id: "service", label: "Service", icon: <Users className="h-4 w-4" />, color: "text-gray-600" }
 ]
 
 const formSchema = z.object({
@@ -116,13 +116,13 @@ export function ProductIdeaGeneratorForm({
   })
 
   return (
-    <Card className="border-2 border-blue-100 shadow-xl">
-      <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100">
-        <CardTitle className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
+    <Card className="border-2 border-gray-100 shadow-xl">
+      <CardHeader className="bg-gradient-to-r from-gray-50 to-gray-100">
+        <CardTitle className="flex items-center justify-center gap-3">
+          <div className="p-2 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg">
             <Package className="h-5 w-5 text-white" />
           </div>
-          <span className="bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-700 to-gray-600 bg-clip-text text-transparent">
             Product Idea Requirements
           </span>
         </CardTitle>
@@ -136,7 +136,7 @@ export function ProductIdeaGeneratorForm({
               name="industry"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <Briefcase className="h-4 w-4" />
                     Industry / Category *
                   </FormLabel>
@@ -144,12 +144,12 @@ export function ProductIdeaGeneratorForm({
                     <FormControl>
                       <Input
                         placeholder="Enter industry or category"
-                        className="border-blue-200 focus:border-blue-400"
+                        className="border-gray-200 focus:border-gray-400"
                         {...field}
                       />
                     </FormControl>
                     <Select onValueChange={field.onChange}>
-                      <SelectTrigger className="border-blue-200 focus:border-blue-400">
+                      <SelectTrigger className="border-gray-200 focus:border-gray-400">
                         <SelectValue placeholder="Or select an industry" />
                       </SelectTrigger>
                       <SelectContent>
@@ -164,7 +164,7 @@ export function ProductIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Specify the industry or category for your product idea
                   </FormDescription>
                   <FormMessage />
@@ -178,7 +178,7 @@ export function ProductIdeaGeneratorForm({
               name="targetMarket"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <Users className="h-4 w-4" />
                     Target Market *
                   </FormLabel>
@@ -203,7 +203,7 @@ export function ProductIdeaGeneratorForm({
                       </SelectContent>
                     </Select>
                   </div>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Who will be the customers for your product?
                   </FormDescription>
                   <FormMessage />
@@ -218,11 +218,11 @@ export function ProductIdeaGeneratorForm({
               render={() => (
                 <FormItem>
                   <div className="mb-4">
-                    <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                    <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                       <Package className="h-4 w-4" />
                       Product Types *
                     </FormLabel>
-                    <FormDescription className="text-blue-600">
+                    <FormDescription className="text-gray-600">
                       Select the types of products you&apos;re interested in
                     </FormDescription>
                   </div>
@@ -273,7 +273,7 @@ export function ProductIdeaGeneratorForm({
               name="pricePoint"
               render={({ field }) => (
                 <FormItem className="space-y-3">
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <DollarSign className="h-4 w-4" />
                     Price Point *
                   </FormLabel>
@@ -284,10 +284,10 @@ export function ProductIdeaGeneratorForm({
                       className="flex flex-col space-y-2"
                     >
                       {pricePoints.map(price => (
-                        <div key={price.id} className="flex items-center space-x-3 p-3 rounded-lg border border-blue-200 hover:bg-blue-50">
-                          <RadioGroupItem value={price.id} id={price.id} className="border-blue-400" />
-                          <Label htmlFor={price.id} className="flex items-center gap-2 text-blue-700 font-medium cursor-pointer">
-                            <span className={price.color}>{price.icon}</span>
+                        <div key={price.id} className="flex items-center space-x-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50">
+                          <RadioGroupItem value={price.id} id={price.id} className="border-gray-400 text-gray-600" />
+                          <Label htmlFor={price.id} className="flex items-center gap-2 text-gray-700 font-medium cursor-pointer">
+                            <span className="text-gray-600">{price.icon}</span>
                             {price.label}
                           </Label>
                         </div>
@@ -305,7 +305,7 @@ export function ProductIdeaGeneratorForm({
               name="problemToSolve"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <Target className="h-4 w-4" />
                     Problem to Solve *
                   </FormLabel>
@@ -316,7 +316,7 @@ export function ProductIdeaGeneratorForm({
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     What pain point or challenge should your product solve?
                   </FormDescription>
                   <FormMessage />
@@ -330,7 +330,7 @@ export function ProductIdeaGeneratorForm({
               name="competitorProducts"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <TrendingUp className="h-4 w-4" />
                     Similar Products (Optional)
                   </FormLabel>
@@ -341,7 +341,7 @@ export function ProductIdeaGeneratorForm({
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Existing products that are similar or competitive
                   </FormDescription>
                   <FormMessage />
@@ -355,7 +355,7 @@ export function ProductIdeaGeneratorForm({
               name="additionalInfo"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-2 text-blue-700 font-semibold">
+                  <FormLabel className="flex items-center gap-2 text-gray-700 font-semibold">
                     <Lightbulb className="h-4 w-4" />
                     Additional Information (Optional)
                   </FormLabel>
@@ -366,7 +366,7 @@ export function ProductIdeaGeneratorForm({
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription className="text-blue-600">
+                  <FormDescription className="text-gray-600">
                     Any specific requirements, constraints, or preferences
                   </FormDescription>
                   <FormMessage />
@@ -376,7 +376,7 @@ export function ProductIdeaGeneratorForm({
 
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+              className="w-full bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-semibold py-3 text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
               disabled={isLoading}
             >
               {isLoading ? (

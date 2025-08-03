@@ -102,26 +102,24 @@ export function TranslatorForm({ onSubmit, isLoading }: TranslatorFormProps) {
   };
 
   return (
-    <Card className="rounded-none border-0 shadow-none">
-      <CardHeader 
-      className=" pb-3"
-      >
-        <CardTitle className="text-xl ">Translation Details</CardTitle>
-        <CardDescription>
+    <Card className="border-gray-200 shadow-md">
+      <CardHeader className="border-b border-gray-200">
+        <CardTitle className="text-xl text-black">Translation Details</CardTitle>
+        <CardDescription className="text-gray-700">
           Enter your text and select languages to translate between
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="flex flex-col md:flex-row gap-4 items-end">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full">
+              <div className="w-full max-w-[280px] md:max-w-none md:flex-1">
                 <FormField
                   control={form.control}
                   name="sourceLanguage"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Source Language</FormLabel>
+                      <FormLabel className="text-black">Source Language</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -144,25 +142,24 @@ export function TranslatorForm({ onSubmit, isLoading }: TranslatorFormProps) {
                   )}
                 />
               </div>
-
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
-                className="mb-1"
                 onClick={handleSwapLanguages}
+                className="h-10 w-10 rounded-full border-2 border-gray-200 bg-white hover:bg-gray-50 self-center md:self-end mb-1"
               >
                 <ArrowRightLeft className="h-4 w-4" />
                 <span className="sr-only">Swap languages</span>
               </Button>
-
-              <div className="flex-1">
+              
+              <div className="w-full max-w-[280px] md:max-w-none md:flex-1">
                 <FormField
                   control={form.control}
                   name="targetLanguage"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Target Language</FormLabel>
+                      <FormLabel className="text-black">Target Language</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -192,17 +189,16 @@ export function TranslatorForm({ onSubmit, isLoading }: TranslatorFormProps) {
               name="text"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Text to Translate</FormLabel>
+                  <FormLabel className="text-black">Text to Translate</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Enter the text you want to translate..."
-                      className="resize-y min-h-[150px] "
+                      className="resize-y min-h-[150px] border-black focus-visible:ring-black"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
-                    Enter the text you want to translate. Maximum 5000
-                    characters.
+                  <FormDescription className="text-gray-600">
+                    Enter the text you want to translate. Maximum 5000 characters.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

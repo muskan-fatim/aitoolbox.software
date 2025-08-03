@@ -4,41 +4,39 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI Translator - Instant Text Translation in Multiple Languages",
-  description:
-    "Translate text quickly and accurately with our AI-powered translator. Supports multiple languages and natural-sounding output.",
+  title: "AI Translator - Translate Text Between 100+ Languages Instantly",
+  description: "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use. No signup required.",
+  keywords: ["AI translator", "language translation", "translate text", "multilingual translation", "AI language tool", "free translator", "online translation"],
+  openGraph: {
+    title: "AI Translator - Translate Text Between 100+ Languages Instantly",
+    description: "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use.",
+  },
 };
 
-const translationTypes = [
+const translationUseCases = [
   {
-    title: "Business Communications",
-    description:
-      "Translate emails, proposals, and documents for international clients and partners.",
+    title: "Business & Professional",
+    description: "Translate business documents, emails, and communications with clients and partners worldwide.",
   },
   {
     title: "Travel & Tourism",
-    description:
-      "Communicate effortlessly while traveling or hosting global visitors.",
+    description: "Break language barriers while traveling with instant translations for common phrases and conversations.",
   },
   {
     title: "Education & Learning",
-    description:
-      "Understand study materials, research papers, and foreign-language courses.",
+    description: "Support language learning by comparing translations and understanding context in different languages.",
   },
   {
-    title: "Customer Support",
-    description:
-      "Provide multi-language support to your customers—no human translator required.",
+    title: "Content Localization",
+    description: "Adapt your website, app, or content for global audiences with accurate translations.",
   },
   {
-    title: "Personal Messaging",
-    description:
-      "Chat with friends, family, or social media contacts across language boundaries.",
+    title: "Personal Communication",
+    description: "Connect with friends and family across language barriers with natural-sounding translations.",
   },
   {
-    title: "Website Localization",
-    description:
-      "Translate blogs, product descriptions, and landing pages for a global audience.",
+    title: "Academic Research",
+    description: "Access and understand research papers and documents in multiple languages.",
   },
 ];
 
@@ -46,42 +44,47 @@ export default function TranslatorPage() {
   return (
     <div className="container mx-auto p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight ">
-            AI Translator
+        <header className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-center">
+            AI-Powered Language Translator
           </h1>
-          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            Translate text between multiple languages with AI-powered accuracy
-            and natural fluency.
+          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto text-center">
+            Translate text between 100+ languages with high accuracy.
+            <br className="hidden sm:inline" /> Our AI understands context for more natural translations.
           </p>
         </header>
-        <main>
+        
+        <main className="mb-12">
           <TranslatorClient />
         </main>
 
+        {/* Translation Use Cases */}
         <div className="grid gap-6 mb-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {translationTypes.map((type, index) => (
-              <div key={index} className="border p-4 bg-white">
-                <h3 className="font-medium mb-1">{type.title}</h3>
+          <h2 className="text-2xl font-bold">Perfect For</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {translationUseCases.map((useCase, index) => (
+              <div key={index} className="border p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="font-medium mb-1">{useCase.title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {type.description}
+                  {useCase.description}
                 </p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mb-8">
+        {/* How It Works */}
+        <div className="mb-10">
           <h2 className="text-2xl font-bold mb-4">How It Works</h2>
-          <ol className="list-decimal ml-5 space-y-2">
-            <li>Enter or paste the original text you want to translate</li>
-            <li>Select the source and target languages</li>
-            <li>Click translate and get an accurate, fluent translation</li>
-            <li>Copy or edit the result for use anywhere</li>
+          <ol className="list-decimal ml-5 space-y-3">
+            <li>Enter or paste your text in the source language</li>
+            <li>Select the source and target languages from the dropdown menus</li>
+            <li>Click "Translate" to get an instant, accurate translation</li>
+            <li>Copy the translated text or listen to the pronunciation</li>
           </ol>
         </div>
 
+        {/* Translation Tips */}
         <div className="mt-12 border-t pt-8">
           <h2 className="text-2xl font-bold mb-4">Translation Tips</h2>
           <ul className="space-y-4">

@@ -70,34 +70,34 @@ export default function LogoGeneratorClient() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <div className="min-h-screen bg-white">
       <div className="w-full max-w-6xl mx-auto px-4 py-6 sm:py-8 lg:py-12">
         {/* Header Section */}
         <div className="text-center space-y-6 mb-8 lg:mb-12">
           <div className="space-y-4">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Badge variant="secondary" className="bg-blue-100 text-blue-700 px-3 py-1">
+              <Badge variant="secondary" className="bg-gray-100 text-gray-800 px-3 py-1">
                 <Sparkles className="w-3 h-3 mr-1" />
                 Free Forever
               </Badge>
-              <Badge variant="secondary" className="bg-purple-100 text-purple-700 px-3 py-1">
+              <Badge variant="secondary" className="bg-gray-100 text-gray-800 px-3 py-1">
                 <Zap className="w-3 h-3 mr-1" />
                 AI Powered
               </Badge>
             </div>
             
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
               Free AI Logo Generator
             </h1>
             
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
               Create professional logos for your business in seconds using AI. 
               Just describe what you want and let our AI do the work.
             </p>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <Users className="w-4 h-4 text-blue-600" />
               <span>50k+ logos created</span>
