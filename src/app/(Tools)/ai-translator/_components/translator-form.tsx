@@ -102,10 +102,9 @@ export function TranslatorForm({ onSubmit, isLoading }: TranslatorFormProps) {
   };
 
   return (
-    <Card className="border-blue-100 shadow-md">
+    <Card className="rounded-none border-0 shadow-none">
       <CardHeader 
-      // className="bg-gradient-to-r from-blue-50 to-cyan-50 border-b border-blue-100"
-      className="border-b-2 border-gray-200 pb-3"
+      className=" pb-3"
       >
         <CardTitle className="text-xl ">Translation Details</CardTitle>
         <CardDescription>
