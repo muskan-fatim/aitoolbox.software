@@ -7,7 +7,7 @@ export default function ProjectRecommenderPage() {
       <ProjectRecommenderClient />
 
       {/* SEO About Section - SSR */}
-      <div className="container mx-auto pb-6">
+      <div className="max-w-5xl mx-auto px-8 pb-6">
         <Card>
           <CardHeader>
             <CardTitle>About AI Project Recommender</CardTitle>
