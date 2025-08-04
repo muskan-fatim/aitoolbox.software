@@ -5,38 +5,54 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "AI Translator - Translate Text Between 100+ Languages Instantly",
-  description: "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use. No signup required.",
-  keywords: ["AI translator", "language translation", "translate text", "multilingual translation", "AI language tool", "free translator", "online translation"],
+  description:
+    "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use. No signup required.",
+  keywords: [
+    "AI translator",
+    "language translation",
+    "translate text",
+    "multilingual translation",
+    "AI language tool",
+    "free translator",
+    "online translation",
+  ],
   openGraph: {
     title: "AI Translator - Translate Text Between 100+ Languages Instantly",
-    description: "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use.",
+    description:
+      "Accurate, AI-powered translation tool supporting 100+ languages. Perfect for business, travel, education, and personal use.",
   },
 };
 
 const translationUseCases = [
   {
     title: "Business & Professional",
-    description: "Translate business documents, emails, and communications with clients and partners worldwide.",
+    description:
+      "Translate business documents, emails, and communications with clients and partners worldwide.",
   },
   {
     title: "Travel & Tourism",
-    description: "Break language barriers while traveling with instant translations for common phrases and conversations.",
+    description:
+      "Break language barriers while traveling with instant translations for common phrases and conversations.",
   },
   {
     title: "Education & Learning",
-    description: "Support language learning by comparing translations and understanding context in different languages.",
+    description:
+      "Support language learning by comparing translations and understanding context in different languages.",
   },
   {
     title: "Content Localization",
-    description: "Adapt your website, app, or content for global audiences with accurate translations.",
+    description:
+      "Adapt your website, app, or content for global audiences with accurate translations.",
   },
   {
     title: "Personal Communication",
-    description: "Connect with friends and family across language barriers with natural-sounding translations.",
+    description:
+      "Connect with friends and family across language barriers with natural-sounding translations.",
   },
   {
     title: "Academic Research",
-    description: "Access and understand research papers and documents in multiple languages.",
+    description:
+      "Access and understand research papers and documents in multiple languages.",
   },
 ];
 
@@ -50,10 +66,11 @@ export default function TranslatorPage() {
           </h1>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto text-center">
             Translate text between 100+ languages with high accuracy.
-            <br className="hidden sm:inline" /> Our AI understands context for more natural translations.
+            <br className="hidden sm:inline" /> Our AI understands context for
+            more natural translations.
           </p>
         </header>
-        
+
         <main className="mb-12">
           <TranslatorClient />
         </main>
@@ -63,7 +80,10 @@ export default function TranslatorPage() {
           <h2 className="text-2xl font-bold">Perfect For</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {translationUseCases.map((useCase, index) => (
-              <div key={index} className="border p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div
+                key={index}
+                className="border p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              >
                 <h3 className="font-medium mb-1">{useCase.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {useCase.description}
@@ -78,7 +98,9 @@ export default function TranslatorPage() {
           <h2 className="text-2xl font-bold mb-4">How It Works</h2>
           <ol className="list-decimal ml-5 space-y-3">
             <li>Enter or paste your text in the source language</li>
-            <li>Select the source and target languages from the dropdown menus</li>
+            <li>
+              Select the source and target languages from the dropdown menus
+            </li>
             <li>Click "Translate" to get an instant, accurate translation</li>
             <li>Copy the translated text or listen to the pronunciation</li>
           </ol>
@@ -113,11 +135,12 @@ export default function TranslatorPage() {
           </h2>
 
           <p>
-            Language should never be a barrier to connection or clarity. Our AI
-            Translator uses advanced natural language processing to deliver
-            accurate, fluid translations. Whether you're a business going
-            global, a traveler, or a language learner—this tool bridges
-            communication gaps instantly.
+            Language shouldn’t stand in the way of meaningful communication. Our
+            AI Translator leverages cutting-edge language processing to provide
+            smooth, accurate translations in real time. Whether you're expanding
+            your business internationally, exploring new countries, or simply
+            trying to learn a new language, this tool helps you connect and
+            understand—effortlessly.
           </p>
 
           <h3 className="text-xl font-semibold mt-6 mb-3">
