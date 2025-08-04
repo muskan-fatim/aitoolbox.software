@@ -125,13 +125,19 @@ const aiTools = [
   category: "travel"
 },
 {
+    name: "LinkedIn Post Generator",
+    href: "/linkedin-post-generator",
+    icon: <Linkedin className="h-6 w-6" />,
+    description: "Create engaging professional LinkedIn posts",
+    category: "writing"
+  },
+{
   name: "AI Bio Generator",
   href: "/ai-bio-generator",
   icon: <FileText className="h-6 w-6" />,
   description: "Generate professional bios instantly with AI",
   category: "writing"
 }
-
 ];
 
 const categories = [...new Set(aiTools.map(tool => tool.category))];
