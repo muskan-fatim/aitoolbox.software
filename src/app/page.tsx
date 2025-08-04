@@ -124,6 +124,14 @@ const aiTools = [
   description: "Plan your travels intelligently with AI",
   category: "travel"
 },
+{
+  name: "AI Bio Generator",
+  href: "/ai-bio-generator",
+  icon: <FileText className="h-6 w-6" />,
+  description: "Generate professional bios instantly with AI",
+  category: "writing"
+}
+
 ];
 
 const categories = [...new Set(aiTools.map(tool => tool.category))];
@@ -235,10 +243,7 @@ export default function Home() {
             ))
           )}
         </div>
-
-       
       </div>
     </div>
   );
 }
-                  
