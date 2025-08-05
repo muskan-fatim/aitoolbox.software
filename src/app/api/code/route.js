@@ -29,7 +29,6 @@ ${level === 'Beginner' ? '4. Basic terminology explanations' : ''}
 ${level === 'Advanced' || level === 'Expert' ? '4. Performance considerations and best practices' : ''}
 
 Make the explanation clear, detailed, and educational.`;
-    console.log('Generated prompt:', prompt);
     // Call the Pollinations AI API
     const response = await fetch(`https://text.pollinations.ai/${encodeURIComponent(prompt)}`, {
       method: 'GET',
