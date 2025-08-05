@@ -21,6 +21,7 @@ import {
   Search,
   Globe,
   Map,
+  Brain,
   Linkedin,
 } from "lucide-react";
 
@@ -137,7 +138,14 @@ const aiTools = [
   icon: <FileText className="h-6 w-6" />,
   description: "Generate professional bios instantly with AI",
   category: "writing"
-}
+},
+  {
+  name: "AI Project Recommender",
+  href: "/project-recommender",
+  icon: <Brain className="h-6 w-6" />, 
+  description: "Get personalized project ideas based on your skills",
+  category: "learning"
+},
 ];
 
 const categories = [...new Set(aiTools.map(tool => tool.category))];
