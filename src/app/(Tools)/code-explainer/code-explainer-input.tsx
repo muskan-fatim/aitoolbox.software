@@ -152,7 +152,7 @@ export default function CodeExplainerInput({
   return (
     <section>
       <h2 className="sr-only">Code Explanation Form</h2>
-      <Card className="rounded-none border-0 shadow-none">
+      <Card className="rounded-lg border shadow-sm">
         <CardContent className="p-4 pt-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-4">
@@ -165,7 +165,7 @@ export default function CodeExplainerInput({
                   value={code}
                   onChange={handleCodeChange}
                   placeholder="Paste your code here..."
-                  className="resize-y min-h-[200px] rounded-none text-base font-mono"
+                  className="resize-y min-h-[200px] rounded-md text-base font-mono"
                   required
                 />
                 <p className="text-sm text-zinc-500 mt-1">
@@ -180,10 +180,10 @@ export default function CodeExplainerInput({
                     Programming Language
                   </label>
                   <Select value={language} onValueChange={setLanguage}>
-                    <SelectTrigger className="rounded-none text-sm">
+                    <SelectTrigger className="rounded-md text-sm">
                       <SelectValue placeholder="Select language" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-none">
+                    <SelectContent className="rounded-md">
                       {languages.map((lang: string) => (
                         <SelectItem key={lang} value={lang}>
                           {lang}
@@ -199,10 +199,10 @@ export default function CodeExplainerInput({
                     Explanation Level
                   </label>
                   <Select value={level} onValueChange={setLevel}>
-                    <SelectTrigger className="rounded-none text-sm">
+                    <SelectTrigger className="rounded-md text-sm">
                       <SelectValue placeholder="Select level" />
                     </SelectTrigger>
-                    <SelectContent className="rounded-none">
+                    <SelectContent className="rounded-md">
                       {levels.map((lvl: string) => (
                         <SelectItem key={lvl} value={lvl}>
                           {lvl}
@@ -217,7 +217,7 @@ export default function CodeExplainerInput({
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full rounded-none text-base py-6"
+              className="w-full rounded-md text-base py-6"
             >
               {isLoading ? (
                 <>
@@ -240,7 +240,7 @@ export default function CodeExplainerInput({
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Analyzing your code with AI...
               </div>
-              <Progress value={progress} className="h-2 rounded-none" />
+              <Progress value={progress} className="h-2 rounded-full" />
             </div>
           )}
         </CardContent>
