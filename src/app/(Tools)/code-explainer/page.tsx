@@ -1,25 +1,11 @@
-"use client";
-
-import React, { useState } from 'react';
+import React,{JSX} from 'react';
 import { Code } from 'lucide-react';
-import CodeExplainerInput from './code-explainer-input';
-import CodeExplainerOutput from './code-explainer-output';
-
-interface FormData {
-  code: string;
-  language: string;
-  level: string;
-}
+import CodeExplainerClient from './code-explainer-client';
 
 export default function CodeExplainerPage(): JSX.Element {
-  const [explanation, setExplanation] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-  const [currentFormData, setCurrentFormData] = useState<FormData | null>(null);
-
   return (
     <div className="w-full max-w-4xl mx-auto">
-      {/* Header Section */}
+      {/* Header Section - Server-side rendered for SEO */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-4 flex items-center gap-2">
           <Code className="h-6 w-6 text-primary" />
@@ -30,30 +16,10 @@ export default function CodeExplainerPage(): JSX.Element {
         </p>
       </div>
 
-      {/* Input Component */}
-      <CodeExplainerInput
-        explanation={explanation}
-        setExplanation={setExplanation}
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
-        error={error}
-        setError={setError}
-        currentFormData={currentFormData}
-        setCurrentFormData={setCurrentFormData}
-      />
+      {/* Interactive Components - Client-side */}
+      <CodeExplainerClient />
 
-      {/* Output Component */}
-      <CodeExplainerOutput
-        explanation={explanation}
-        setExplanation={setExplanation}
-        isLoading={isLoading}
-        error={error}
-        currentFormData={currentFormData}
-        setIsLoading={setIsLoading}
-        setError={setError}
-      />
-
-      {/* Description Section */}
+      {/* Description Section - Server-side rendered for SEO */}
       <article className="prose max-w-none mb-8 mt-12">
         <div className="bg-zinc-50 p-6 border rounded-md mb-6">
           <h2 className="text-xl font-semibold flex items-center gap-2 mb-3">
