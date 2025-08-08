@@ -43,7 +43,33 @@ const BioGeneratorClient = () => {
 
   return (
     <div className="p-4 w-[70%] mx-auto">
-    <div className="upperText mt-10 text-gray-800">
+    
+       <div className="text-center my-6 mt-17 ">
+  <h2 className="text-3xl font-semibold">✨ Ready to Level Up Your Personal Brand?</h2>
+  <p className="mt-2 text-gray-700">Enter your details below and let our AI instantly craft the perfect professional bio for LinkedIn, resumes, personal websites, and more!</p>
+</div>
+
+      <h1 className="text-4xl font-bold mb-4 text-center text-indigo-700 mt-20">🧠 AI Bio Generator</h1>
+      <BioGeneratorForm onGenerate={handleGenerateBio} />
+      {loading && <p className="text-blue-500 mt-4">Generating...</p>}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
+      <BioGeneratorOutput output={output} isLoading={loading} />
+
+       <div className="text-sm text-gray-600 mt-20  mx-auto">
+  <h3 className="font-bold text-lg mb-2">Why Our Users Love It:</h3>
+  <ul className="list-disc pl-5 space-y-1">
+    <li>No login required — 100% free to use</li>
+    <li>AI-generated bios that sound human and professional</li>
+    <li>Works for all industries: tech, design, marketing, academics, and more</li>
+    <li>Improve your online presence in under 30 seconds</li>
+    <li>Fully customizable output you can tweak and reuse</li>
+  </ul>
+  <p className="mt-4">
+    Whether you're applying for internships, freelancing, or showcasing your skills on your portfolio, your bio matters. <strong>This AI tool ensures you're putting your best foot forward — always.</strong>
+  </p>
+</div>
+
+     <div className="upperText mt-10 text-gray-800">
   <p className="font-bold text-3xl mb-4"> Welcome to the AI Bio Generator</p>
 
   <p className="text-lg mb-4">
@@ -74,31 +100,6 @@ const BioGeneratorClient = () => {
     Designed for <strong>students, developers, professionals, and creatives</strong> who want to stand out with a polished online presence.
   </p>
 </div>
-       <div className="text-center my-6 mt-25 ">
-  <h2 className="text-3xl font-semibold">✨ Ready to Level Up Your Personal Brand?</h2>
-  <p className="mt-2 text-gray-700">Enter your details below and let our AI instantly craft the perfect professional bio for LinkedIn, resumes, personal websites, and more!</p>
-</div>
-
-      <h1 className="text-4xl font-bold mb-4 text-center text-indigo-700 mt-25">🧠 AI Bio Generator</h1>
-      <BioGeneratorForm onGenerate={handleGenerateBio} />
-      {loading && <p className="text-blue-500 mt-4">Generating...</p>}
-      {error && <p className="text-red-500 mt-4">{error}</p>}
-      <BioGeneratorOutput output={output} isLoading={loading} />
-
-       <div className="text-sm text-gray-600 mt-20  mx-auto">
-  <h3 className="font-bold text-lg mb-2">Why Our Users Love It:</h3>
-  <ul className="list-disc pl-5 space-y-1">
-    <li>No login required — 100% free to use</li>
-    <li>AI-generated bios that sound human and professional</li>
-    <li>Works for all industries: tech, design, marketing, academics, and more</li>
-    <li>Improve your online presence in under 30 seconds</li>
-    <li>Fully customizable output you can tweak and reuse</li>
-  </ul>
-  <p className="mt-4">
-    Whether you're applying for internships, freelancing, or showcasing your skills on your portfolio, your bio matters. <strong>This AI tool ensures you're putting your best foot forward — always.</strong>
-  </p>
-</div>
-
 
       <div>
       <h1 className="font-bold text-3xl mt-30"> 📝 How to Use the AI Bio Generator </h1> 
