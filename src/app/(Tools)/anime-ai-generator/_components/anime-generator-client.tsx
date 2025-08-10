@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import AnimeGeneratorForm from "./anime-generator-form";
 import AnimeGeneratorOutput from "./anime-generator-output";
-
+import NativeBannerAd from "@/components/NativeBannerAd";
 export interface AnimeGenerationOptions {
   style: string;
   ratio: string;
@@ -81,6 +81,7 @@ export default function AnimeGeneratorClient() {
   };
 
   return (
+    <>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div className="md:col-span-1">
         <AnimeGeneratorForm
@@ -101,7 +102,12 @@ export default function AnimeGeneratorClient() {
           ratio={options.ratio}
         />
       </div>
+      
     </div>
+    {/* Ad Banner */}
+    <NativeBannerAd />
+
+    </>
   );
 }
 

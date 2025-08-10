@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import BioGeneratorForm from "./bio-generator-form";
 import BioGeneratorOutput from "./bio-generator-output";
-
+import NativeBannerAd from "@/components/NativeBannerAd";
 const BioGeneratorClient = () => {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -54,6 +54,10 @@ const BioGeneratorClient = () => {
       {loading && <p className="text-blue-500 mt-4">Generating...</p>}
       {error && <p className="text-red-500 mt-4">{error}</p>}
       <BioGeneratorOutput output={output} isLoading={loading} />
+                
+      {/* Ad Banner */}
+     <NativeBannerAd />
+
 
        <div className="text-sm text-gray-600 mt-20  mx-auto">
   <h3 className="font-bold text-lg mb-2">Why Our Users Love It:</h3>
