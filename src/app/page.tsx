@@ -21,6 +21,8 @@ import {
   Search,
   Globe,
   Map,
+  Brain,
+  Linkedin,
 } from "lucide-react";
 
 // List of AI tools
@@ -47,10 +49,24 @@ const aiTools = [
     category: "writing"
   },
   {
+    name: "LinkedIn Post Generator",
+    href: "/linkedin-post-generator",
+    icon: <Linkedin className="h-6 w-6" />,
+    description: "Create engaging professional LinkedIn posts",
+    category: "writing"
+  },
+  {
     name: "Image Generator",
     href: "/image-generator",
     icon: <ImageIcon className="h-6 w-6" />,
     description: "Create unique AI-generated images",
+    category: "visual"
+  },
+  {
+    name: "Anime AI Generator",
+    href: "/anime-ai-generator",
+    icon: <ImageIcon className="h-6 w-6" />,
+    description: "Generate anime-style art from text prompts",
     category: "visual"
   },
   {
@@ -115,6 +131,27 @@ const aiTools = [
   icon: <Map className="h-6 w-6" />, // or use a relevant Lucide/FontAwesome icon
   description: "Plan your travels intelligently with AI",
   category: "travel"
+},
+{
+    name: "LinkedIn Post Generator",
+    href: "/linkedin-post-generator",
+    icon: <Linkedin className="h-6 w-6" />,
+    description: "Create engaging professional LinkedIn posts",
+    category: "writing"
+  },
+{
+  name: "AI Bio Generator",
+  href: "/ai-bio-generator",
+  icon: <FileText className="h-6 w-6" />,
+  description: "Generate professional bios instantly with AI",
+  category: "writing"
+},
+  {
+  name: "AI Project Recommender",
+  href: "/project-recommender",
+  icon: <Brain className="h-6 w-6" />, 
+  description: "Get personalized project ideas based on your skills",
+  category: "learning"
 },
 ];
 
@@ -227,10 +264,7 @@ export default function Home() {
             ))
           )}
         </div>
-
-       
       </div>
     </div>
   );
 }
-                  

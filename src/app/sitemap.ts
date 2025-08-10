@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/grammar-fixer',
     '/idea-generator',
     '/image-generator',
+    '/anime-ai-generator',
     '/logo-generator',
     '/prompt-generator',
     '/resume-builder',
@@ -34,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ai-resume-builder-guide',
     '/ai-text-summarizer-guide',
     '/ai-youtube-summarizer-guide',
+    '/ai-bio-generator',
   ].map((route) => ({
     url: `${URL}${route}`,
     lastModified: new Date().toISOString(),
