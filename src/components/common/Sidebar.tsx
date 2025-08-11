@@ -35,8 +35,10 @@ import {
   Package,
   Globe,
   MapPin,
+  Pen,
   Target,
   Linkedin,
+ main
 } from "lucide-react";
 import {
   Tooltip,
@@ -167,6 +169,11 @@ const aiTools: Tool[] = [
     name: "Product Ideas",
     href: "/product-idea-generator",
     icon: <Package className="h-5 w-5" />,
+  },
+  {
+    name: "Product Description",
+    href: "/product-description-generator",
+    icon: <Pen className="h-5 w-5" />,
   },
   {
     name: "Blog",
