@@ -97,24 +97,32 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto w-full px-4 pb-4 flex flex-col md:flex-row justify-between items-center border-t pt-4">
-        <div className="font-mono text-md text-foreground mb-2 md:mb-0">
-          @aiToolbox
-        </div>
-        <div className="flex flex-col md:flex-row items-center gap-4">
-          <div className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} AI Toolbox. All rights reserved.
-          </div>
-          <div className="flex gap-4 text-xs">
-            {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="group relative w-max block hover:text-foreground">
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full transition-all h-0.5 bg-foreground"></span>
-                </Link>
-            ))}
-          </div>
-        </div>
+      <div className="w-full border-t bg-background text-muted-foreground text-sm mt-8">
+  <div className="max-w-6xl mx-auto w-full px-4 py-8 grid grid-cols-2 md:grid-cols-5 gap-8 items-start">
+
+    {/* Other footer columns here */}
+
+    {/* Bottom section */}
+    <div className="col-span-full flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-left">
+      <div className="text-xs text-muted-foreground">
+        &copy; {new Date().getFullYear()} AI Toolbox. All rights reserved.
       </div>
+      <div className="flex gap-4 text-xs">
+        {legalLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="group relative w-max block hover:text-foreground"
+          >
+            {link.name}
+            <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full transition-all h-0.5 bg-foreground"></span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
     </footer>
   );
 }
