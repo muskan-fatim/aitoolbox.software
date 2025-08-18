@@ -109,7 +109,7 @@ export default function Footer() {
             {legalLinks.map((link) => (
               <Link key={link.href} href={link.href} className="group relative w-max block hover:text-foreground">
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 group-hover:w-full transition-all h-0.5 bg-foreground"></span>
+                  <span className="absolute -bottom-1  left-0 w-0 group-hover:w-full transition-all h-0.5 bg-foreground"></span>
                 </Link>
             ))}
           </div>
